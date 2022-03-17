@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+header nav{
+    @apply transition-spacing ease-in-out delay-300 duration-700
+    absolute  top-0 left-0
+    md:static
+    h-screen md:h-auto
+    bg-black md:bg-transparent
+    /*-ml-96*/ w-96
+    p-12 md:p-0
+    md:w-full
+    flex flex-col md:flex-row
+    items-center
+}

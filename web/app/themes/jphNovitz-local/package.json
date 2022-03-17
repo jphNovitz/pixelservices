@@ -1,0 +1,25 @@
+{
+  "name": "untheme",
+  "version": "1.0.0",
+  "description": "Untheme is a clean, empty base theme for developers. It supports and includes an example for navigation, a widget sidebar, pagination, and a custom post type - all without plugins!",
+  "main": "postcss.config.js",
+  "scripts": {
+    "watch": "TAILWIND_MODE=watch postcss css/tailwind.css -o assets/css/main.css -w",
+    "prod": "NODE_ENV=production TAILWIND_MODE=build postcss css/tailwind.css -o assets/css/style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taniarascia/untheme.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taniarascia/untheme/issues"
+  },
+  "homepage": "https://github.com/taniarascia/untheme#readme",
+  "dependencies": {
+    "postcss-cli": "^9.1.0"
+  }
+}
