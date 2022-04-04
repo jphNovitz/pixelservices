@@ -8,7 +8,7 @@
 
 </div>
 
-<footer class="site-footer w-full flex flex-col md:flex-row justify-between">
+<footer class="site-footer w-full flex flex-col md:flex-row justify-between absolute left-0 bottom-0">
     <article class="flex flex-1 p-4">1</article>
     <article class="flex flex-1 p-4">2</article>
     <article class="flex flex-1 p-4" >3</article>
