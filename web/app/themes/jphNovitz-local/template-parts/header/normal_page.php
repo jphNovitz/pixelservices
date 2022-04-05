@@ -12,22 +12,7 @@
                     <?php bloginfo('name'); ?>
                 </h1>
             </div>
-            <nav class="main-navigation -ml-96">
-                <?php
-                wp_nav_menu(array(
-                    'theme_location' => 'menu-1',
-                    'menu_id' => 'primary-menu',
-                    'menu_class' => 'wfull 
-                    
-                                flex flex-col md:flex-row
-                                 md:ml-0'
-
-                ));
-                ?>
-                <span class="menu-hamburger absolute top-4 right-4">
-                    <i  class="fa fa-close  fa-2x md:hidden cursor-pointer"></i>
-                </span>
-            </nav>
+            <?php get_template_part( 'template-parts/header/navbar', get_post_type() ); ?>
         </div>
         <!--      end  Site Title and menu button (on mobile)-->
 
