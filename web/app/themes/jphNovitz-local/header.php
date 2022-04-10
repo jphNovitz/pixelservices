@@ -24,5 +24,5 @@ if (is_front_page()) {
     get_template_part( 'template-parts/header/normal_page', get_post_type() );
 }
 ?>
-<div id="content" class="site-content">
+<div id="content" class="site-content min-h-screen">
 	

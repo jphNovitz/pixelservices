@@ -3,11 +3,7 @@
     wp_nav_menu(array(
         'theme_location' => 'menu-1',
         'menu_id' => 'primary-menu',
-        'menu_class' => '
-                                wfull
-                                flex flex-col md:flex-row
-                                md:ml-0
-                                 '
+        'menu_class' => 'w-full flex flex-col md:flex-row md:ml-0'
 
     ));
     ?>
