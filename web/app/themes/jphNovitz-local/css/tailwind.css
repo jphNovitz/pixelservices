@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 header nav{
     @apply transition-spacing ease-in-out delay-300 duration-700
     absolute  top-0 left-0
@@ -14,3 +16,32 @@ header nav{
     flex flex-col md:flex-row
     items-center
 }
+
+/*
+
+Custom Input
+
+*/
+
+label{
+    @apply my-6 pb-2 flex flex-col relative h-8
+           after:content-[''] after:absolute after:block after:w-0 after:left-0 after:bottom-0 after:transition-width
+           md:after:duration-150 after:border-b-slate-500 ;
+}
+.custom-input{
+    @apply absolute w-full border-none bg-transparent focus:outline-none ;
+}
+.custom-textarea{
+    @apply  w-full h-40 my-6 p-4 border-none bg-transparent outline outline-slate-100 transition-outline md:duration-500 rounded-lg ;
+}
+.custom-textarea:focus{
+    @apply bg-orange-50 outline-2 outline-slate-600  ;
+}
+
+label.active:after{
+    @apply w-full border-2;
+}
+
+/*
+
+*/

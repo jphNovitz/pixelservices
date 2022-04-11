@@ -9,6 +9,8 @@ module.exports = {
         extend: {
             transitionProperty: {
                 'spacing': 'margin, padding',
+                'width': 'width',
+                'outline': 'outline',
             }
         },
     },
