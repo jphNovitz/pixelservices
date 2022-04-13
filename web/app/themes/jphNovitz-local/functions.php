@@ -99,5 +99,8 @@ function untheme_create_post_custom_post() {
 	));
 }
 
+add_post_type_support( 'page', 'excerpt' );
+
 add_theme_support( 'block-templates' );
+
 add_action('init', 'untheme_create_post_custom_post'); // Add our work type

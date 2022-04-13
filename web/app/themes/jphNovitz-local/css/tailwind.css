@@ -17,6 +17,10 @@ header nav{
     items-center
 }
 
+p {
+    @apply mb-4;
+}
+
 /*
 
 Custom Input
