@@ -21,14 +21,9 @@
 
         <div class="w-full grow  my-0  flex flex-col justify-center items-left z-10 text-black dark:text-white text-2xl my-4 font-black">
 
-            Liégeois.e tu est :
-            <ul class="fa-ul">
-                <li class=""><span class="fa-li"><i class="fas fa-check"></i></span>Indépendante</li>
-                <li class=""><span class="fa-li"><i class="fas fa-check"></i></span>Commenrcant</li>
-                <li class=""><span class="fa-li"><i class="fas fa-check"></i></span>Entrepreneuse </li>
-                <li class=""><span class="fa-li"><i class="fas fa-check"></i></span>Coach </li>
-            </ul>
-            <p>Un site internet est ton image sur le web&nbsp;!</p>
+            Tu es sandwicherie, coiffeuse, barbier, boulanger, plombier, indépendant. Liegeois.e
+
+            Crée ton site internet et transforme tes folowers en clients
             <a href="#" class="my-6 mx-auto p-4 bg-orange-500 rounded-xl text-white">Je veux mon site&nbsp;!</a>
         </div>
 

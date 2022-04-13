@@ -5,6 +5,8 @@ Template Name: Contact
 
 get_header();
 
+require get_template_directory() . '/src/contact-form.php';
+
 ?>
     <section class="w-full p-12">
         <h2 class="w-full">Contact</h2>
@@ -16,22 +18,23 @@ get_header();
                     à l'adresse <a href="mailto:jeanphi@liegeweb.be"
                                    class="font-bold underline text-orange-400 hover:text-orange-800 ">jeanphi@liegeweb.be</a>
                 </p>
-                <form action="" class="w-1/2">
+                <form action="<?php echo get_permalink();  ?>" id="contactForm" method="POST" class="w-1/2">
 
                     <label for="name">
                         <span class="absolute">Nom ou prénom</span>
-                        <input type="text" id="name"
+                        <input type="text" id="name" name="_name"
                                class="custom-input ">
                     </label>
 
                     <label for="email">
                         <span class="absolute">Email</span>
-                        <input type="text" id="email"
+                        <input type="text" id="email" name="_email"
                                class="custom-input">
                     </label>
-                    <textarea name="" id="comment"  placeholder="Question ou commentaire" class="custom-textarea "></textarea>
+                    <textarea name="_message" id="comment"   placeholder="Question ou commentaire" class="custom-textarea "></textarea>
 
                     <div class="my-6">
+                        <input type="hidden" name="submitted" id="submitted" value="true"/>
                         <input type="submit" value="Envoi" class="bg-orange-500 text-white rounded-lg px-6 py-2">
                     </div>
                 </form>

@@ -11,7 +11,8 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/bc8956f3e3.js" crossorigin="anonymous"></script>
-    <?php wp_head(); ?>
+
+    <?php  wp_head(); ?>
 </head>
 
 <body class="bg-slate-50 dark:bg-black text-black dark:text-slate-50 min-h-screen" <?php body_class(); ?>>
