@@ -13,11 +13,11 @@
     <script src="https://kit.fontawesome.com/bc8956f3e3.js" crossorigin="anonymous"></script>
 
     <?php  wp_head();
-    $custom_descrition = get_query_var('custom_description');
-    if ('' != $custom_descrition)
-        echo '<meta name="description" content="' . $custom_descrition . ' - Liège Web" />' . "\n";
-    else
-        echo '<meta name="description" content="Réalisation de sites web  à Liège." />' . "\n";
+//    $custom_descrition = get_query_var('custom_description');
+//    if ('' != $custom_descrition)
+//        echo '<meta name="description" content="' . $custom_descrition . ' - Liège Web" />' . "\n";
+//    else
+//        echo '<meta name="description" content="Réalisation de sites web  à Liège." />' . "\n";
     ?>
 
 </head>

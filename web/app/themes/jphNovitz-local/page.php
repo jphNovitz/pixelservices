@@ -3,6 +3,8 @@
  * The template for displaying all pages
  *
  */
+set_query_var('custom_description', get_the_excerpt());
+
 get_header();
 ?>
 
