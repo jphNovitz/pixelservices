@@ -16,12 +16,23 @@ function add_supports()
 {
     add_post_type_support('page', 'excerpt');
     add_theme_support('block-templates');
+
 }
 
 function remove_supports()
 {
     remove_post_type_support('page', 'excerpt');
     remove_theme_support('block-templates');
+}
+
+function load_custom_code() {
+    wp_enqueue_media();
+}
+add_action( 'admin_enqueue_scripts', 'load_custom_code' );
+add_action('admin_init','js_init');
+function js_init() {
+    wp_register_script( 'seo-js', plugin_dir_url(__FILE__) . '/assets/js/jphn_seo.js',[], true);
+    wp_enqueue_script('seo-js');
 }
 
 /**
@@ -86,63 +97,24 @@ function my_setting_section_callback_function() {
 
 function jphn_section_meta_image()
 {
-    ${"image"} = esc_attr(get_option('image'));
 
-    echo '<img src="' . ${"image"} . '" style="width: 125px" id="image_preview" />';
-    echo '<input value="' . ${"image"} . '" type="hidden" name="image" id="image" >';
-    echo '<input type="button" value="Upload Image" name="submit" id="upload-button" >';
+    echo('<br />');
+    ${"image"} = esc_attr(get_option('seo_image'));
+
+    if(${"image"}) {
+        echo('<div>');
+        echo '<img src="' . ${"image"} . '" style="width: 125px" id="image_preview" />';
+        echo('</div>');
+    }
+
+    echo '<input value="' . ${"image"} . '" type="text" name="image" id="image_url" >';
+    echo '<input type="button" value="Sélectionner" name="upload-button" id="upload-button" >';
+    echo '<input type="submit"  name="seo-image-submitted" value="Valider" />';
+
+    ?>
+
+<?php
 }
-
-
-
-
-/*
-add_action( 'admin_init', 'jphn_settings_init' );
-function jphn_settings_init()
-{
-    register_setting('seo-admin-page', 'meta_image');
-
-    add_settings_section(
-        'jphn_section_meta_image',
-        'Image Meta',
-        'jphn_meta_image_section_callback',
-        'seo-admin-page'
-    );
-
-    add_settings_field(
-        'meta_image',
-        'Image pour partage facebook',
-        'jphn_section_meta_image',
-        'seo-admin-page',
-        'jphn_meta_image');
-
-/*    ${"image"} = esc_attr(get_option('image'));
-
-    echo '<img src="' . ${"image"} . '" style="width: 125px" id="image_preview" />';
-    echo '<input value="' . ${"image"} . '" type="hidden" name="image" id="image" >';
-    echo '<input type="button" value="Upload Image" name="submit" id="upload-button" >';*/
-//}
-/*
-function jphn_meta_image_section_callback()
-{
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-    echo '<p>TATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYOTATA YOYO</p>';
-}*/
 
 
 
