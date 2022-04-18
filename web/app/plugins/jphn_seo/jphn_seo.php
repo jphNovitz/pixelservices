@@ -37,6 +37,7 @@ function js_init() {
     wp_enqueue_script('seo-js');
 }
 
+
 /**
  * add meta <title></title> based on the page title
  */
@@ -123,9 +124,18 @@ function jphn_section_meta_image()
 
     ?>
 
+
 <?php
+
 }
 
 
+add_action('wp_head', 'basic_og_meta');
+function basic_og_meta(){
+    $permalink  = get_permalink();
+    if (strlen($permalink) < 1) $permalink = get_home_url();
+    echo '<meta property="og:url" content="'. $permalink .'" />'."\n";
+    echo '<meta property="og:name" content="'.  get_bloginfo('name').'" />'."\n";
+}
 
 

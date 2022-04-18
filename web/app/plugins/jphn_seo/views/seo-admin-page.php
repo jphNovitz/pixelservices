@@ -18,19 +18,34 @@ function seo_admin_page()
         <p><em>Une balise meta <u>og:description</u> (facebbok) est également générée automatiquement avec les mêmes
                 critères.</em></p>
     </div>
+
+    <!--
+    og:image
+    -->
     <?php
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST' && $url = $_POST['image']) {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && $url = $_POST['image']) {
         update_option('seo_image', $url);
     }
     ?>
     <form method="post">
-       <?php
-       settings_errors();
-       settings_fields('meta_image');
-       do_settings_sections('seo-admin-page');
+        <?php
+        settings_errors();
+        settings_fields('meta_image');
+        do_settings_sections('seo-admin-page');
 
-       submit_button(); ?>
-
+        ?>
     </form>
+
+    <!--
+    / og:image
+    -->
+
+
+    <h3>og:name et og:url</h3>
+    <ul>
+        <li>og:name a été généré en utilisant le titre du site dans vos <a href="options-general.php">paramètres</a></li>
+        <li>og:url a été généré en utilisant <strong><em>permalink</em></strong></li>
+    </ul>
+    <!--    submit_button();-->
 <?php }
