@@ -9,6 +9,7 @@
  */
 
 require_once('views/seo-admin-page.php');
+
 register_activation_hook(__FILE__, 'add_supports');
 register_deactivation_hook(__FILE__, 'remove_supports');
 
@@ -16,6 +17,7 @@ function add_supports()
 {
     add_post_type_support('page', 'excerpt');
     add_theme_support('block-templates');
+    add_theme_support('post-thumbnails');
 
 }
 
@@ -58,7 +60,15 @@ function add_description_from_tagline()
     if (!$description = get_the_excerpt()) $description = get_bloginfo('description');
     if (strlen($description) < 1) $description = substr(get_the_content(), 0, 200);
     echo '<meta name="description" content="' . $description . ' - Liège Web" />' . "\n";
-    echo '<meta property="og:description" content="' . $description . '" fff/>' . "\n";
+    echo '<meta property="og:description" content="' . $description . '" />' . "\n";
+
+}
+
+add_action('wp_head', 'add_og_image');
+function add_og_image()
+{
+    if (!$url =  get_the_post_thumbnail()) $url = esc_attr(get_option('seo_image'));
+    echo '<meta property="og:image" content="' . $url . '" />' . "\n";
 
 }
 
