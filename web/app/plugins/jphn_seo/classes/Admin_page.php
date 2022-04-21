@@ -1,14 +1,107 @@
 <?php
 
+/**
+ * Class Admin_page
+ */
 class Admin_page
 {
     const NAME = 'Admin_page';
 
+    /**
+     * @return string
+     */
     public static function get_instance()
     {
         return self::NAME;
     }
 
+
+
+    /**
+     * page manager call the necessary functions
+     */
+    public static function seo_admin_page()
+    {
+        self::seo_admin_page_top();
+        self::seo_admin_page_og_image_form();
+        self::seo_admin_name_url();
+        self::seo_admin_page_bottom();
+    }
+
+
+    /**
+     * top of page
+     */
+    public static function seo_admin_page_top()
+    {
+        if (file_exists(plugin_dir_path(__DIR__) . 'views/admin/admin_page_top.php'))
+            require_once(plugin_dir_path(__DIR__) . 'views/admin/admin_page_top.php');
+    }
+
+    /**
+     *
+     */
+    public static function seo_admin_name_url()
+    {
+        if (file_exists(plugin_dir_path(__DIR__) . 'views/admin/admin_page_name_url.php'))
+            require_once(plugin_dir_path(__DIR__) . 'views/admin/admin_page_name_url.php');
+
+    }
+
+    /**
+     * bottom of page, end of container div ... submit button
+     */
+    public static function seo_admin_page_bottom()
+    {
+        if (file_exists(plugin_dir_path(__DIR__) . 'views/admin/admin_page_bottom.php'))
+            require_once(plugin_dir_path(__DIR__) . 'views/admin/admin_page_bottom.php');
+    }
+
+
+    /***********************************************************************************************
+     *  og:image section
+     **********************************************************************************************/
+
+
+    /**
+     *
+     */
+    public static function seo_admin_page_og_image_form()
+    {
+        if (file_exists(plugin_dir_path(__DIR__) . 'views/admin/admin_page_og_image.php'))
+            require_once(plugin_dir_path(__DIR__) . 'views/admin/admin_page_og_image.php');
+    }
+
+    /**
+     *
+     */
+    public static function og_image_setting_section_callback()
+    {
+        echo "<p>Choisissez une image 'mise en avant' pour votre page ou votre article, celle-ci sera utilisée comme image de partage 
+ sur les facebook.  Pas d'image ? Dans ce cas choisissez une l'image qui sera utilisée.</p>";
+    }
+
+    /**
+     * og:image section
+     */
+    public static function section_meta_image()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && $url = $_POST['image']) {
+            update_option('seo_image', $url);
+        }
+
+        if (file_exists(plugin_dir_path(__DIR__) . 'views/admin/section_meta_image.php'))
+            require_once(plugin_dir_path(__DIR__) . 'views/admin/section_meta_image.php');
+    }
+
+
+    /***********************************************************************************************
+     *  Admin page: init, create page, create menu
+     **********************************************************************************************/
+
+    /**
+     * admin page init
+     */
     public static function init()
     {
 
@@ -35,71 +128,4 @@ class Admin_page
     {
         add_menu_page('SEO', 'SEO Menu', 'manage_options', 'seo-admin-page', __CLASS__ . '::seo_admin_page', 'dashicons-tickets', 6);
     }
-
-    public
-    static function seo_admin_page()
-    {
-
-        self::seo_admin_page_top();
-        if (file_exists(plugin_dir_path(__DIR__) . 'views/admin/admin_page_og_image.php'))
-            require_once(plugin_dir_path(__DIR__) . 'views/admin/admin_page_og_image.php');
-
-        self::seo_admin_name_url();
-        self::seo_admin_page_bottom();
-    }
-
-
-    public static function seo_admin_page_top()
-    {
-        if (file_exists(plugin_dir_path(__DIR__) . 'views/admin/admin_page_top.php'))
-            require_once(plugin_dir_path(__DIR__) . 'views/admin/admin_page_top.php');
-
-    }
-    public static function seo_admin_name_url()
-    {
-        if (file_exists(plugin_dir_path(__DIR__) . 'views/admin/admin_page_name_url.php'))
-            require_once(plugin_dir_path(__DIR__) . 'views/admin/admin_page_name_url.php');
-
-    }
-    public static function seo_admin_page_bottom()
-    {
-        if (file_exists(plugin_dir_path(__DIR__) . 'views/admin/admin_page_bottom.php'))
-            require_once(plugin_dir_path(__DIR__) . 'views/admin/admin_page_bottom.php');
-
-    }
-
-    public static function og_image_setting_section_callback()
-    {
-        echo "<p>Choisissez une image 'mise en avant' pour votre page ou votre article, celle-ci sera utilisée comme image de partage 
- sur les facebook.  Pas d'image ? Dans ce cas choisissez une l'image qui sera utilisée.</p>";
-    }
-
-    public static function section_meta_image()
-    {
-//        og: image
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && $url = $_POST['image']) {
-            update_option('seo_image', $url);
-        }
-
-        echo('<br />');
-        ${"image"} = esc_attr(get_option('seo_image'));
-
-        if (${"image"}) {
-            echo('<div>');
-            echo '<img src="' . ${"image"} . '" style="width: 125px" id="image_preview" />';
-            echo('</div>');
-        }
-
-        echo '<input value="' . ${"image"} . '" type="text" name="image" id="image_url" >';
-        echo '<input type="button" value="Sélectionner" name="upload-button" id="upload-button" >';
-        echo '<input type="submit"  name="seo-image-submitted" value="Valider" />';
-
-        ?>
-
-
-        <?php
-
-    }
-
-
 }

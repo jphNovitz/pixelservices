@@ -1,4 +1,4 @@
-<h3>og:name et og:url</h3>
+<h3><u>og:name et og:url</u></h3>
 <ul>
     <li>og:name a été généré en utilisant le titre du site dans vos <a href="options-general.php">paramètres</a>
     </li>

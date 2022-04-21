@@ -7,7 +7,7 @@
 
 ?>
 
-<div class="">
+<div class=""  style="font-size: 20px">
 <!--    WRAPPER-->
     <h2>Parametrages S.E.O</h2>
     <h3><u>Balise <strong>TITLE</strong> </u></h3>
