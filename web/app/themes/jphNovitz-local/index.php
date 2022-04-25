@@ -6,45 +6,45 @@
 get_header();
 ?>
 
-<main id="main" class="site-main" role="main">
+<main id="main" class="site-main max-w-7xl mx-auto" role="main">
 
     <section class="w-full flex flex-wrap justify-around mt-12">
-        <article class="w-1/5 md:w-1/3 flex flex-col items-center">
-            <div class="flex mb-4 w-28 h-28 md:w-40 md:h-40 rounded-lg bg-center bg-cover"
+        <article class="w-1/2 md:w-1/3 my-4 flex flex-col items-center">
+            <div class="img-thunbnail"
                  style="background-image: url(<?php echo get_stylesheet_directory_uri() . "/media/baguette.webp" ?>)">
             </div>
-            <div class="flex w-full justify-center">Sandwicherie et HoReCa</div>
+            <div class="img-thunbnail-label">Sandwicherie et HoReCa</div>
         </article>
 
-        <article class="w-1/5 md:w-1/3 flex flex-col items-center">
-            <div class="flex mb-4 w-28 h-28 md:w-40 md:h-40 rounded-lg bg-center bg-cover"
+        <article class="w-1/2 md:w-1/3 my-4 flex flex-col items-center">
+            <div class="img-thunbnail"
                  style="background-image: url(<?php echo get_stylesheet_directory_uri() . "/media/non_profit_01.webp" ?>)">
 
             </div>
-            <div class="flex w-full justify-center">Associations et ASBL</div>
+            <div class="img-thunbnail-label">Associations et ASBL</div>
         </article>
 
-        <article class="w-1/5 md:w-1/3 flex flex-col items-center">
-            <div class="flex mb-4 w-28 h-28 md:w-40 md:h-40 rounded-lg bg-center bg-cover"
+        <article class="w-1/2 md:w-1/3 my-4 flex flex-col items-center">
+            <div class="img-thunbnail"
                  style="background-image: url(<?php echo get_stylesheet_directory_uri() . "/media/barber_01.webp" ?>)">
             </div>
-            <div class="flex w-full justify-center">Coiffeuse, barbier.e</div>
+            <div class="img-thunbnail-label">Coiffeuse, barbier.e</div>
         </article>
-    </section>
-    <section class="w-full flex flex-wrap justify-around mt-12">
-        <article class="w-1/5 flex flex-col items-center">
-            <div class="flex mb-4 w-28 h-28 md:w-40 rounded-lg bg-center bg-cover"
+   <!-- </section>
+    <section class="w-full flex flex-wrap justify-around mt-12">-->
+        <article class="w-1/2 md:w-1/3 my-4 flex flex-col items-center">
+            <div class="img-thunbnail"
                  style="background-image: url(<?php echo get_stylesheet_directory_uri() . "/media/entrepreneur_01.webp" ?>)">
 
             </div>
-            <div class="flex w-full justify-center">Entrepreneuses et Indépendants</div>
+            <div class="img-thunbnail-label">Entrepreneuses et Indépendants</div>
         </article>
 
-        <article class="w-1/5 flex flex-col items-center">
-            <div class="flex mb-4 w-28 h-28 md:w-40 rounded-lg bg-center bg-cover"
+        <article class="w-1/2 md:w-1/3 my-4 flex flex-col items-center hidden md:flex">
+            <div class="img-thunbnail"
                  style="background-image: url(<?php echo get_stylesheet_directory_uri() . "/media/artisan_01.webp" ?>)">
             </div>
-            <div class="flex w-full justify-center">Artisan</div>
+            <div class="img-thunbnail-label">Artisan</div>
         </article>
 
     </section>
