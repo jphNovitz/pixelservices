@@ -8,7 +8,7 @@ set_query_var('custom_description', get_the_excerpt());
 get_header();
 ?>
 
-<main id="main"  class="site-main w-full p-12" role="main">
+<main id="main"  class="site-main max-w-7xl mx-auto p-12" role="main">
 
 	<?php
 	while ( have_posts() ) : the_post();
