@@ -44,7 +44,7 @@ class Add_meta_head
      */
     public static function add_og_image()
     {
-        if (!$url = get_the_post_thumbnail()) $url = esc_attr(get_option('seo_image'));
+        if (!$url = get_the_post_thumbnail_url()) $url = esc_attr(get_option('seo_image'));
         $GLOBALS['jphn_seo_image'] = $url;
 
         if (file_exists(plugin_dir_path(__DIR__) . 'views/front/add_og_image.php'))
