@@ -7,6 +7,7 @@ get_header();
 
 ?>
 <section class="p-12">
+
 <p class="my-4">Il est indispensable pour un indépendant d'avoir un point d'ancrage sur internet en plus des réseaux sociaux pour être indépendant.
 Parce que sur Facebook, instagram, Linkedin il est de plus en plus difficile de se faire voir car il y a tout simplement de plus en plus de monde !
     Et puis ces réseau sociaux peuvent toujours changer les conditions d'utilisation, l'algorithme ou tout simplement tomber en panne.</p>
