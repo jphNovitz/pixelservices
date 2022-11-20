@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Message;
 use App\Form\MessageType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(Request $request): Response
+    public function index(Request $request, EntityManagerInterface $em): Response
     {
 
         $message = new Message();
@@ -23,8 +24,12 @@ class HomeController extends AbstractController
         $form->handleRequest($request);
 
         // dd($form->isValid());
-        if ($form->isSubmitted() && $form->isValid()){
-            die('ok');
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($message);
+            $em->flush();
+
+            $this->addFlash('success', 'Your message have been send');
+            return $this->redirectToRoute('app_home');
         }
 
 
