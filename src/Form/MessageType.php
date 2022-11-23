@@ -41,6 +41,7 @@ class MessageType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Message::class,
+            'sanitize_html' => true,
         ]);
     }
 }
