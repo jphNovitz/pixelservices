@@ -24,6 +24,7 @@ Encore
 
     .enableVueLoader(function (options) {
         options.preLoaders = { 
+            runtimeCompilerBuild: false,
             delimiters: ['${', '}$']
          }
     })
