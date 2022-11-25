@@ -32,9 +32,21 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('app_home');
         }
 
-
-        return $this->render('home/index.html.twig', [
+        $response = $this->render('home/index.html.twig', [
             'form' => $form->createView(),
         ]);
+
+        // cache publicly for 3600 seconds
+        $response->setPublic();
+        $response->setMaxAge(3600);
+    
+        // (optional) set a custom Cache-Control directive
+        $response->headers->addCacheControlDirective('must-revalidate', true);
+    
+        return $response;
+
+        // return $this->render('home/index.html.twig', [
+        //     'form' => $form->createView(),
+        // ]);
     }
 }
