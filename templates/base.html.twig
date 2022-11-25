@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-	
+
 		{# <meta http-equiv="Cache-control" content="public">
-		<META HTTP-EQUIV="max-age" CONTENT="31536000"> #}
+				<META HTTP-EQUIV="max-age" CONTENT="31536000"> #}
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5"> 
-		
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
 		<title>
 			{% block title %}
 				Welcome!
 
 			{% endblock %}
 		</title>
+		{% block metas %}
+		<meta name="description" content="Réalisation de sites internet pour les indépendants, commercant et associations.  Prix abordables "/>
+		<meta name="keywords" content="site web, ecommerce, vitrine, site vitrine, wp, wordpress, wix"/>
+		{% endblock%}
+		<meta name="author" content="Novitz Jean-Philippe <novitz@gmail.com>"/>
+
+		<meta name="copyright" content="Novitz Jean-Philippe / Pixel Services"/>
+		<meta name="robots" content="index, follow"/>
+
 		<link
 		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
