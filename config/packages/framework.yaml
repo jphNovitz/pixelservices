@@ -17,10 +17,9 @@ framework:
     php_errors:
         log: true
         
-# config/packages/framework.yaml
-when@prod:
-    framework:
-        http_cache: true
+# when@prod:
+#     framework:
+#         http_cache: true
 
 when@test:
     framework:
