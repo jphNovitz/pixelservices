@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
+	
 		<meta http-equiv="Cache-control" content="public">
 		<META HTTP-EQUIV="max-age" CONTENT="31536000">
 		<meta charset="UTF-8">
@@ -31,9 +32,11 @@
 					{{ message|trans }}
 				</div>
 			{% endfor %}
+			{% cache "hero" %}
 			<div id="app">
 				<hero></hero>
 			</div>
+			{% endcache %}
 
 			<div>
 				{% block body %}{% endblock %}
