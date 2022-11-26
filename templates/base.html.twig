@@ -9,7 +9,7 @@
 
 		<title>
 			{% block title %}
-				Welcome!
+				Pixel Services Welcome !
 
 			{% endblock %}
 		</title>
@@ -41,7 +41,7 @@
 					{{ message|trans }}
 				</div>
 			{% endfor %}
-			{% cache "hero" %}
+			{% cache "hero" ttl(3600) %}
 			<div id="app">
 				<hero></hero>
 			</div>

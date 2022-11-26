@@ -8,18 +8,21 @@ security:
         backend_users:
             memory:
                 users:
-                    Jiffy: { password: '$2y$13$JTxwXWLuGbRcQc8L7gq0WezFHSgYSvDrHGRMSEJIdyw7AkyCIsSPO', roles: ['ROLE_ADMIN'] }
+                    novitz@gmail.com: { password: '$2y$13$JTxwXWLuGbRcQc8L7gq0WezFHSgYSvDrHGRMSEJIdyw7AkyCIsSPO', roles: ['ROLE_ADMIN'] }
         app_user_provider:
             entity:
                 class: App\Entity\User
                 property: email
+        all_users:
+            chain:
+                providers: ['app_user_provider', 'backend_users']
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             lazy: true
-            provider: app_user_provider
+            provider: all_users
             form_login:
                 # "app_login" is the name of the route created previously
                 login_path: app_login
@@ -30,7 +33,7 @@ security:
         secured_area:
             # ...
             form_login:
-                # ...
+                provider: all_users
                 enable_csrf: true
 
             # activate different ways to authenticate
