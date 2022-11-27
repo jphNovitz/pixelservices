@@ -13,16 +13,16 @@ import './bootstrap';
 
 import Vue from 'vue'
 import { createApp } from 'vue'
-import Hero from './js/components/hero.vue'
+// import Hero from './js/components/hero.vue'
 
 // const app = createApp({
 //     el: "#app",
 //     components: { Hero }   
 //   })
 const app = createApp({
-    components: {
-        Hero
-    }
+    // components: {
+    //     Hero
+    // }
 });
 
 app.mount("#app");
