@@ -41,11 +41,10 @@
 					{{ message|trans }}
 				</div>
 			{% endfor %}
-			{% cache "hero" ttl(3600) %}
 			<div id="app">
-				<hero></hero>
+				{% include '_partials/_hero.html.twig' %}
+				{# <hero></hero> #}
 			</div>
-			{% endcache %}
 
 			<div>
 				{% block body %}{% endblock %}

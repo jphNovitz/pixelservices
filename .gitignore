@@ -42,3 +42,4 @@ wp-cli.local.yml
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+config/packages/security.yaml
