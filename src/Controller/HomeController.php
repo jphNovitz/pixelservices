@@ -49,8 +49,8 @@ class HomeController extends AbstractController
             'public'           => true,
             'private'          => false,
             'proxy_revalidate' => false,
-            'max_age'          => 6000,
-            's_maxage'         => 6000,
+            'max_age'          => 7884000,
+            's_maxage'         => 7884000,
             'immutable'        => true,
             'last_modified'    => new \DateTime(),
             'etag'             => 'abcdef'
