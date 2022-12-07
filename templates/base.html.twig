@@ -3,7 +3,7 @@
 	<head>
 
 		{# <meta http-equiv="Cache-control" content="public">
-												<META HTTP-EQUIV="max-age" CONTENT="31536000"> #}
+																						<META HTTP-EQUIV="max-age" CONTENT="31536000"> #}
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
@@ -12,13 +12,13 @@
 				Pixel Services Crée votre site internet
 			{% endblock %}
 		</title>
-			<meta property="og:title" content="{% block og_title %}Pixel Services Crée votre site internet {% endblock %}"/>
-			<meta property="og:type" content="{% block og_type %}article {% endblock %}"/>
-			<meta property="og:url" content="{% block og_url %}{{ app.request.uri }} {% endblock %}"/>
-			<meta property="og:image" content="{% block og_image %}https://pixelservices.be/images/logos/pixelservices.webp {% endblock %}"/>
-			<meta property="og:site_name" content="{% block og_site_name %}Pixel Services {% endblock %}"/>
-			<meta property="og:locale" content="{% block og_locale %}fr_BE{% endblock %}"/>
-			<meta property="og:description" content="{% block og_description %}Réalisation de sites internet pour les indépendants, commercant et associations. Je vous aider sur vos projets actuels ou historiques. Prix abordables  {% endblock %}"/>
+		<meta property="og:title" content="{% block og_title %}Pixel Services Crée votre site internet {% endblock %}"/>
+		<meta property="og:type" content="{% block og_type %}article {% endblock %}"/>
+		<meta property="og:url" content="{% block og_url %}{{ app.request.uri }} {% endblock %}"/>
+		<meta property="og:image" content="{% block og_image %}https://pixelservices.be/images/logos/pixelservices.webp {% endblock %}"/>
+		<meta property="og:site_name" content="{% block og_site_name %}Pixel Services {% endblock %}"/>
+		<meta property="og:locale" content="{% block og_locale %}fr_BE{% endblock %}"/>
+		<meta property="og:description" content="{% block og_description %}Réalisation de sites internet pour les indépendants, commercant et associations. Je vous aider sur vos projets actuels ou historiques. Prix abordables {% endblock %}"/>
 		{% block metas %}
 			<meta name="description" content="Réalisation de sites internet pour les indépendants, commercant et associations. Je vous aider sur vos projets actuels ou historiques. Prix abordables "/>
 			<meta name="keywords" content="site web, ecommerce, vitrine, site vitrine, wp, wordpress, wix"/>
@@ -27,7 +27,7 @@
 
 		<meta name="copyright" content="Novitz Jean-Philippe / Pixel Services"/>
 		<meta name="robots" content="index,follow"/>
-
+		<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 		<link
 		rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 		{# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
@@ -36,28 +36,63 @@
 		{% endblock %}
 
 		{# {% block javascripts %} 
-											{{ encore_entry_script_tags('app') }}
-										{% endblock %} #}
+																					{{ encore_entry_script_tags('app') }}
+																				{% endblock %} #}
 	</head>
-	<body class="bg-slate-50">
-		<div>
-			{# {% include '_partials/_header.html.twig' %} #}
-			{% for message in app.flashes('success') %}
-				<div class="w-full bg-green-800 text-green-50 p-6">
-					{{ message|trans }}
-				</div>
-			{% endfor %}
-			<div id="app">
-				{% include '_partials/_hero.html.twig' %}
-				{# <hero></hero> #}
-			</div>
-
-			<div>
-				{% block body %}{% endblock %}
-			</div>
-		</div>
-		{% block javascripts %}
-			{{ encore_entry_script_tags('app') }}
-		{% endblock %}
-	</body>
-</html>
+	<body class="">
+		<div
+			{% if app.request.get('_route') == 'app_home' %} class="isolate bg-hero"  {% endif %} 
+			x-data="{ mobileMenuOpen: false }"
+			>
+			{# <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
+										<svg class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]" viewbox="0 0 1155 678" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)" fill-opacity=".3" d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"/>
+											<defs>
+												<linearGradient id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533" x1="1155.49" x2="-78.208" y1=".177" y2="474.645" gradientunits="userSpaceOnUse">
+													<stop stop-color="#9089FC"></stop>
+													<stop offset="1" stop-color="#FF80B5"></stop>
+												</linearGradient>
+											</defs>
+										</svg>
+									</div> #}
+			<div class="px-6 pt-6 lg:px-8">
+				<div>
+					{% include '_partials/_navbar.html.twig' %}
+					{# {% include '_partials/_header.html.twig' %} #}
+					{% for message in app.flashes('success') %}
+						<div class="w-full bg-green-800 text-green-50 p-6">
+							{{ message|trans }}
+						</div>
+					{% endfor %}
+					<div class="isolate">
+						<div
+							class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">{# <svg class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]" viewbox="0 0 1155 678" fill="none" xmlns="http://www.w3.org/2000/svg">
+																								<path fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)" fill-opacity=".3" d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"/>
+																								<defs>
+																									<linearGradient id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533" x1="1155.49" x2="-78.208" y1=".177" y2="474.645" gradientunits="userSpaceOnUse">
+																										<stop stop-color="#9089FC"></stop>
+																										<stop offset="1" stop-color="#FF80B5"></stop>
+																									</linearGradient>
+																								</defs>
+																							</svg> #}
+						</div>
+						<div class="px-6 pt-6 lg:px-8">
+							<div>
+								{# <div id="app"> #}
+								{# {% include '_partials/_hero.html.twig' %} #}
+								{# <hero></hero> #}
+								{# </div> #}
+									{% if app.request.get('_route') == 'app_home' %}
+										{% include '_partials/_home_cta.html.twig' %}
+									{% endif %}
+										<div>{% block body %}
+									{% endblock %}
+								</div>
+								</div>
+									{% block javascripts %}
+								{{ encore_entry_script_tags('app') }}
+							{% endblock %}
+						</body>
+					</html>
+				</body>
+			</html>
