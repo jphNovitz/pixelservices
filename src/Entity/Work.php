@@ -33,8 +33,11 @@ class Work
     private bool $active = false;
 
     #[ORM\Column(length: 128, unique: true)]
-    #[Gedmo\Slug(fields: ['title', 'code'])]
+    #[Gedmo\Slug(fields: ['name'])]
     private ?string $slug = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $image = null;
 
     /**
      * @var DateTime
@@ -147,6 +150,18 @@ class Work
     public function setActive(bool $active): self
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
