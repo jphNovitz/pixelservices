@@ -53,7 +53,8 @@ class WorkCrudController extends AbstractCrudController
             BooleanField::new('active', new TranslatableMessage('Active')),
             ImageField::new('image', new TranslatableMessage('Image'))
                 ->setUploadDir('public/images/work/')
-                ->setBasePath('public/images/work/'),
+                ->setBasePath('public/images/work/')
+                
         ];
     }
 //    public function configureFields(string $pageName): iterable

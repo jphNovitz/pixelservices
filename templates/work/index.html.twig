@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello WorkController!{% endblock %}
+
+{% block body %}
+    <div class="w-full flex flex-col">
+        <p>Une présence sur internet est indispensable, cela ne doit pas forcément couter très cher. </p>
+        {% for work in works %}
+            <span><a href="">{{ work.name }}</a></span>
+        {% endfor %}
+        <p>Vous pouvez commencer petit, il est possible d'évoluer mais vous devez y aller maintenant !</p>
+    </div>
+{% endblock %}
