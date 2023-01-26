@@ -11,7 +11,6 @@ use Doctrine\Persistence\ManagerRegistry;
  *
  * @method Work|null find($id, $lockMode = null, $lockVersion = null)
  * @method Work|null findOneBy(array $criteria, array $orderBy = null)
- * @method Work[]    findAll()
  * @method Work[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class WorkRepository extends ServiceEntityRepository
@@ -42,6 +41,18 @@ class WorkRepository extends ServiceEntityRepository
     /**
      * @return Work[] Returns an array of Work objects
      */
+    public function findAll(): array
+    {
+        return $this->createQueryBuilder('w')
+            ->orderBy('w.id', 'ASC')
+            ->getQuery()
+            ->getArrayResult()
+        ;
+    }
+
+    /**
+     * @return Work[] Returns an array of Work objects
+     */
     public function findAllWithNameAndSlug(): array
     {
         return $this->createQueryBuilder('w')
@@ -50,6 +61,20 @@ class WorkRepository extends ServiceEntityRepository
 //            ->setMaxResults(10)
             ->getQuery()
             ->getArrayResult()
+        ;
+    }
+
+    /**
+     * @return Work[] Returns an array of Work objects
+     */
+    public function findOne($slug): ?Work
+    {
+        return $this->createQueryBuilder('w')
+            ->orderBy('w.id', 'ASC')
+            ->andWhere('w.slug = :slug')
+            ->setParameter('slug', $slug)
+            ->getQuery()
+            ->getSingleResult()
         ;
     }
 
