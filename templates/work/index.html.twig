@@ -5,9 +5,28 @@
 {% block body %}
     <div class="w-full flex flex-col">
         <p>Une présence sur internet est indispensable, cela ne doit pas forcément couter très cher. </p>
-        {% for work in works %}
-            <span><a href="">{{ work.name }}</a></span>
-        {% endfor %}
+
+        <div class="w-full py-12 flex flex-col lg:flex-row justify-around">
+            {% for work in works %}
+                <span class="flex flex-col border border-gray-300 border-gray-400  hover:border-2  hover:shadow-md hover:shadow-gray-300  hover:scale-105 p-6 lg:mx-6 my-6 lg:my-0 w-full lg:w-1/4 ">
+                    <h2 class="w-full py-6 text-center text-2xl font-bold">{{ work.name }}</h2>
+
+                    <h3 class="w-full min-h-[9rem] lg:min-h-[18rem] py-6 text-center text-ellipsis overflow-hidden"> {{ work.description_short }} </h3>
+
+                    {% if work.price %}
+                        <span class="w-full text-center text-3xl font-bold"> {{ work.price }} €</span>
+                    {% else %}
+                        <span>no</span>
+                    {% endif %}
+
+                    <a href="{{ path('app.works.show', {'slug': work.slug}) }}"
+                       class="my-6 bg-indigo-600 text-indigo-50 font-bold rounded-lg p-3 text-center"
+                    >
+                        Plus d'infos
+                    </a>
+                </span>
+            {% endfor %}
+        </div>
         <p>Vous pouvez commencer petit, il est possible d'évoluer mais vous devez y aller maintenant !</p>
     </div>
 {% endblock %}
