@@ -53,6 +53,9 @@ class Work
     #[Gedmo\Timestampable]
     private $updated;
 
+    #[ORM\Column]
+    private ?bool $front = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -162,6 +165,18 @@ class Work
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function isFront(): ?bool
+    {
+        return $this->front;
+    }
+
+    public function setFront(bool $front): self
+    {
+        $this->front = $front;
 
         return $this;
     }
