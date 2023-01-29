@@ -45,6 +45,8 @@ class WorkRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('w')
             ->orderBy('w.id', 'ASC')
+            ->where('w.active = true')
+//            ->setParameter('cond', true)
             ->getQuery()
             ->getArrayResult()
         ;

@@ -16,17 +16,22 @@ class WorkController extends AbstractController
     #[Route('/services', name: 'app.works.list')]
     public function index(WorkRepository $workRepository): Response
     {
+        foreach ($workRepository->findAll() as $item){
+            if ($item['front']) $works['front'][]=$item ;
+                else $works['general'][]=$item ;
+        }
+//        dd($works);
         return $this->render('work/index.html.twig', [
-            'works' => $workRepository->findAll(),
+            'works' => $works,
         ]);
     }
 
     #[Route('/service/{slug}', name: 'app.works.show')]
-    public function show(WorkRepository $workRepository, String $slug): Response
+    public function show(?Work $work): Response
     {
 
         return $this->render('work/show.html.twig', [
-            'work' => $workRepository->findOne($slug),
+            'work' => $work,
         ]);
     }
 
