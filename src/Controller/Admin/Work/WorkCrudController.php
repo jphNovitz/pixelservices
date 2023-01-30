@@ -51,6 +51,7 @@ class WorkCrudController extends AbstractCrudController
             TextEditorField::new('description_long', new TranslatableMessage('Description_long')),
             IntegerField::new('price', new TranslatableMessage('Price')),
             BooleanField::new('active', new TranslatableMessage('Active')),
+            BooleanField::new('front', new TranslatableMessage('Front')),
             ImageField::new('image', new TranslatableMessage('Image'))
                 ->setUploadDir('public/images/work/')
                 ->setBasePath('public/images/work/')
