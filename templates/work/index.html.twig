@@ -4,29 +4,43 @@
 
 {% block body %}
     <div class="w-full flex flex-col">
-        <p>Une présence sur internet est indispensable, cela ne doit pas forcément couter très cher. </p>
-
-        <div class="w-full py-12 flex flex-col lg:flex-row justify-around">
-            {% for work in works %}
-                <span class="flex flex-col border border-gray-300 border-gray-400  hover:border-2  hover:shadow-md hover:shadow-gray-300  hover:scale-105 p-6 lg:mx-6 my-6 lg:my-0 w-full lg:w-1/4 ">
-                    <h2 class="w-full py-6 text-center text-2xl font-bold">{{ work.name }}</h2>
-
-                    <h3 class="w-full min-h-[9rem] lg:min-h-[18rem] py-6 text-center text-ellipsis overflow-hidden"> {{ work.description_short }} </h3>
-
-                    {% if work.price %}
-                        <span class="w-full text-center text-3xl font-bold"> {{ work.price }} €</span>
-                    {% else %}
-                        <span>no</span>
-                    {% endif %}
-
+        <span class="inline-flex">
+        <p class="inline">
+            Que votre projet soit abouti ou juste une idée ou une envie, n'hésitez pas à me contacter pour toutes questions ou besoins en matière de création de site internet
+            {% if works['general'] is defined %}
+                {% for work in works['general'] %}
                     <a href="{{ path('app.works.show', {'slug': work.slug}) }}"
-                       class="my-6 bg-indigo-600 text-indigo-50 font-bold rounded-lg p-3 text-center"
-                    >
-                        Plus d'infos
-                    </a>
-                </span>
-            {% endfor %}
-        </div>
+                       class="inline lowercase text-indigo-600 font-bold hover:underline  first:before:content-[','] after:content-[','] last:after:content-['.']">
+                        {{ work.name }}</a>
+                {% endfor %}
+            {% else %}<i class="-ml-1">.</i>
+            {% endif %}
+        </p>
+        </span>
+
+        {% if works['front'] is defined %}
+            <div class="w-max-screen py-12 flex flex-col lg:flex-row justify-around overflow-auto">
+                {% for work in works['front'] %}
+                    <div class="flex flex-col rounded-lg border border-gray-300 border-gray-400  hover:border-2  hover:shadow-xl hover:shadow-slate-700  hover:scale-105 p-6 lg:mx-6 my-6 lg:my-0 w-full lg:w-[30vw] lg:grow-[3] transition-transform">
+                        <h2 class="w-full py-6 text-center text-2xl font-bold">{{ work.name }}</h2>
+
+                        <h3 class="w-full min-h-[9rem] lg:min-h-[18rem] py-6 text-center text-ellipsis overflow-hidden"> {{ work.description_short }} </h3>
+
+                        {% if work.price %}
+                            <span class="w-full text-center text-3xl font-bold"> {{ work.price }} €</span>
+                        {% else %}
+                            <span>no</span>
+                        {% endif %}
+
+                        <a href="{{ path('app.works.show', {'slug': work.slug}) }}"
+                           class="my-6 bg-indigo-600 text-indigo-50 font-bold rounded-lg p-3 text-center"
+                        >
+                            Plus d'infos
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
         <p>Vous pouvez commencer petit, il est possible d'évoluer mais vous devez y aller maintenant !</p>
     </div>
 {% endblock %}
