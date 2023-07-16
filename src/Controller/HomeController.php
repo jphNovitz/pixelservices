@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Blog;
 use App\Entity\Message;
 use App\Form\MessageType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -32,7 +33,10 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('app_home');
         }
 
+        $pinnedBlogs = $em->getRepository(Blog::class)->findBy(['pin' => true]);
+
         $response = $this->render('home/index.html.twig', [
+            'pinned' => $pinnedBlogs,
             'form' => $form->createView(),
         ]);
 
