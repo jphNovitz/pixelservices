@@ -1,0 +1,31 @@
+{# <article class="max-w-md mx-auto mt-8 p-4 bg-white rounded-lg shadow-lg"> #}
+{#    <h2 class="text-2xl font-bold text-center mb-4">Titre de l'article</h2> #}
+{#    <section class="flex flex-col items-center"> #}
+{#        <img class="w-72 h-auto mb-2 rounded-lg shadow-md" src="https://placekitten.com/200/300" alt="Image de l'article"> #}
+{#        <p class="text-base text-justify mb-4"> #}
+{#            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod orci a metus volutpat dapibus. #}
+{#            Phasellus tempor vehicula elementum. Fusce in aliquam est. Suspendisse nec sem tincidunt, eleifend nunc nec, #}
+{#            cursus turpis. Maecenas eu dignissim mauris. Ut euismod orci nec est lobortis, vitae pulvinar mauris #}
+{#            fringilla. Sed ac nisi consequat, sagittis quam at, viverra dui. Suspendisse potenti. Morbi finibus, elit #}
+{#            et elementum tincidunt, urna arcu malesuada sapien, at aliquet tortor leo ut odio. In condimentum fermentum #}
+{#            nunc, id gravida sapien consectetur eget. Nulla facilisi. Curabitur fermentum aliquam bibendum. #}
+{#        </p> #}
+{#    </section> #}
+{# </article> #}
+<article class="w-full mx-auto mt-8 p-4 bg-white rounded-lg shadow-lg">
+    <h2 class="text-3xl font-bold text-left mb-12">Titre de l'article</h2>
+    <section class="flex items-start">
+        <p class="leading-8 text-lg text-justify">
+            {% if image_url is not empty %}
+            <img class="w-2/3  md:w-1/4 md:float-left h-auto mx-auto md:mr-4 rounded-lg shadow-md"
+                 src="{{ image_url }}"
+                    {% if image_alt is not empty %}
+                        alt="{{ image_alt }}"
+                    {% else %}
+                        alt="Pixel Services"
+                    {% endif %} />
+            {% endif %}
+            {{ content |raw }}
+        </p>
+    </section>
+</article>
