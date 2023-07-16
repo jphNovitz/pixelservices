@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Controller\Admin\Message\MessageCrudController;
+use App\Controller\Admin\Blog\BlogCrudController;
+use App\Entity\Blog;
 use App\Entity\Message;
 use App\Entity\Work;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -50,6 +52,7 @@ class DashboardController extends AbstractDashboardController
 //        yield MenuItem::linkToMessage('Messages', 'fa fa-envelope');
          yield MenuItem::linkToCrud('Messages', 'fas fa-envelope', Message::class);
          yield MenuItem::linkToCrud('Services', 'fas fa-envelope', Work::class);
+         yield MenuItem::linkToCrud('Blog', 'fas fa-blog', Blog::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
