@@ -6,11 +6,13 @@ use App\Repository\BlogRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 #[ORM\Entity(repositoryClass: BlogRepository::class)]
 #[Table(name: 'blogs')]
 class Blog
 {
+    use TimestampableEntity;
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -24,14 +26,6 @@ class Blog
 
     #[ORM\Column]
     private ?bool $pin = false;
-
-    #[Gedmo\Timestampable(on: 'create')]
-    #[ORM\Column(name: 'created', type: Types::DATE_MUTABLE)]
-    private $created;
-
-    #[Gedmo\Timestampable(on: 'update')]
-    #[ORM\Column(name: 'updated', type: Types::DATE_MUTABLE)]
-    private $updated;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
@@ -75,38 +69,6 @@ class Blog
         $this->pin = $pin;
 
         return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * @param mixed $created
-     */
-    public function setCreated($created): void
-    {
-        $this->created = $created;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getUpdated()
-    {
-        return $this->updated;
-    }
-
-    /**
-     * @param mixed $updated
-     */
-    public function setUpdated($updated): void
-    {
-        $this->updated = $updated;
     }
 
     public function getImage(): ?string
