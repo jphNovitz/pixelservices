@@ -33,7 +33,7 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('app_home');
         }
 
-        $pinnedBlogs = $em->getRepository(Blog::class)->findBy(['pin' => true]);
+        $pinnedBlogs = $em->getRepository(Blog::class)->findBy(['pin' => true, 'published' => true]);
 
         $response = $this->render('home/index.html.twig', [
             'pinned' => $pinnedBlogs,
