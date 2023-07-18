@@ -5,9 +5,10 @@
 {% block body %}
 
     <div class="w-full md:max-w-3xl lg:max-w-4xl m-auto">
-        {% for pin in pinned %}
+        {% for article in pinned %}
             {{ component('Article', {
-                'content' : pin.content
+                'title' : article.title,
+                'content' : article.content
             }) }}
         {% endfor %}
     </div>
