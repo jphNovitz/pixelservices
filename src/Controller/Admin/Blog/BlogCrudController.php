@@ -49,6 +49,7 @@ class BlogCrudController extends AbstractCrudController
             TextField::new('title', new TranslatableMessage('Title')),
             TextEditorField::new('content', new TranslatableMessage('Content')),
             BooleanField::new('pin', new TranslatableMessage('Pin')),
+            BooleanField::new('published', new TranslatableMessage('Published')),
             ImageField::new('image', new TranslatableMessage('Image'))
                 ->setUploadDir('public/images/blog/')
                 ->setBasePath('public/images/blog/')
