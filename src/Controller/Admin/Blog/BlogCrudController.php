@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\Translation\TranslatableMessage;
@@ -48,6 +49,7 @@ class BlogCrudController extends AbstractCrudController
 //            IdField::new('id'),
             TextField::new('title', new TranslatableMessage('Title')),
             TextEditorField::new('content', new TranslatableMessage('Content')),
+//            TextareaField::new('content', new TranslatableMessage('Content'))->renderAsHtml(),
             BooleanField::new('pin', new TranslatableMessage('Pin')),
             BooleanField::new('published', new TranslatableMessage('Published')),
             ImageField::new('image', new TranslatableMessage('Image'))
