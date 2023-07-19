@@ -25,3 +25,8 @@ services:
     App\Service\Twig\Environment:
         decorates: twig
         parent: twig
+
+    App\EventListener\TextStyleEasyAdminEventListener:
+        tags:
+            - { name: kernel.event_listener, event: easy_admin.before_entity_persisted }
+            - { name: kernel.event_listener, event: easy_admin.before_entity_updated }
