@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ol-numeric {
+    @apply list-decimal list-outside my-1.5 pl-6;
+}
+.ol-numeric li{
+    @apply pl-3 pt-3 pb-1.5;
+}
+
