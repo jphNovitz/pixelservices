@@ -40,7 +40,7 @@ class TextStyleEasyAdminSubscriber implements EventSubscriberInterface
     }
 
     public function addCustomClasses($content){
-        $content = preg_replace('/<ol>/', '<ol class="my-custom-class">', $content);
+        $content = preg_replace('/<ol>/', '<ol class="ol-numeric">', $content);
         return $content ;
 
     }
