@@ -43,8 +43,8 @@
 																																																							{{ encore_entry_script_tags('app') }}
 																																																						{% endblock %} #}
 </head>
-<body class="bg-slate-50 min-h-screen text-lg">
-<div class="w-full lg-max-w-1200px align-self-center min-h-full ">
+<body class="bg-slate-50 min-h-screen  text-lg">
+<div class="w-full p-3  md:max-w-3xl md:p-12  lg:max-w-7xl align-self-center min-h-full m-auto">
     {% if app.request.get('_route') == 'app_home' %}
     <div class="isolate bg-hero-mobile md:bg-hero-md bg-cover">
         {% endif %}
@@ -59,7 +59,7 @@
         {% include '_partials/_home_cta.html.twig' %}
     </div>
     {% endif %}
-    <div class="p-12 align-self-center">
+    <div class="w-full p-3  md:max-w-3xl md:p-12  lg:max-w-7xl align-self-center">
         {% block body %}{% endblock %}
     </div>
     {% block javascripts %}
