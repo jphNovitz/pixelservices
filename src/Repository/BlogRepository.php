@@ -39,6 +39,15 @@ class BlogRepository extends ServiceEntityRepository
         }
     }
 
+    function findAllQuery(){
+        return $this->createQueryBuilder('b')
+            ->where('b.published = :published' )
+            ->andWhere('b.pin = :pinned')
+            ->setParameters(['published' => true, 'pinned' => false])
+            ->orderBy('b.updatedAt', 'DESC')
+            ->getQuery();
+
+    }
 //    /**
 //     * @return Blog[] Returns an array of Blog objects
 //     */
