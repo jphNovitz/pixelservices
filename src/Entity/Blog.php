@@ -6,6 +6,7 @@ use App\Repository\BlogRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 #[ORM\Entity(repositoryClass: BlogRepository::class)]
@@ -32,6 +33,19 @@ class Blog
 
     #[ORM\Column]
     private ?bool $published =false;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $summary = null;
+
+    /**
+     * @var string|null
+     *
+     * @Gedmo\Slug(fields={"title", "code"})
+     * @ORM\Column(length=255, unique=true)
+     */
+    #[ORM\Column(length: 255, unique: true)]
+    #[Gedmo\Slug(fields: ['title'])]
+    private ?string $slug = null;
 
     public function getId(): ?int
     {
@@ -94,6 +108,30 @@ class Blog
     public function setPublished(bool $published): self
     {
         $this->published = $published;
+
+        return $this;
+    }
+
+    public function getSummary(): ?string
+    {
+        return $this->summary;
+    }
+
+    public function setSummary(?string $summary): self
+    {
+        $this->summary = $summary;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
