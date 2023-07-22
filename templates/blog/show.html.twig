@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ post.title }} | pixelservices.be{% endblock %}
+
+{% block body %}
+
+    {{ component('Article', {
+        'title' : post.title,
+        'content' : post.content,
+        'image_url' : post.image,
+        'image_alt' : post.title
+    }) }}
+
+
+    {{ component('Button', {
+        href: path('app_blog_index'),
+        label: 'Focus'
+    }) }}
+
+
+{#    <div class="w-1/2 after:content-[','] hover:bg-blue-800"> ddsq</div>#}
+{% endblock %}
