@@ -47,8 +47,10 @@ class BlogCrudController extends AbstractCrudController
     {
         return [
 //            IdField::new('id'),
-            TextField::new('title', new TranslatableMessage('Title')),
-            TextEditorField::new('content', new TranslatableMessage('Content')),
+            TextField::new('title', new TranslatableMessage('Title'))->setColumns(12),
+            TextField::new('summary', new TranslatableMessage('Summary'))->setColumns(12)
+                ->setMaxLength(255),
+            TextEditorField::new('content', new TranslatableMessage('Content'))->setColumns(12),
 //            TextareaField::new('content', new TranslatableMessage('Content'))->renderAsHtml(),
             BooleanField::new('pin', new TranslatableMessage('Pin')),
             BooleanField::new('published', new TranslatableMessage('Published')),
