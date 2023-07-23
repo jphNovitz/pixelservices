@@ -39,7 +39,7 @@
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#"
+            <a href="{{ path('app_home') }}"
                class=" px-3 py-2  text-sm font-medium
                 {% if (app.request.get('_route') == 'app_home') %} border border-l-0 border-r-0 border-t-0 border-indigo-200  {% endif %}
                 "
@@ -92,7 +92,7 @@
   <div class="hidden sm:hidden" id="mobile-menu" x-bind:class="{'!block' : mobileMenuOpen}" x-transition>
     <div class="space-y-1 px-2 pt-2 pb-3">
       <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-      <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Accueil</a>
+      <a href="{{ path('app_home') }}" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Accueil</a>
     </div>
   </div>
 </nav>
