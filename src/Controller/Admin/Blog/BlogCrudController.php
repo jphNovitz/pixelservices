@@ -50,7 +50,14 @@ class BlogCrudController extends AbstractCrudController
             TextField::new('title', new TranslatableMessage('Title'))->setColumns(12),
             TextField::new('summary', new TranslatableMessage('Summary'))->setColumns(12)
                 ->setMaxLength(255),
-            TextEditorField::new('content', new TranslatableMessage('Content'))->setColumns(12),
+            TextEditorField::new('content', new TranslatableMessage('Content'))
+                ->setNumOfRows(20)
+            ->setTrixEditorConfig([
+                'blockAttributes' => [
+                    'default' => ['tagName' => 'p'],
+                    'heading1' => ['tagName' => 'h3']
+                ]
+            ]),
 //            TextareaField::new('content', new TranslatableMessage('Content'))->renderAsHtml(),
             BooleanField::new('pin', new TranslatableMessage('Pin')),
             BooleanField::new('published', new TranslatableMessage('Published')),
