@@ -46,7 +46,8 @@
 <body class="bg-slate-50 min-h-screen  text-lg">
 <div class="w-full p-3  md:max-w-6xl md:p-12  lg:max-w-7xl align-self-center min-h-full  m-auto">
     {% if app.request.get('_route') == 'app_home' %}
-    <div class="isolate bg-hero-mobile md:bg-hero-md bg-cover">
+    <div class="bg-hero-mobile md:bg-hero-md bg-cover absolute top-0 left-0 w-full h-2/3">
+    </div>
         {% endif %}
         {% include '_partials/_navbar.html.twig' %}
         {% for message in app.flashes('success') %}
@@ -55,10 +56,10 @@
             </div>
         {% endfor %}
         {# <div class="isolate px-6 pt-6 lg:px-8"> #}
-        {% if app.request.get('_route') == 'app_home' %}
-        {% include '_partials/_home_cta.html.twig' %}
-    </div>
-    {% endif %}
+{#        {% if app.request.get('_route') == 'app_home' %}#}
+{#        {% include '_partials/_home_cta.html.twig' %}#}
+{#    </div>#}
+{#    {% endif %}#}
     <div class="w-full p-3  md:max-w-3xl md:p-12  lg:max-w-7xl align-self-center">
         {% block body %}{% endblock %}
     </div>

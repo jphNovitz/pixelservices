@@ -15,6 +15,9 @@ module.exports = {
       transitionProperty: {
         'height': 'height',
         'spacing': 'margin, padding',
+      },
+      fontFamily: {
+        "lato": [ "Lato", "sans-serif"],
       }
     },
   },

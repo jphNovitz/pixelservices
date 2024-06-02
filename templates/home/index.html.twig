@@ -3,7 +3,7 @@
 {% block title %}Créons ensemble votre site internet | pixelservices{% endblock %}
 
 {% block body %}
-
+    {% include '_partials/_home_cta.html.twig' %}
     <div class="w-full md:max-w-3xl lg:max-w-4xl m-auto">
         {% for article in pinned %}
             {{ component('Article', {
