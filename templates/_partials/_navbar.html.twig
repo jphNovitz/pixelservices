@@ -1,8 +1,8 @@
 <div class="w-full sticky top-0 z-10 bg-white ">
     <nav class="bg-transparent w-full md:max-w-6xl lg:max-w-7xl m-auto" x-data="{ mobileMenuOpen: false }">
         <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 grid grid-cols-12">
-            <div class="relative flex h-16 items-center justify-between col-span-2">
-                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <div class="relative flex h-16 items-center justify-between col-span-12 md:col-span-2">
+                <div class="absolute inset-y-0 left-0 flex items-center md:hidden">
                     <!-- Mobile menu button-->
                     <button type="button"
                             x-on:click="mobileMenuOpen = !mobileMenuOpen"
@@ -17,8 +17,8 @@
                           Menu open: "hidden", Menu closed: "block"
                         -->
                         <svg x-bind:class="{'hidden' : mobileMenuOpen}"
-                             class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                             stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                             class="block h-12 w-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                             stroke-width="2" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                   d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
                         </svg>
@@ -36,7 +36,7 @@
                         </svg>
                     </button>
                 </div>
-                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start px-6">
+                <div class="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
                     <div class="w-full h-16  bg-contain bg-no-repeat bg-center" style="background-image: url({{ asset('images/logos/pixelservices.webp') }})">
 {#                        <img class="block w-auto <!--lg:hidden-->" src="images/logos/pixelservices.webp"#}
 {#                             alt="Pixel Services">#}
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-            <div class="hidden sm:ml-6 sm:block col-span-8 h-full">
+            <div class="hidden md:ml-6 md:block col-span-8 h-full">
                     <div class="w-full h-full flex justify-center items-center space-x-8 text-base">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="{{ path('app_home') }}"
@@ -70,7 +70,7 @@
 {#                        </a>#}
                     </div>
             </div>
-            <div class="col-span-2 inline-flex justify-center items-center">
+            <div class="col-span-2 hidden md:inline-flex justify-center items-center">
                 <a href="{{ path('app_contact') }}" class="border-2 border-gray-800 rounded-full px-4 py-2"> Contact </a>
             </div>
         </div>
