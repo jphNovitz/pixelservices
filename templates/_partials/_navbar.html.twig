@@ -37,60 +37,62 @@
                     </button>
                 </div>
                 <div class="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
-                    <div class="w-full h-16  bg-contain bg-no-repeat bg-center" style="background-image: url({{ asset('images/logos/pixelservices.webp') }})">
-{#                        <img class="block w-auto <!--lg:hidden-->" src="images/logos/pixelservices.webp"#}
-{#                             alt="Pixel Services">#}
+                    <div class="w-full h-20 inline-flex justify-center items-center">
+                        {#                        <img class="block w-auto <!--lg:hidden-->" src="images/logos/pixelservices.webp" #}
+                        {#                             alt="Pixel Services"> #}
                         {#          <img class="hidden h-8 w-auto lg:block" src="images/logos/pixelservices.webp" alt="Pixel Services"> #}
+                        <twig:Logo class="ml-20 md:ml-0"/>
                     </div>
                 </div>
             </div>
             <div class="hidden md:ml-6 md:block col-span-8 h-full">
-                    <div class="w-full h-full flex justify-center items-center space-x-8 text-base">
-                        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <a href="{{ path('app_home') }}"
-                           class=" px-3 py-2  font-semibold
+                <div class="w-full h-full flex justify-center items-center space-x-8 text-base">
+                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                    <a href="{{ path('app_home') }}"
+                       class=" px-3 py-2  font-semibold
                 {% if (app.request.get('_route') == 'app_home') %} border-b-2  border-indigo-400 font-black  {% endif %}
                 "
-                           aria-current="page">
-                            Accueil
-                        </a>
-                        <a href="{{ path('app_blog_index') }}"
-                           class=" px-3 py-2  font-semibold
+                       aria-current="page">
+                        Accueil
+                    </a>
+                    <a href="{{ path('app_blog_index') }}"
+                       class=" px-3 py-2  font-semibold
                 {% if (app.request.get('_route') == 'app_blog_index') %}  border-b-2  border-indigo-400 font-black  {% endif %}
                 "
-                           aria-current="page">
-                            Focus
-                        </a>
-{#                        <a href="{{ path('app_contact') }}"#}
-{#                           class=" px-3 py-2   font-semibold#}
-{#                {% if (app.request.get('_route') == 'app_contact') %}  border-b-2  border-indigo-400 font-black   {% endif %}#}
-{#                "#}
-{#                           aria-current="page">#}
-{#                            Contact#}
-{#                        </a>#}
-                    </div>
+                       aria-current="page">
+                        Focus
+                    </a>
+                    {#                        <a href="{{ path('app_contact') }}" #}
+                    {#                           class=" px-3 py-2   font-semibold #}
+                    {#                {% if (app.request.get('_route') == 'app_contact') %}  border-b-2  border-indigo-400 font-black   {% endif %} #}
+                    {#                " #}
+                    {#                           aria-current="page"> #}
+                    {#                            Contact #}
+                    {#                        </a> #}
+                </div>
             </div>
             <div class="col-span-2 hidden md:inline-flex justify-center items-center">
-                <a href="{{ path('app_contact') }}" class="border-2 border-gray-800 rounded-full px-4 py-2"> Contact </a>
+                <a href="{{ path('app_contact') }}" class="border-2 border-gray-800 rounded-full px-4 py-2">
+                    Contact </a>
             </div>
         </div>
 
-<!-- Mobile menu, show/hide based on menu state. -->
-<div class="bg-gray-900 text-white hidden h-0 sm:hidden transition-height duration-[2000ms]" id="mobile-menu"
-     :class="mobileMenuOpen ? '!block h-96' : 'hidden'"
-        {#       x-bind:class="{'!block' : mobileMenuOpen}" x-transition #}
->
-    <div class="space-y-1 px-2 pt-2 pb-3">
-        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="{{ path('app_home') }}"
-           class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
-           aria-current="page">Accueil</a>
-        <a href="{{ path('app_blog_index') }}"
-           class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Focus</a>
-        <a href="{{ path('app_contact') }}"
-           class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
-           aria-current="page">Contact</a>
-    </div>
-</div>
-</nav>
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="bg-gray-900 text-white hidden h-0 sm:hidden transition-height duration-[2000ms]" id="mobile-menu"
+             :class="mobileMenuOpen ? '!block h-96' : 'hidden'"
+                {#       x-bind:class="{'!block' : mobileMenuOpen}" x-transition #}
+        >
+            <div class="space-y-1 px-2 pt-2 pb-3">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <a href="{{ path('app_home') }}"
+                   class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+                   aria-current="page">Accueil</a>
+                <a href="{{ path('app_blog_index') }}"
+                   class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Focus</a>
+                <a href="{{ path('app_contact') }}"
+                   class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+                   aria-current="page">Contact</a>
+            </div>
+        </div>
+    </nav>
 </div>
