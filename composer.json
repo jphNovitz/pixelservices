@@ -18,6 +18,7 @@
         "sensio/framework-extra-bundle": "^6.1",
         "stof/doctrine-extensions-bundle": "^1.8",
         "symfony/asset": "6.4.*",
+        "symfony/brevo-mailer": "6.4.*",
         "symfony/cache": "6.4.*",
         "symfony/console": "6.4.*",
         "symfony/doctrine-messenger": "6.4.*",

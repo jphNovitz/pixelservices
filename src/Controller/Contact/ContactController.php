@@ -2,6 +2,7 @@
 
 namespace App\Controller\Contact;
 
+use App\Contract\SendMessageInterface;
 use App\Entity\Message;
 use App\Form\MessageType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -13,19 +14,26 @@ use Symfony\Component\Routing\Attribute\Route;
 class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'app_contact')]
-    public function index(Request $request, EntityManagerInterface $em): Response
+    public function index(Request $request, EntityManagerInterface $em, SendMessageInterface $sendMessage): Response
     {
-
         $message = new Message();
-        $message->setSeen(false);
 
         $form = $this->createForm(MessageType::class, $message);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $datas = $form->getData();
+            $message = new Message();
+            $message->setName($datas->getName());
+//            $message->setPhone($datas->getPhone());
+            $message->setEmail($datas->getEmail());
+            $message->setText($datas->getText());
             $em->persist($message);
             $em->flush();
+            $this->addFlash('success', 'Votre message a été envoyé.');
+
+            $sendMessage($datas->getEmail(),null , $datas->getText()); //phone removed
 
             $this->addFlash('success', 'Your message have been send');
             return $this->redirectToRoute('app_home');

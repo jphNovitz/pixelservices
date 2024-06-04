@@ -1,6 +1,6 @@
 <div class="w-full sticky top-0 z-10 bg-white ">
     <nav class="bg-transparent w-full md:max-w-6xl lg:max-w-7xl m-auto" x-data="{ mobileMenuOpen: false }">
-        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 grid grid-cols-12">
+        <div class="mx-auto max-w-7xl px-2 md:px-6 lg:px-8 grid grid-cols-12">
             <div class="relative flex h-16 items-center justify-between col-span-12 md:col-span-2">
                 <div class="absolute inset-y-0 left-0 flex items-center md:hidden">
                     <!-- Mobile menu button-->
@@ -37,11 +37,11 @@
                     </button>
                 </div>
                 <div class="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
-                    <div class="w-full h-20 inline-flex justify-center items-center">
+                    <div class="w-full h-20 inline-flex justify-center md:justify-start items-center">
                         {#                        <img class="block w-auto <!--lg:hidden-->" src="images/logos/pixelservices.webp" #}
                         {#                             alt="Pixel Services"> #}
                         {#          <img class="hidden h-8 w-auto lg:block" src="images/logos/pixelservices.webp" alt="Pixel Services"> #}
-                        <twig:Logo class="ml-20 md:ml-0"/>
+                        <twig:Logo class=""/>
                     </div>
                 </div>
             </div>
