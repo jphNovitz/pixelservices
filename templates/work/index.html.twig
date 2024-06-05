@@ -1,9 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello WorkController!{% endblock %}
+{% block title %} Liste non exhaustive des services proposé {% if works['general'] is defined %} {% for work in works['general'] %}{{ work.name }} {% if  not loop.last %},{% endif %} {% endfor %} {% endif %} | pixelservices.be{% endblock %}
+{% block og_title %}Liste non exhaustive des services proposé par Pixelservices.be {% if works['general'] is defined %}({% for work in works['general'] %}{{ work.name }} {% if  not loop.last %},{% endif %} {% endfor %}) {% endif %}{% endblock %}
+{#    {% block og_image %} #}
+{#        {% if work.image is defined  %} #}
+{#            {{ asset("images/work/"~work.image) }} {% endif %} #}
+{#    {% endblock %} #}
+{% block og_description %} Services: {% for work in works['front'] %}{{ work.name }} {% if  not loop.last %},{% endif %} {% endfor %} {% endblock %}
+{% block metas %}
+    <meta name="description"
+          content="  Services: {% for work in works['front'] %}{{ work.name }} {% if not loop.last %},{% endif %} {% endfor %} "/>
+{% endblock %}
 
 {% block body %}
-    <div class="w-full flex flex-col">
+<div class="w-full flex flex-col">
         <span class="inline-flex">
         <p class="inline">
             Que votre projet soit abouti ou juste une idée ou une envie, n'hésitez pas à me contacter pour toutes questions ou besoins en matière de création de site internet
@@ -18,29 +28,33 @@
         </p>
         </span>
 
-        {% if works['front'] is defined %}
-            <div class="w-max-screen py-12 flex flex-col lg:flex-row justify-around overflow-auto">
-                {% for work in works['front'] %}
-                    <div class="flex flex-col rounded-lg border border-gray-300 border-gray-400  hover:border-2  hover:shadow-xl hover:shadow-slate-700  hover:scale-105 p-6 lg:mx-6 my-6 lg:my-0 w-full lg:w-[30vw] lg:grow-[3] transition-transform">
-                        <h2 class="w-full py-6 text-center text-2xl font-bold">{{ work.name }}</h2>
+    {% if works['front'] is defined %}
+    {% if  works['front']|length < 2 %}
+    <div class="w-full md:max-w-md py-16 px-8 flex flex-col lg:flex-row justify-around overflow-auto m-auto">
+        {% else %}
+        <div class="w-full md:w-max-xl py-16 px-8 flex flex-col lg:flex-row justify-around overflow-auto m-auto">
+            {% endif %}
+            {% for work in works['front'] %}
+                <div class="flex flex-col rounded-lg border border-gray-300 border-gray-400  hover:border-2  hover:shadow-xl hover:shadow-slate-700  hover:scale-105 p-6 lg:mx-6 my-6 lg:my-0 w-full lg:w-[30vw] lg:grow-[3] transition-transform">
+                    <h2 class="w-full py-6 text-center text-2xl font-bold">{{ work.name }}</h2>
 
-                        <h3 class="w-full min-h-[9rem] lg:min-h-[18rem] py-6 text-center text-ellipsis overflow-hidden"> {{ work.description_short }} </h3>
+                    <h3 class="w-full min-h-[9rem] lg:min-h-[18rem] py-6 text-center text-ellipsis overflow-hidden"> {{ work.description_short }} </h3>
 
-                        {% if work.price %}
-                            <span class="w-full text-center text-3xl font-bold"> {{ work.price }} €</span>
-                        {% else %}
-                            <span>no</span>
-                        {% endif %}
+                    {% if work.price %}
+                        <span class="w-full text-center text-3xl font-bold"> {{ work.price }} €</span>
+                    {% else %}
+{#                        <span>no</span>#}
+                    {% endif %}
 
-                        <a href="{{ path('app.works.show', {'slug': work.slug}) }}"
-                           class="my-6 bg-indigo-600 text-indigo-50 font-bold rounded-lg p-3 text-center"
-                        >
-                            Plus d'infos
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
+                    <a href="{{ path('app.works.show', {'slug': work.slug}) }}"
+                       class="my-6 bg-indigo-600 text-indigo-50 font-bold rounded-lg p-3 text-center"
+                    >
+                        Plus d'infos
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
         {% endif %}
         <p>Vous pouvez commencer petit, il est possible d'évoluer mais vous devez y aller maintenant !</p>
     </div>
-{% endblock %}
+    {% endblock %}
