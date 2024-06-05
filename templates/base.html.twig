@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:og="»http://ogp.me/ns#" lang="fr">
+<html xmlns:og="http://ogp.me/ns#" lang="fr_BE">
 <head>
 
     {# <meta http-equiv="Cache-control" content="public">
@@ -30,7 +30,7 @@
 
     <meta name="copyright" content="Novitz Jean-Philippe / Pixel Services"/>
     <meta name="robots" content="index,follow"/>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+{#    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.0/dist/cdn.min.js"></script>#}
     <link
             rel="icon"
             href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
@@ -46,27 +46,20 @@
 <body class="bg-slate-50 min-h-screen  text-lg">
 {% include '_partials/_navbar.html.twig' %}
 <div class="w-full p-2 md:p-6 lg:p-8 md:max-w-6xl lg:max-w-7xl align-self-center min-h-screen  m-auto">
-    {% if app.request.get('_route') == 'app_home' %}
-    <div class="bg-hero-mobile md:bg-hero-md bg-cover bg-center absolute top-0 left-0 right-0 w-full h-2/3">
-    </div>
-        {% endif %}
-        {% for message in app.flashes('success') %}
-            <div class="w-full bg-green-800 text-green-50 p-6">
-                {{ message|trans }}
-                {{ message|trans }}
-            </div>
-        {% endfor %}
-        {# <div class="isolate px-6 pt-6 lg:px-8"> #}
-{#        {% if app.request.get('_route') == 'app_home' %}#}
-{#        {% include '_partials/_home_cta.html.twig' %}#}
-{#    </div>#}
-{#    {% endif %}#}
-{#    <div class="w-full p-3   md:p-12  lg:max-w-7xl align-self-center">#}
-        {% block body %}{% endblock %}
-{#    </div>#}
+
+    {% for message in app.flashes('success') %}
+        <div class="absolute top-16 left-1 right-1 bg-green-600/90  text-white px-8 py-4">
+            {{ message|trans }}
+        </div>
+    {% endfor %}
+
+    {% block body %}{% endblock %}
+
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
+
     {% endblock %}
+
 </div>
 {% include '_partials/_footer.html.twig' %}
 </body>

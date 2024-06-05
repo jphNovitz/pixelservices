@@ -31,6 +31,7 @@
         "@headlessui/vue": "^1.7.4",
         "@heroicons/vue": "^2.0.13",
         "@vue/compiler-sfc": "^3.2.45",
+        "alpinejs": "^3.14.0",
         "vue": "^3.2.36"
     }
 }

@@ -36,7 +36,7 @@ class ContactController extends AbstractController
             $sendMessage($datas->getEmail(),null , $datas->getText()); //phone removed
 
             $this->addFlash('success', 'Your message have been send');
-            return $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('app_contact');
         }
 
         $response = $this->render('contact/index.html.twig', [
@@ -60,16 +60,11 @@ class ContactController extends AbstractController
             's_maxage'         => 7884000,
             'immutable'        => true,
             'last_modified'    => new \DateTime(),
-//            'etag'             => 'abcdef'
         ]);
 
         // (optional) set a custom Cache-Control directive
         $response->headers->addCacheControlDirective('must-revalidate', true);
 
         return $response;
-
-        // return $this->render('home/index.html.twig', [
-        //     'form' => $form->createView(),
-        // ]);
     }
 }

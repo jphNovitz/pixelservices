@@ -10,19 +10,23 @@ import './styles/app.css';
 
 // start the Stimulus application
 import './bootstrap';
+import Alpine from 'alpinejs'
 
+window.Alpine = Alpine
+
+Alpine.start()
 import Vue from 'vue'
-import { createApp } from 'vue'
+// import { createApp } from 'vue'
 // import Hero from './js/components/hero.vue'
 
 // const app = createApp({
 //     el: "#app",
 //     components: { Hero }   
 //   })
-const app = createApp({
-    // components: {
-    //     Hero
-    // }
-});
-
-app.mount("#app");
+// const app = createApp({
+//     // components: {
+//     //     Hero
+//     // }
+// });
+//
+// app.mount("#app");
