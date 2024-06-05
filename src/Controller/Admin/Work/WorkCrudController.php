@@ -48,7 +48,13 @@ class WorkCrudController extends AbstractCrudController
 //            IdField::new('id'),
             TextField::new('name', new TranslatableMessage('Name')),
             TextField::new('description_short', new TranslatableMessage('Description_short')),
-            TextEditorField::new('description_long', new TranslatableMessage('Description_long')),
+            TextEditorField::new('description_long', new TranslatableMessage('Description_long'))
+                ->setTrixEditorConfig([
+                    'blockAttributes' => [
+                        'default' => ['tagName' => 'p'],
+                        'heading1' => ['tagName' => 'h3']
+                    ]
+                ]),
             IntegerField::new('price', new TranslatableMessage('Price')),
             BooleanField::new('active', new TranslatableMessage('Active')),
             BooleanField::new('front', new TranslatableMessage('Front')),

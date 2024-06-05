@@ -55,6 +55,16 @@
                        aria-current="page">
                         Accueil
                     </a>
+
+
+                    <a href="{{ path('app_works_list') }}"
+                       class=" px-3 py-2  font-semibold
+                {% if (app.request.get('_route') == 'app_works_list') %}  border-b-2  border-indigo-400 font-black  {% endif %}
+                "
+                       aria-current="page">
+                        Offres
+                    </a>
+
                     <a href="{{ path('app_blog_index') }}"
                        class=" px-3 py-2  font-semibold
                 {% if (app.request.get('_route') == 'app_blog_index') %}  border-b-2  border-indigo-400 font-black  {% endif %}
@@ -62,15 +72,9 @@
                        aria-current="page">
                         Focus
                     </a>
-                    {#                        <a href="{{ path('app_contact') }}" #}
-                    {#                           class=" px-3 py-2   font-semibold #}
-                    {#                {% if (app.request.get('_route') == 'app_contact') %}  border-b-2  border-indigo-400 font-black   {% endif %} #}
-                    {#                " #}
-                    {#                           aria-current="page"> #}
-                    {#                            Contact #}
-                    {#                        </a> #}
                 </div>
             </div>
+
             <div class="col-span-2 hidden md:inline-flex justify-center items-center">
                 <a href="{{ path('app_contact') }}" class="border-2 border-gray-800 rounded-full px-4 py-2">
                     Contact </a>
@@ -87,8 +91,14 @@
                 <a href="{{ path('app_home') }}"
                    class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
                    aria-current="page">Accueil</a>
+
                 <a href="{{ path('app_blog_index') }}"
                    class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Focus</a>
+
+                <a href="{{ path('app_works_list') }}"
+                   class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+                   aria-current="page">Offres</a>
+
                 <a href="{{ path('app_contact') }}"
                    class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
                    aria-current="page">Contact</a>

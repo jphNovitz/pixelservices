@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class WorkController extends AbstractController
 {
-    #[Route('/services', name: 'app.works.list')]
+    #[Route('/services', name: 'app_works_list')]
     public function index(WorkRepository $workRepository): Response
     {
         foreach ($workRepository->findAll() as $item){

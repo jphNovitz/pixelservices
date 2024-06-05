@@ -5,10 +5,17 @@
 {% block body %}
     <div class="w-full h-full flex flex-col justify-around  md:w-2/3 m-auto">
 
-        <twig:Title:H1 class="pb-16 text-center border-b border-indigo-800"> {{ work.name }} </twig:Title:H1>
+        <twig:Title:H1 class="my-16 pb-16 text-center border-b border-indigo-800"> {{ work.name }} </twig:Title:H1>
 
         <div class="leading-loose">
             {{ work.descriptionLong|raw }}
+        </div>
+
+        <div class="my-16">
+            <a href="{{ path('app_contact') }}"
+               class="inline-flex items-center justify-center rounded-full bg-indigo-600 px-4 py-2 text-base font-bold leading-7 text-white shadow-sm ring-2 ring-indigo-800 hover:font-black hover:text-indigo-900 hover:bg-indigo-100 hover:ring-indigo-900">
+                <span class="capitalize">Je veux {{ work.name }}</span>
+            </a>
         </div>
     </div>
 {% endblock %}
