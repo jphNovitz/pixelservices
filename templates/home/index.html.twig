@@ -13,11 +13,12 @@
 
     <div class="w-full md:max-w-3xl lg:max-w-4xl m-auto">
         {% for article in pinned %}
-            {{ component('Article', {
+        <twig:Blog:Article title="{{ article.title }}" content="{{ article.content }}" home="true"/>
+            {# {{ component('Article', {
                 'title' : article.title,
                 'content' : article.content,
                 'home': true
-            }) }}
+            }) }} #}
         {% endfor %}
     </div>
 
