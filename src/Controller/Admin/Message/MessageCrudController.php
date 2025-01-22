@@ -16,13 +16,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 class MessageCrudController extends AbstractCrudController
 {
 
-    // private $adminUrlGenerator;
-
-    public function __construct(private AdminUrlGenerator $adminUrlGenerator)
-    {
-        // $this->adminUrlGenerator = $adminUrlGenerator;
-    }
-
     public static function getEntityFqcn(): string
     {
         return Message::class;
