@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ project.title }}
+{% endblock %}
+
+{% block body %}
+    <div class="project-page">
+        <!-- Titre principal -->
+        <h1 class="text-3xl font-bold mb-4">{{ project.title }}</h1>
+
+        <!-- Catégories et Technologies -->
+        <div class="flex flex-wrap gap-2 mb-4">
+            {% if project.category %}
+                <span class="bg-blue-500 text-white text-sm px-3 py-1 rounded">{{ project.category.name }}</span>
+            {% endif %}
+            {% for technology in project.technologies %}
+                <span class="bg-green-500 text-grey-900 text-sm px-3 py-1 rounded">{{ technology.name }}</span>
+            {% endfor %}
+        </div>
+
+        <!-- Header -->
+        {% if project.header %}
+            <p class="text-lg mb-6">{{ project.header }}</p>
+        {% endif %}
+
+        <!-- Image placeholder -->
+        <div class="image-placeholder bg-gray-200 h-64 flex items-center justify-center mb-6">
+            <p class="text-gray-500">Image placeholder</p>
+        </div>
+
+        <!-- Corps du texte -->
+        <div class="content mb-6 text-base">
+            {{ project.description | raw }}
+        </div>
+
+        <!-- Tags, Role et Lien -->
+        <div class="additional-info">
+            <!-- Tags -->
+            <div class="tags flex flex-wrap gap-2 mb-4">
+                {% for tag in project.tags %}
+                    <span class="bg-yellow-500 text-grey-900 text-sm px-3 py-1 rounded">{{ tag.name }}</span>
+                {% endfor %}
+            </div>
+
+            <!-- Rôle -->
+            {% if project.role %}
+                <div class="role mb-4">
+                    <strong>Role:</strong> {{ project.role.name }}
+                </div>
+            {% endif %}
+
+            <!-- Lien -->
+            {% if project.link %}
+                <div class="link">
+                    <a href="{{ project.link }}" target="_blank" class="text-blue-700 underline">Visitez {{ project.title }}</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
