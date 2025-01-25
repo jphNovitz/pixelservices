@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 final class ProjectController extends AbstractController
 {
-    #[Route('/realisations/', name: 'app_project_list')]
+    #[Route('/realisations', name: 'app_project_list')]
     public function index(ProjectRepository $projectRepository): Response
     {
         $projects = $projectRepository->findAll();
