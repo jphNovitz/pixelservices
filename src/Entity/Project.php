@@ -21,7 +21,7 @@ class Project
 
 
     #[ORM\Column(length: 255, unique: true)]
-    #[Gedmo\Slug(fields: ['title'])]
+    #[Gedmo\Slug(fields: ['title'], updatable: true, unique: true)]
     private ?string $slug = null;
     #[ORM\Column(type: 'text', nullable: true)]
     private ?string $header = null;
