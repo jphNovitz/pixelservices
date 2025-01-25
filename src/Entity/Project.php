@@ -19,6 +19,7 @@ class Project
     #[ORM\Column(type: 'string', length: 255)]
     private string $title;
 
+
     #[ORM\Column(length: 255, unique: true)]
     #[Gedmo\Slug(fields: ['title'])]
     private ?string $slug = null;
