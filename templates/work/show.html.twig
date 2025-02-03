@@ -21,13 +21,16 @@
         </div>
 
         <div class="my-16">
+            {% if work.demoUrl is not null %}
             {#            <a href="{{ path('app_contact') }}"#}
-            <a href="https://landing-page.pixelservices.be/"
+            <a href="{{ work.demoUrl }}"
                title="voir la demo d'une landinf page"
                class="inline-flex items-center justify-center rounded-full bg-indigo-600 px-4 py-2 text-base font-bold leading-7 text-white shadow-sm ring-2 ring-indigo-800 hover:font-black hover:text-indigo-900 hover:bg-indigo-100 hover:ring-indigo-900">
                 <span class="capitalize">Voir la demo</span>
 {#                <span class="capitalize">Je veux {{ work.name }}</span>#}
             </a>
+            {% endif %}
         </div>
+
     </div>
 {% endblock %}

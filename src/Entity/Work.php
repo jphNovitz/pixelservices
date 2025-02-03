@@ -56,6 +56,10 @@ class Work
     #[ORM\Column]
     private ?bool $front = false;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $demoUrl = null;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -177,6 +181,18 @@ class Work
     public function setFront(bool $front): self
     {
         $this->front = $front;
+
+        return $this;
+    }
+
+    public function getDemoUrl(): ?string
+    {
+        return $this->demoUrl;
+    }
+
+    public function setDemoUrl(?string $demoUrl): static
+    {
+        $this->demoUrl = $demoUrl;
 
         return $this;
     }

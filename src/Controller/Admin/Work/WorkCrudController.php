@@ -60,7 +60,8 @@ class WorkCrudController extends AbstractCrudController
             BooleanField::new('front', new TranslatableMessage('Front')),
             ImageField::new('image', new TranslatableMessage('Image'))
                 ->setUploadDir('public/images/work/')
-                ->setBasePath('public/images/work/')
+                ->setBasePath('public/images/work/'),
+            TextField::new('demoUrl', new TranslatableMessage('DemoUrl')),
                 
         ];
     }

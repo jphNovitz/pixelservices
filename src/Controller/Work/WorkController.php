@@ -29,7 +29,6 @@ class WorkController extends AbstractController
     #[Route('/service/{slug}', name: 'app.works.show')]
     public function show(?Work $work): Response
     {
-
         return $this->render('work/show.html.twig', [
             'work' => $work,
         ]);
