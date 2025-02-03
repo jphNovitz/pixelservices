@@ -44,7 +44,7 @@ class WorkRepository extends ServiceEntityRepository
     public function findAll(): array
     {
         return $this->createQueryBuilder('w')
-            ->orderBy('w.id', 'ASC')
+            ->orderBy('w.price', 'ASC')
             ->where('w.active = true')
 //            ->setParameter('cond', true)
             ->getQuery()

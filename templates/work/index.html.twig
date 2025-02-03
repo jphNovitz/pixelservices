@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Liste non exhaustive des services proposé {% if works['general'] is defined %} {% for work in works['general'] %}{{ work.name }} {% if  not loop.last %},{% endif %} {% endfor %} {% endif %} | pixelservices.be{% endblock %}
-{% block og_title %}Liste non exhaustive des services proposé par Pixelservices.be {% if works['general'] is defined %}({% for work in works['general'] %}{{ work.name }} {% if  not loop.last %},{% endif %} {% endfor %}) {% endif %}{% endblock %}
+{% block title %} Découvrez mes services pour booster votre présence en ligne{% if works['general'] is defined %} {% for work in works['general'] %}{{ work.name }} {% if  not loop.last %},{% endif %} {% endfor %} {% endif %} | pixelservices.be{% endblock %}
+{% block og_title %}Découvrez mes services pour booster votre présence en ligne {% if works['general'] is defined %}({% for work in works['general'] %}{{ work.name }} {% if  not loop.last %},{% endif %} {% endfor %}) {% endif %}{% endblock %}
 {#    {% block og_image %} #}
 {#        {% if work.image is defined  %} #}
 {#            {{ asset("images/work/"~work.image) }} {% endif %} #}
@@ -13,48 +13,106 @@
 {% endblock %}
 
 {% block body %}
-<div class="w-full flex flex-col">
-        <span class="inline-flex">
-        <p class="inline">
-            Que votre projet soit abouti ou juste une idée ou une envie, n'hésitez pas à me contacter pour toutes questions ou besoins en matière de création de site internet
-            {% if works['general'] is defined %}
-                {% for work in works['general'] %}
-                    <a href="{{ path('app.works.show', {'slug': work.slug}) }}"
-                       class="inline lowercase text-indigo-600 font-bold hover:underline  first:before:content-[','] after:content-[','] last:after:content-['.']">
-                        {{ work.name }}</a>
-                {% endfor %}
-            {% else %}<i class="-ml-1">.</i>
-            {% endif %}
-        </p>
-        </span>
 
-    {% if works['front'] is defined %}
-    {% if  works['front']|length < 2 %}
-    <div class="w-full md:max-w-md py-16 px-8 flex flex-col lg:flex-row justify-around overflow-auto m-auto">
-        {% else %}
-        <div class="w-full md:w-max-xl py-16 px-8 flex flex-col lg:flex-row justify-around overflow-auto m-auto">
-            {% endif %}
-            {% for work in works['front'] %}
-                <div class="flex flex-col rounded-lg border border-gray-300 border-gray-400  hover:border-2  hover:shadow-xl hover:shadow-slate-700  hover:scale-105 p-6 lg:mx-6 my-6 lg:my-0 w-full lg:w-[30vw] lg:grow-[3] transition-transform">
-                    <h2 class="w-full py-6 text-center text-2xl font-bold">{{ work.name }}</h2>
+    <section class="bg-white dark:bg-gray-900">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+            <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
+                <h1 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Pixelservices: Des
+                    <span class="text-indigo-600">solutions web</span> adaptées à vos besoins</h1>
+                <h2 class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400"> Que vous soyez indépendant ou
+                    entreprise, je vous accompagne pour concrétiser vos <span class="border-b-2 border-indigo-600"> projets numériques</span>.
+                </h2>
+            </div>
 
-                    <h3 class="w-full min-h-[9rem] lg:min-h-[18rem] py-6 text-center text-ellipsis overflow-hidden"> {{ work.description_short }} </h3>
-
-                    {% if work.price %}
-                        <span class="w-full text-center text-3xl font-bold"> {{ work.price }} €</span>
-                    {% else %}
-{#                        <span>no</span>#}
-                    {% endif %}
-
-                    <a href="{{ path('app.works.show', {'slug': work.slug}) }}"
-                       class="my-6 bg-indigo-600 text-indigo-50 font-bold rounded-lg p-3 text-center"
-                    >
-                        Plus d'infos
-                    </a>
+            {% if works['front'] is defined %}
+                <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+                    {% for work in works['front'] %}
+                        <!-- Pricing Card -->
+                        <div class="flex flex-col justify-between p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                            <h3 class="mb-4 text-2xl font-semibold text-left">{{ work.name }}</h3>
+                            <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400 text-balance text-left"> {{ work.description_short }}</p>
+                            {% if work.price is not null %}
+                                <div class="flex justify-center items-baseline my-8">
+                                    <span class="mr-2 text-5xl font-extrabold">{{ work.price }} €</span>
+                                </div>
+                            {% endif %}
+                            <!-- List -->
+                            {# <!--                       --> <ul role="list" class="mb-8 space-y-4 text-left"> #}
+                            {#                            <li class="flex items-center space-x-3"> #}
+                            {#                                <!-- Icon --> #}
+                            {#                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" #}
+                            {#                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> #}
+                            {#                                    <path fill-rule="evenodd" #}
+                            {#                                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" #}
+                            {#                                          clip-rule="evenodd"></path> #}
+                            {#                                </svg> #}
+                            {#                                <span>Individual configuration</span> #}
+                            {#                            </li> #}
+                            {#                            <li class="flex items-center space-x-3"> #}
+                            {#                                <!-- Icon --> #}
+                            {#                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" #}
+                            {#                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> #}
+                            {#                                    <path fill-rule="evenodd" #}
+                            {#                                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" #}
+                            {#                                          clip-rule="evenodd"></path> #}
+                            {#                                </svg> #}
+                            {#                                <span>No setup, or hidden fees</span> #}
+                            {#                            </li> #}
+                            {#                            <li class="flex items-center space-x-3"> #}
+                            {#                                <!-- Icon --> #}
+                            {#                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" #}
+                            {#                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> #}
+                            {#                                    <path fill-rule="evenodd" #}
+                            {#                                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" #}
+                            {#                                          clip-rule="evenodd"></path> #}
+                            {#                                </svg> #}
+                            {#                                <span>Team size: <span class="font-semibold">1 developer</span></span> #}
+                            {#                            </li> #}
+                            {#                            <li class="flex items-center space-x-3"> #}
+                            {#                                <!-- Icon --> #}
+                            {#                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" #}
+                            {#                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> #}
+                            {#                                    <path fill-rule="evenodd" #}
+                            {#                                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" #}
+                            {#                                          clip-rule="evenodd"></path> #}
+                            {#                                </svg> #}
+                            {#                                <span>Premium support: <span class="font-semibold">6 months</span></span> #}
+                            {#                            </li> #}
+                            {#                            <li class="flex items-center space-x-3"> #}
+                            {#                                <!-- Icon --> #}
+                            {#                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" #}
+                            {#                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> #}
+                            {#                                    <path fill-rule="evenodd" #}
+                            {#                                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" #}
+                            {#                                          clip-rule="evenodd"></path> #}
+                            {#                                </svg> #}
+                            {#                                <span>Free updates: <span class="font-semibold">6 months</span></span> #}
+                            {#                            </li> #}
+                            {#                        </ul> #}
+                            <a href="#"
+                               class="text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">
+                                Get started</a>
+                        </div>
+                    {% endfor %}
                 </div>
-            {% endfor %}
+            {% endif %}
         </div>
-        {% endif %}
-        <p>Vous pouvez commencer petit, il est possible d'évoluer mais vous devez y aller maintenant !</p>
+    </section>
+
+
+    <div class="w-full px-4 md:px-16 lg:px-24 py-8 md:py-16 lg:py-24 bg-gray-100 dark:bg-gray-900">
+        <h3 class="font-semibold mb-8">Passez à un site sur mesure</h3>
+        <p class="inline">
+            Que votre projet soit abouti ou juste une idée ou une envie, n’hésitez pas à me contacter pour toutes questions ou
+            besoins en matière de création de site internet. Vous avez décidé de passer à un site sur mesure ?
+        </p>
+        <p>
+            Qu’il s’agisse d’une boutique e-commerce ou d’une plateforme répondant à des besoins spécifiques, je propose des solutions adaptées
+            pour concrétiser votre vision.
+        </p>
+
+        <p class="italic">Vous pouvez commencer petit, il est possible d'évoluer mais vous devez y aller maintenant !</p>
+
+        <p>Contact via notre <a href="{{ path('app_contact') }}" class="text-indigo-700">la page contact</a> ou par email <a href="mailto:info@pixelservices.be" class="text-indigo-700">info@pixelservices.be</a></p>
     </div>
-    {% endblock %}
+{% endblock %}
