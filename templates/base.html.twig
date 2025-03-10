@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:og="http://ogp.me/ns#" lang="fr_BE">
 <head>
-
-    {# <meta http-equiv="Cache-control" content="public">
-																																																								<META HTTP-EQUIV="max-age" CONTENT="31536000"> #}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
-    <title>
-        {% block title %}
-            Pixel Services Crée votre site internet
-        {% endblock %}
-    </title>
-    <meta property="og:title" content="{% block og_title %}Pixel Services Crée votre site internet {% endblock %}"/>
+    <title> {% block title %} Création de site web personnalisé | Pixel Services {% endblock %}  </title>
+    {% block metas %}
+        <meta name="description"
+              content="Pixel Services aide les indépendants, commerçants et associations à lancer leur présence en ligne facilement, même sans aucune connaissance technique préalable. Prix abordables"/>
+    {% endblock %}
+    <meta name="author" content="Novitz Jean-Philippe <novitz@gmail.com>"/>
+
+    <meta name="copyright" content="Novitz Jean-Philippe / Pixel Services"/>
+    <meta name="robots" content="index,follow"/>
+
+    <meta property="og:title" content="{% block og_title %}Votre site web sur mesure, accompagné de A à Z par Pixel Services {% endblock %}"/>
     <meta property="og:type" content="{% block og_type %}article {% endblock %}"/>
     <meta property="og:url" content="{% block og_url %}{{ app.request.uri }} {% endblock %}"/>
     <meta property="og:image"
@@ -20,16 +22,8 @@
     <meta property="og:site_name" content="{% block og_site_name %}Pixel Services {% endblock %}"/>
     <meta property="og:locale" content="{% block og_locale %}fr_BE{% endblock %}"/>
     <meta property="og:description"
-          content="{% block og_description %}Réalisation de sites internet pour les indépendants, commercant et associations. Je vous aider sur vos projets actuels ou historiques. Prix abordables {% endblock %}"/>
-    {% block metas %}
-        <meta name="description"
-              content="Réalisation de sites internet pour les indépendants, commercant et associations. Je vous aider sur vos projets actuels ou historiques. Prix abordables "/>
-        <meta name="keywords" content="site web, ecommerce, vitrine, site vitrine, wp, wordpress, wix"/>
-    {% endblock %}
-    <meta name="author" content="Novitz Jean-Philippe <novitz@gmail.com>"/>
+          content="{% block og_description %}Vous souhaitez lancer votre site web mais vous ne savez pas par où commencer ? Pixel Services vous accompagne pas à pas vers votre réussite en ligne. {% endblock %}"/>
 
-    <meta name="copyright" content="Novitz Jean-Philippe / Pixel Services"/>
-    <meta name="robots" content="index,follow"/>
 {#    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.0/dist/cdn.min.js"></script>#}
     <link
             rel="icon"
