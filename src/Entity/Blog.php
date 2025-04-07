@@ -47,6 +47,9 @@ class Blog
     #[Gedmo\Slug(fields: ['title'])]
     private ?string $slug = null;
 
+    #[ORM\ManyToOne(inversedBy: 'articles')]
+    private ?Topic $category = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -132,6 +135,18 @@ class Blog
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Topic
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Topic $category): static
+    {
+        $this->category = $category;
 
         return $this;
     }
