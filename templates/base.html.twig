@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:og="http://ogp.me/ns#" lang="fr_BE">
+<html lang="fr_BE">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -13,7 +13,7 @@
     <meta name="author" content="Novitz Jean-Philippe <novitz@gmail.com>"/>
 
     <meta name="copyright" content="Novitz Jean-Philippe / Pixel Services"/>
-    <meta name="robots" content="index,follow"/>
+    {% block follow %} <meta name="robots" content="index,follow"/> {% endblock %}
 
     <meta property="og:title" content="{% block og_title %}Votre site web sur mesure, accompagné de A à Z par Pixel Services {% endblock %}"/>
     <meta property="og:type" content="{% block og_type %}article {% endblock %}"/>

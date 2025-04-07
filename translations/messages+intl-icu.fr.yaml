@@ -18,3 +18,9 @@ Active: Actif
 
 get_started: "Plus d'infos"
 
+
+form:
+  username: "Nom d'utilisateur"
+  username.placeholder: "Nom d'utilisateur ou email"
+  password: "Mot de passe"
+  login: "Connexion"
