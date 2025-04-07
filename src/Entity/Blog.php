@@ -37,18 +37,12 @@ class Blog
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $summary = null;
 
-    /**
-     * @var string|null
-     *
-     * @Gedmo\Slug(fields={"title", "code"})
-     * @ORM\Column(length=255, unique=true)
-     */
     #[ORM\Column(length: 255, unique: true)]
     #[Gedmo\Slug(fields: ['title'])]
     private ?string $slug = null;
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
-    private ?Topic $category = null;
+    private ?Topic $topic = null;
 
     public function getId(): ?int
     {
@@ -139,15 +133,17 @@ class Blog
         return $this;
     }
 
-    public function getCategory(): ?Topic
+    public function getTopic(): ?Topic
     {
-        return $this->category;
+        return $this->topic;
     }
 
-    public function setCategory(?Topic $category): static
+    public function setTopic(?Topic $topic): static
     {
-        $this->category = $category;
+        $this->topic = $topic;
 
         return $this;
     }
+
+
 }

@@ -21,7 +21,7 @@ class Topic
     /**
      * @var Collection<int, Blog>
      */
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Blog::class)]
+    #[ORM\OneToMany(mappedBy: 'topic', targetEntity: Blog::class)]
     private Collection $articles;
 
     public function __construct()
@@ -58,7 +58,7 @@ class Topic
     {
         if (!$this->articles->contains($article)) {
             $this->articles->add($article);
-            $article->setCategory($this);
+            $article->setTopic($this);
         }
 
         return $this;
@@ -68,8 +68,8 @@ class Topic
     {
         if ($this->articles->removeElement($article)) {
             // set the owning side to null (unless already changed)
-            if ($article->getCategory() === $this) {
-                $article->setCategory(null);
+            if ($article->getTopic() === $this) {
+                $article->setTopic(null);
             }
         }
 
