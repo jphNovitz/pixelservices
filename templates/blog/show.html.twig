@@ -2,7 +2,7 @@
 
 {% block title %}{{ post.title }} | pixelservices.be{% endblock %}
 {% block og_title %}{{ post.title }} | pixelservices.be {% endblock %}
-{% block og_image %}{{ asset("images/blog/"~image_url) }}{% endblock %}
+{% block og_image %}{{ asset("images/blog/"~post.image) }}{% endblock %}
 {% block og_description %} {{ post.summary}} {% endblock %}
 {% block metas %}
     <meta name="description"
