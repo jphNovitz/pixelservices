@@ -17,11 +17,13 @@
         'summary': post.summary,
         'content' : post.content,
         'image_url' : post.image,
-        'image_alt' : post.title
+        'image_alt' : post.title,
+        'home' :  app.request.pathinfo == '/'
+
     }) }}
 
 
-    {{ component('Button', {
+    {{ component('Button:Button', {
         href: path('app_blog_index'),
         label: 'Focus'
     }) }}
