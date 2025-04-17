@@ -1,14 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ topic.title }} | pixelservices.be{% endblock %}
-{% block og_title %}{{ topic.title }} | pixelservices.be {% endblock %}
-{% block og_image %}{{ asset("images/blog/"~topic.image) }}{% endblock %}
-{% block og_description %} {{ topic.title}} {% endblock %}
+{% block title %}{{ topic.title }} | Le web du BW{% endblock %}
+
 {% block metas %}
     <meta name="description"
           content=" {{ topic.title}}"/>
     <meta name="keywords" content="site web, ecommerce, vitrine, site vitrine, wp, wordpress, wix"/>
 {% endblock %}
+{% block og_title %}{{ topic.title}}{% endblock %}"/>
+{% block og_image %}{{ asset("images/topic/"~image) }} {% endblock %}"/>
+{% block og_image_alt %}{{ topic.title }} | Le web du BW {% endblock %}"/>
+{% block og_description %}{{ topic.title }}{% endblock %}
+
+
+<meta name="twitter:title" content="{% block twitter_title %}{{ topic.title }} | Le web du BW{% endblock %}">
+<meta name="twitter:description" content="{% block twitter_description %}{{ topic.title }} | Le web du BW{% endblock %}">
+<meta name="twitter:image" content="{% block twitter_image %}{{ asset("images/topic"~image) }} {% endblock %}">
+<meta name="twitter:image:alt" content="{% block twitter_image_alt %}{{ topic.title }} | Le web du BW{% endblock %}">
+
+
 
 {% block body %}
 
