@@ -30,7 +30,7 @@
         {% if image_url is not empty %}
             <figure class="w-full text-center">
                 <img class="w-full  md:w-3/4 h-auto  mx-auto  my-8  rounded-lg shadow-md"
-                     src="{{ asset("images/blog/"~image_url) }}"
+                     src="{{ asset("images/"~image_url) }}"
                         {% if image_alt is not empty %}
                             alt="{{ image_alt }}"
                         {% else %}

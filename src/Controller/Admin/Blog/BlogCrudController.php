@@ -68,7 +68,7 @@ class BlogCrudController extends AbstractCrudController
             AssociationField::new('topic', new TranslatableMessage('Topic'))
                 ->setRequired(true)
                 ->setColumns(12)
-                ->setFormTypeOption('choice_label', 'name')
+                ->setFormTypeOption('choice_label', 'title')
                 ->setFormTypeOption('placeholder', 'Select a topic'),
 
         ];
