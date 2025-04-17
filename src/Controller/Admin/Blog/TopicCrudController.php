@@ -22,6 +22,7 @@ class TopicCrudController extends AbstractCrudController
     {
         return [
             TextField::new('title'),
+            TextField::new('summary')->setColumns('20'),
             TextEditorField::new('content')->setTrixEditorConfig([
                 'blockAttributes' => [
                     'default' => ['tagName' => 'p'],
