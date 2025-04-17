@@ -11,6 +11,7 @@ use App\Entity\Project;
 use App\Entity\Role;
 use App\Entity\Tag;
 use App\Entity\Technology;
+use App\Entity\Topic;
 use App\Entity\Work;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -55,14 +56,18 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
 //        yield MenuItem::linkToMessage('Messages', 'fa fa-envelope');
-         yield MenuItem::linkToCrud('Messages', 'fas fa-envelope', Message::class);
-         yield MenuItem::linkToCrud('Services', 'fas fa-envelope', Work::class);
-         yield MenuItem::linkToCrud('Blog', 'fas fa-blog', Blog::class);
-         yield MenuItem::linkToCrud('Projects', 'fas fa-tasks', Project::class);
-         yield MenuItem::linkToCrud('Technologies', 'fas fa-microchip', Technology::class);
-         yield MenuItem::linkToCrud('Tags', 'fas fa-tags', Tag::class);
-         yield MenuItem::linkToCrud('Categories', 'fas fa-layer-group', Category::class);
-         yield MenuItem::linkToCrud('Roles', 'fas fa-user-tie', Role::class);
+        yield MenuItem::linkToCrud('Messages', 'fas fa-envelope', Message::class);
+        yield MenuItem::linkToCrud('Services', 'fas fa-envelope', Work::class);
+        yield MenuItem::submenu('Blog', 'fas fa-blog')
+        ->setSubItems([
+            MenuItem::linkToCrud('Blog', 'fas fa-blog', Blog::class),
+            MenuItem::linkToCrud('Topic', 'fas fa-blog', Topic::class),
+        ]);
+        yield MenuItem::linkToCrud('Projects', 'fas fa-tasks', Project::class);
+        yield MenuItem::linkToCrud('Technologies', 'fas fa-microchip', Technology::class);
+        yield MenuItem::linkToCrud('Tags', 'fas fa-tags', Tag::class);
+        yield MenuItem::linkToCrud('Categories', 'fas fa-layer-group', Category::class);
+        yield MenuItem::linkToCrud('Roles', 'fas fa-user-tie', Role::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }

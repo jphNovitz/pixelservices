@@ -3,6 +3,8 @@
 namespace App\Controller\Blog;
 
 use App\Entity\Blog;
+use App\Entity\Topic;
+use App\Repository\TopicRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,7 +15,10 @@ use Symfony\Component\Routing\Annotation\Route;
 class BlogController extends AbstractController
 {
     #[Route('/focus', name: 'app_blog_index')]
-    public function index(EntityManagerInterface $entityManager, PaginatorInterface $paginator, Request $request): Response
+    public function index(EntityManagerInterface $entityManager,
+                          PaginatorInterface $paginator,
+                          TopicRepository $topicRepository,
+                          Request $request): Response
     {
         $posts = $paginator->paginate(
             $entityManager->getRepository(Blog::class)->findAllQuery(),
@@ -23,15 +28,24 @@ class BlogController extends AbstractController
 
         return $this->render('blog/index.html.twig', [
             'posts' => $posts,
+            'topics' => $topicRepository->findAll(),
         ]);
     }
+
 
     #[Route('/focus-sur/{slug}', name: 'app_blog_show')]
     public function show(Blog $post): Response
     {
-
         return $this->render('blog/show.html.twig', [
             'post' => $post,
         ]);
     }
+    #[Route('/topic/{slug}', name: 'app_topic_show')]
+    public function showTopic(Topic $topic): Response
+    {
+        return $this->render('blog/topic/show.html.twig', [
+            'topic' => $topic,
+        ]);
+    }
+
 }

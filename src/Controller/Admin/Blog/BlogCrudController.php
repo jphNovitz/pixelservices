@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -63,7 +64,12 @@ class BlogCrudController extends AbstractCrudController
             BooleanField::new('published', new TranslatableMessage('Published')),
             ImageField::new('image', new TranslatableMessage('Image'))
                 ->setUploadDir('public/images/blog/')
-                ->setBasePath('public/images/blog/')
+                ->setBasePath('public/images/blog/'),
+            AssociationField::new('topic', new TranslatableMessage('Topic'))
+                ->setRequired(true)
+                ->setColumns(12)
+                ->setFormTypeOption('choice_label', 'name')
+                ->setFormTypeOption('placeholder', 'Select a topic'),
 
         ];
     }
