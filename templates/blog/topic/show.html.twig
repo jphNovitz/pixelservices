@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ topic.title }} | Le web du BW{% endblock %}
-
 {% block metas %}
     <meta name="description"
           content=" {{ topic.title}}"/>
@@ -11,12 +10,10 @@
 {% block og_image %}{{ asset("images/topic/"~image) }} {% endblock %}
 {% block og_image_alt %}{{ topic.title }} | Le web du BW {% endblock %}
 {% block og_description %}{{ topic.title }}{% endblock %}
-
-
-<meta name="twitter:title" content="{% block twitter_title %}{{ topic.title }} | Le web du BW{% endblock %}">
-<meta name="twitter:description" content="{% block twitter_description %}{{ topic.title }} | Le web du BW{% endblock %}">
-<meta name="twitter:image" content="{% block twitter_image %}{{ asset("images/topic"~image) }} {% endblock %}">
-<meta name="twitter:image:alt" content="{% block twitter_image_alt %}{{ topic.title }} | Le web du BW{% endblock %}">
+{% block twitter_title %}{{ topic.title }} | Le web du BW{% endblock %}
+{% block twitter_description %}{{ topic.title }} | Le web du BW{% endblock %}
+{% block twitter_image %}{{ asset("images/topic"~image) }} {% endblock %}
+{% block twitter_image_alt %}{{ topic.title }} | Le web du BW{% endblock %}
 
 
 
