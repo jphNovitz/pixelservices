@@ -12,13 +12,15 @@
     {% endblock %}
     <meta name="author" content="Novitz Jean-Philippe <novitz@gmail.com>"/>
     <meta name="copyright" content="Novitz Jean-Philippe / Pixel Services"/>
-    {% block follow %} <meta name="robots" content="index,follow"/> {% endblock %}
+    {% block follow %}
+        <meta name="robots" content="index,follow"/> {% endblock %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Language" content="fr-BE">
     <link rel="canonical" href="{{ app.request.uri }}">
 
-    <meta property="og:title" content="{% block og_title %}Votre site web sur mesure, accompagné de A à Z par Pixel Services {% endblock %}"/>
+    <meta property="og:title"
+          content="{% block og_title %}Votre site web sur mesure, accompagné de A à Z par Pixel Services {% endblock %}"/>
     <meta property="og:type" content="{% block og_type %}article {% endblock %}"/>
     <meta property="og:url" content="{% block og_url %}{{ app.request.uri }}{% endblock %}"/>
     <meta property="og:image"
@@ -33,22 +35,24 @@
     <!-- Image partagée sur les réseaux -->
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{% block twitter_title %}Développeur web en Brabant wallon - Sites Web sur mesure, landing page et vitrines{% endblock %}">
-    <meta name="twitter:description" content="{% block twitter_description %}Création de sites web à Court-Saint-Étienne et dans tout le Brabant wallon. Sites vitrines, landing pages, e-commerce.{% endblock %}">
-    <meta name="twitter:image" content="{% block twitter_image %}{{asset('images/logos/pixelservices.webp') }} {% endblock %}">
-    <meta name="twitter:image:alt" content="{% block twitter_image_alt %}Développeur web en Brabant wallon{% endblock %}">
+    <meta name="twitter:title"
+          content="{% block twitter_title %}Développeur web en Brabant wallon - Sites Web sur mesure, landing page et vitrines{% endblock %}">
+    <meta name="twitter:description"
+          content="{% block twitter_description %}Création de sites web à Court-Saint-Étienne et dans tout le Brabant wallon. Sites vitrines, landing pages, e-commerce.{% endblock %}">
+    <meta name="twitter:image"
+          content="{% block twitter_image %}{{ asset('images/logos/pixelservices.webp') }} {% endblock %}">
+    <meta name="twitter:image:alt"
+          content="{% block twitter_image_alt %}Développeur web en Brabant wallon{% endblock %}">
 
     <link
             rel="icon"
             href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
     {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
     {% block stylesheets %}
-        {{ encore_entry_link_tags('app') }}
+        <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
     {% endblock %}
 
-    {# {% block javascripts %}
-																																																							{{ encore_entry_script_tags('app') }}
-																																																						{% endblock %} #}
+
 </head>
 <body class="bg-slate-50 min-h-screen  text-lg">
 {% include '_partials/_navbar.html.twig' %}
@@ -63,7 +67,8 @@
     {% block body %}{% endblock %}
 
     {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+
 
     {% endblock %}
 
