@@ -26,8 +26,7 @@ class TopicCrudController extends AbstractCrudController
             TextEditorField::new('content')->setTrixEditorConfig([
                 'blockAttributes' => [
                     'default' => ['tagName' => 'p'],
-                    'heading1' => ['tagName' => 'h1'],
-                    'heading2' => ['tagName' => 'h2'],
+                    'heading1' => ['tagName' => 'h3']
                 ]]),
              ImageField::new('image', new TranslatableMessage('Image'))
                  ->setUploadDir('public/images/topic/')
