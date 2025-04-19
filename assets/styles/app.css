@@ -6,4 +6,7 @@
     h3 {
         @apply text-xl font-semibold font-lato pt-2 pb-2;
     }
+    ul {
+        @apply list-inside list-disc pl-5 space-y-2;
+    }
 }
