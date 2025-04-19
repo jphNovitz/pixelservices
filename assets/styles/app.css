@@ -4,6 +4,6 @@
 
 @layer components {
     h3 {
-        @apply text-xl font-semibold pt-2 pb-2;
+        @apply text-xl font-semibold font-lato pt-2 pb-2;
     }
 }
