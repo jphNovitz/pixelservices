@@ -56,7 +56,7 @@ class BlogCrudController extends AbstractCrudController
             ->setTrixEditorConfig([
                 'blockAttributes' => [
                     'default' => ['tagName' => 'p'],
-                    'heading1' => ['tagName' => 'h3']
+                    'heading1' => ['tagName' => 'h3', 'class' => 'text-2xl font-bold']
                 ]
             ]),
 //            TextareaField::new('content', new TranslatableMessage('Content'))->renderAsHtml(),
