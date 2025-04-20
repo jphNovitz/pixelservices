@@ -3,10 +3,10 @@
 {% block title %}{{ post.title }} | pixelservices.be{% endblock %}
 {% block og_title %}{{ post.title }} | pixelservices.be {% endblock %}
 {% block og_image %}{{ asset("images/blog/"~post.image) }}{% endblock %}
-{% block og_description %} {{ post.summary}} {% endblock %}
+{% block og_description %} {{ post.summary }} {% endblock %}
 {% block metas %}
     <meta name="description"
-          content=" {{ post.summary}}"/>
+          content=" {{ post.summary }}"/>
     <meta name="keywords" content="site web, ecommerce, vitrine, site vitrine, wp, wordpress, wix"/>
 {% endblock %}
 
@@ -22,7 +22,9 @@
 
     }) }}
 
-
+    {% if post.topic is not empty %}
+        <twig:Blog:RelatedPosts topicId="{{ post.topic.id }}" currentPostId="{{ post.id }}"/>
+    {% endif %}
     {{ component('Button:Button', {
         href: path('app_blog_index'),
         label: 'Focus'
@@ -30,5 +32,5 @@
 
 
 
-{#    <div class="w-1/2 after:content-[','] hover:bg-blue-800"> ddsq</div>#}
+    {#    <div class="w-1/2 after:content-[','] hover:bg-blue-800"> ddsq</div> #}
 {% endblock %}

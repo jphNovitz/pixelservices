@@ -1,0 +1,12 @@
+<div{{  attributes.defaults({class: "w-full p-4"})}}>
+
+    <h3>A lire aussi</h3>
+    <ul>
+        <li><a href="{{ path('app_topic_show', {'slug': relatedTopic.slug}) }}">{{ relatedTopic.title }} </a></li>
+        {% for post in relatedTopic.articles %}
+            {% if currentPostId != post.id %}
+                <li><a href="{{ path('app_blog_show', {'slug': post.slug}) }}">{{ post.title }} </a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
