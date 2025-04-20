@@ -29,6 +29,8 @@
 
     }) }}
 
+    <twig:Blog:RelatedPosts topicId="{{ topic.id }}" currentPostId="{{ post.id }}"/>
+
 
     {{ component('Button:Button', {
         href: path('app_blog_index'),

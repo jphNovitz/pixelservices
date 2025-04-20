@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="fr_BE">
+<html lang="fr-BE" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
     <title> {% block title %} Création de sites web Liège Brabant Wallon | Pixel Services {% endblock %}  </title>
-
+    <link rel="icon" type="image/png" href="{{ asset('favicon-96x96.png') }}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}" />
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}" />
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}" />
     {% block metas %}
         <meta name="description"
               content="Création et maintenance de sites web à Liège et en Brabant Wallon. Service personnalisé pour indépendants, commerçants et associations souhaitant développer leur présence en ligne. Devis gratuit. Prix abordables"/>
