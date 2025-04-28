@@ -10,43 +10,39 @@
 {% endblock %}
 
 {% block body %}
-    <div class="w-full flex flex-col lg:flex-row lg justify-between items-start"><!--id="message-form"-->
 
-        <div class="h-full w-full md:w-2/3 py-16" id="message-form">
-
-            <h1 class="text-3xl font-black font-Lato my-4"> Me contacter</h1>
-
-            {{ form_start(form) }}
-            <div class=" my-8 space-y-4">
-                {{ form_label(form.name, null, {'label_attr': {'class': 'block text-xl font-bold font-lato text-gray-900'}}) }}
-                {{ form_widget(form.name, {'attr': {'class': 'block w-full rounded-full ring-1 ring-gray-700 shadow-md shadow-indigo-50 px-4 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-xl'}}) }}
+    <section class="">
+        <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+            <twig:Title:H2> Me contacter  </twig:Title:H2>
+            <p class="mb-8 lg:mb-16 font-light text-center text-content-primary-light/60 dark:text-content-primary-dark/50 sm:text-xl">
+                N'hésitez à envoyer un message pour décrire votre projet, votre objectif ou juste poser
+                une question.
+            </p>
+            <p class="mb-8 lg:mb-16 font-light text-center text-content-primary-light/60 dark:text-content-primary-dark/50 sm:text-xl">
+                <a href="mailto:info@pixelservices.be" class=" hover:underline hover:font-semibold">
+                    info@pixelservices.be
+                </a>
+            </p>
+            {{ form_start(form, {'attr': {'class':'space-y-8'}}) }}
+            <div>
+                <twig:Form:Label :field="form.name"/>
+                <twig:Form:WidgetText :field="form.name"/>
+            </div>
+            <div>
+                <twig:Form:Label :field="form.email"/>
+                <twig:Form:WidgetText :field="form.email"/>
             </div>
 
-            <div class="my-8 space-y-4">
-                {{ form_label(form.email, null, {'label_attr': {'class': 'block text-xl font-bold font-lato text-gray-900'}}) }}
-                {{ form_widget(form.email, {'attr': {'class': 'block w-full rounded-full ring-1 ring-gray-700 shadow-md shadow-indigo-50 px-4 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-xl'}}) }}
-            </div>
-
-            <div class="my-8 space-y-4">
-                {{ form_label(form.text, null, {'label_attr': {'class': 'block text-xl font-bold font-lato text-gray-900'}}) }}
+            <div class="sm:col-span-2">
+                <twig:Form:Label :field="form.text"/>
                 {{ form_widget(form.text, {'attr': {
-                    'rows': '10',
-                    'class': 'block w-full rounded-lg ring-1 ring-gray-700 shadow-md shadow-indigo-50 px-4 py-2 focus:border-indigo-500 focus:ring-indigo-500 text-xl'}}) }}
+                    'rows': '6',
+                    'class': 'block p-2.5 w-full shadow-sm bg-base-light/30 border border-base-light/30 text-content-primary-light text-sm rounded-lg focus:ring-content-secondary/50 focus:border-content-secondary/50 block w-full p-2.5 dark:bg-base-light/10 dark:border-content-secondary/50 dark:placeholder-content-primary-dark/40 dark:text-content-primary-dark/90 dark:focus:ring-content-secondary/50 dark:focus:border-content-secondary/50 dark:shadow-sm-light'}}) }}
             </div>
-
-            <div class="my-4 ">
-                {{ form_widget(form.save, {'attr': {'class': 'inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-xl font-bold text-white shadow-md shadow-indigo-900  hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'}}) }}
-            </div>
+            <twig:Form:Widget-Submit :field="form.save"/>
             {% do form.seen.setRendered %}
             {{ form_end(form) }}
         </div>
-        <div class="h-full w-full md:w-1/3 px-4 py-16 bg-gradient-to-r from-transparent to-indigo-100 text-center">
-            <h2 class="text-3xl font-black font-Lato my-4"> Contact</h2>
-            <a href="mailto:info@pixelservices.be" class="text-center text-indigo-800 hover:underline hover:font-semibold">
-                info@pixelservices.be
-            </a>
-            <p class="py-8 italic">N'hésitez à envoyer un message pour décrire votre projet, votre objectif ou juste poser une question.</p>
-        </div>
-    </div>
+    </section>
 
 {% endblock %}
