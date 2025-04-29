@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Message;
+use Karser\Recaptcha3Bundle\Form\Recaptcha3Type;
+use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3;
 use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -33,6 +35,12 @@ class MessageType extends AbstractType
                 ])
             ->add('save', SubmitType::class, [
                 'label' => 'Send'
+            ])
+            ->add('captcha', Recaptcha3Type::class, [
+                'constraints' => new Recaptcha3(),
+                'action_name' => 'contact',
+//                'script_nonce_csp' => $nonceCSP,
+                'locale' => 'fr_BE',
             ])
         ;
     }

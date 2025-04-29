@@ -6,6 +6,7 @@ use App\Contract\SendMessageInterface;
 use App\Entity\Message;
 use App\Form\MessageType;
 use Doctrine\ORM\EntityManagerInterface;
+use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3Validator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +15,9 @@ use Symfony\Component\Routing\Attribute\Route;
 class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'app_contact')]
-    public function index(Request $request, EntityManagerInterface $em, SendMessageInterface $sendMessage): Response
+    public function index(Request $request, EntityManagerInterface $em,
+                          SendMessageInterface $sendMessage,
+                          Recaptcha3Validator $recaptcha3Validator): Response
     {
         $message = new Message();
 
@@ -24,6 +27,8 @@ class ContactController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $datas = $form->getData();
+//            $datas->getText();
+            $score = $recaptcha3Validator->getLastResponse()->getScore();
             $message = new Message();
             $message->setName($datas->getName());
 //            $message->setPhone($datas->getPhone());
