@@ -7,6 +7,7 @@
 import './styles/app.css';
 import Alpine from 'alpinejs';
 
+
 // rendre Alpine accessible globalement et démarrer le moteur
 window.Alpine = Alpine;
 Alpine.start();

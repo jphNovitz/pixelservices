@@ -1,14 +1,12 @@
-<div {{ attributes.defaults({ class: 'w-28 h-16 flex flex-col font-lato text-2xl tracking-wide relative'}) }}>
-    <div class="flex justify-between text-content-primary-light dark:text-content-primary-dark/80">
-        <span class="font-black">JPH</span>
-        <span class="font-semibold text-content-secondary font-kalam rotate-12">i</span>
-        <span class="font-black">WEB</span>
+<div {{ attributes.defaults({ class: 'w-fit flex flex-col font-lato text-2xl relative text-base-content leading-tight'}) }}>
+    <div class="flex justify-between">
+        <span class="font-black tracking-tighter">JPH</span>
+        <span class="font-semibold text-primary font-kalam rotate-12  text-3xl px-1.5 tracking-wide">i</span>
+        <span class="font-black tracking-tighter">WEB</span>
     </div>
-    <div class="font-medium font-kalam text-lg">le web du <span class="font-semibold text-content-secondary dark:text-base-light/80">bw</span></div>
+    <div class="flex font-medium font-kalam text-base">le web du
+        <div class="w-fit font-semibold  bg-primary rotate-12 text-base-content ml-1 p-1">
+            <span class="inline-flex -rotate-12 font-lato -mt-2 text-primary-content">BW</span>
+        </div>
+    </div>
 </div>
-
-
-{# <div {{ attributes.defaults({ class: 'w-32 h-16 font-lato text-2xl tracking-wide relative'}) }}> #}
-{# <span class="absolute top-0 left-0 font-black">Pi<i class="text-indigo-800 ">x</i>el</span> #}
-{# <span class="absolute bottom-0 right-0 font-black text-indigo-800 ">Services</span> #}
-{# </div> #}

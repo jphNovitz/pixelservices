@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-
     <title> {% block title %} Création de sites web Liège Brabant Wallon | Pixel Services {% endblock %}  </title>
-    <link rel="icon" type="image/png" href="{{ asset('favicon-96x96.png') }}" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}" />
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}" />
-    <link rel="manifest" href="{{ asset('site.webmanifest') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('favicon-96x96.png') }}" sizes="96x96"/>
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}"/>
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}"/>
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}"/>
     {% block metas %}
         <meta name="description"
               content="Création et maintenance de sites web à Liège et en Brabant Wallon. Service personnalisé pour indépendants, commerçants et associations souhaitant développer leur présence en ligne. Devis gratuit. Prix abordables"/>
@@ -53,28 +52,33 @@
             href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
     {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
     {% block stylesheets %}
+
         <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+
     {% endblock %}
 
 
 </head>
-<body class="bg-slate-50 min-h-screen  text-lg">
-{% include '_partials/_navbar.html.twig' %}
-<div class="w-full p-2 md:p-6 lg:p-8 md:max-w-6xl lg:max-w-7xl align-self-center min-h-screen  m-auto">
+
+<body>
+
+<div class="max-w-7xl m-auto bg-base-100 relative">
+    {% include '_partials/_navbar.html.twig' %}
 
     {% for message in app.flashes('success') %}
         <div class="absolute top-16 left-1 right-1 bg-green-600/90  text-white px-8 py-4">
             {{ message|trans }}
         </div>
     {% endfor %}
-
-    {% block body %}{% endblock %}
-
+    <div class="p-2 md:p-6 lg:p-8 min-h-screen m-auto">
+        {% block body %}{% endblock %}
+    </div>
     {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
 
 
     {% endblock %}
+
 
 </div>
 {% include '_partials/_footer.html.twig' %}
