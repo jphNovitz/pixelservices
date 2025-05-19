@@ -14,106 +14,96 @@
 
 {% block body %}
 
-    <section class="bg-white dark:bg-gray-900">
+    <section class="">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-            <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-                <h1 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Pixelservices: Des
-                    <span class="text-indigo-600">solutions web</span> adaptées à vos besoins</h1>
-                <h2 class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400"> Que vous soyez indépendant ou
-                    entreprise, je vous accompagne pour concrétiser vos <span class="border-b-2 border-indigo-600"> projets numériques</span>.
-                </h2>
+            <div class="mx-auto max-w-screen-md text-left mb-8 lg:mb-12">
+                <twig:Title:H1>Jphiweb: Des
+                    <span class="text-primary">solutions web</span> adaptées à vos besoins
+                </twig:Title:H1>
+                <twig:Title:H2> Que vous soyez indépendant ou
+                    entreprise, je vous accompagne pour concrétiser vos <span class="border-b-2 border-primary"> projets numériques</span>.
+                </twig:Title:H2>
             </div>
 
-            {% if works['front'] is defined %}
-                <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
-                    {% for work in works['front'] %}
-                        <!-- Pricing Card -->
-                        <div class="flex flex-col justify-between p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
-                            <h3 class="mb-4 text-2xl font-semibold text-left">{{ work.name }}</h3>
-                            <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400 text-balance text-left"> {{ work.description_short }}</p>
-                            {% if work.price is not null %}
-                                <div class="flex justify-center items-baseline my-8">
-                                    <span class="mr-2 text-5xl font-extrabold">{{ work.price }} €</span>
-                                </div>
-                            {% endif %}
-                            <!-- List -->
-                            {# <!--                       --> <ul role="list" class="mb-8 space-y-4 text-left"> #}
-                            {#                            <li class="flex items-center space-x-3"> #}
-                            {#                                <!-- Icon --> #}
-                            {#                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" #}
-                            {#                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> #}
-                            {#                                    <path fill-rule="evenodd" #}
-                            {#                                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" #}
-                            {#                                          clip-rule="evenodd"></path> #}
-                            {#                                </svg> #}
-                            {#                                <span>Individual configuration</span> #}
-                            {#                            </li> #}
-                            {#                            <li class="flex items-center space-x-3"> #}
-                            {#                                <!-- Icon --> #}
-                            {#                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" #}
-                            {#                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> #}
-                            {#                                    <path fill-rule="evenodd" #}
-                            {#                                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" #}
-                            {#                                          clip-rule="evenodd"></path> #}
-                            {#                                </svg> #}
-                            {#                                <span>No setup, or hidden fees</span> #}
-                            {#                            </li> #}
-                            {#                            <li class="flex items-center space-x-3"> #}
-                            {#                                <!-- Icon --> #}
-                            {#                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" #}
-                            {#                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> #}
-                            {#                                    <path fill-rule="evenodd" #}
-                            {#                                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" #}
-                            {#                                          clip-rule="evenodd"></path> #}
-                            {#                                </svg> #}
-                            {#                                <span>Team size: <span class="font-semibold">1 developer</span></span> #}
-                            {#                            </li> #}
-                            {#                            <li class="flex items-center space-x-3"> #}
-                            {#                                <!-- Icon --> #}
-                            {#                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" #}
-                            {#                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> #}
-                            {#                                    <path fill-rule="evenodd" #}
-                            {#                                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" #}
-                            {#                                          clip-rule="evenodd"></path> #}
-                            {#                                </svg> #}
-                            {#                                <span>Premium support: <span class="font-semibold">6 months</span></span> #}
-                            {#                            </li> #}
-                            {#                            <li class="flex items-center space-x-3"> #}
-                            {#                                <!-- Icon --> #}
-                            {#                                <svg class="flex-shrink-0 w-5 h-5 text-green-500 dark:text-green-400" #}
-                            {#                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"> #}
-                            {#                                    <path fill-rule="evenodd" #}
-                            {#                                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" #}
-                            {#                                          clip-rule="evenodd"></path> #}
-                            {#                                </svg> #}
-                            {#                                <span>Free updates: <span class="font-semibold">6 months</span></span> #}
-                            {#                            </li> #}
-                            {#                        </ul> #}
-                            <a href="{{ path('app.works.show', {'slug': work.slug}) }}"
-                               class="text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">
-                                {% trans %} get_started{% endtrans %}
-                            </a>
-                        </div>
-                    {% endfor %}
+            <!-- services card container -->
+            <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+                <!-- Service Card -->
+                <div class="bg-base-100 flex flex-col justify-between p-6 mx-auto max-w-lg rounded-lg border border-base-content/10 shadow xl:p-8">
+                    <h3 class="mb-4 text-2xl font-semibold text-left">Vous partez de zéro ? <br/>On démarre ensemble !
+                    </h3>
+                    <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400 text-balance text-left">
+                        Vous lancez votre activité et n’avez encore rien en ligne ?
+                        Voici trois solutions simples pour établir une première présence pro :
+                    </p>
+                    <ul class="py-4">
+                        <li><a class="link link-primary"
+                               href="{{ path('app.works.show', {'slug': 'la-carte-de-visite-digitale-une-presence-simple-efficace-et-evolutive'}) }}">
+                                Carte de visite virtuelle</a></li>
+                        <li><a class="link link-primary"
+                               href="{{ path('app.works.show', {'slug': 'bio-link-la-carte-de-visite-numerique-ideale-pour-les-independants-du-brabant-wallon'}) }}">Page
+                                bio-link</a></li>
+                        <li><a class="link link-primary"
+                               href="{{ path('app.works.show', {'slug': 'une-page-coming-soon'}) }}">Page “Coming
+                                Soon”</a></li>
+                        <li><a class="link link-primary"
+                               href="{{ path('app.works.show', {'slug': 'quest-ce-quune-landing-page-guide-complet-pour-les-entreprises-du-brabant-wallon'}) }}">Landing
+                                page</a></li>
+                    </ul>
+
                 </div>
-            {% endif %}
+                <!-- Service Card -->
+                <div class="bg-base-100 flex flex-col justify-between p-6 mx-auto max-w-lg rounded-lg border border-base-content/10 shadow xl:p-8">
+                  <h3 class="mb-4 text-2xl font-semibold text-left">Faites évoluer votre site web</h3>
+                    <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400 text-balance text-left">
+                        Vous avez déjà une landing page ou un site en ligne, il date un peu ? <br/>
+                        Offrez-lui une seconde jeunesse ou faites-le évoluer vers un outil plus performant.
+                        Voici quelques services pour passer à l’étape suivante :
+                    </p>
+                    <ul class="py-4">
+                        <li>Refonte légère du site</li>
+                        <li>Ajout d'une section, d'une fonctionnalité (section blog, actualités ...)</li>
+                        <li>Adaptation du site web au responsive ou mobilel first</li>
+                        <li>Réparation de petits bugs ou defauts</li>
+                        <li>Migration vers un autre hebergeur</li>
+
+                    </ul>
+
+                </div>
+                <!-- Service Card -->
+                <div class="bg-base-100 flex flex-col justify-between p-6 mx-auto max-w-lg rounded-lg border border-base-content/10 shadow xl:p-8">
+                    <h3 class="mb-4 text-2xl font-semibold text-left">Votre projet est clair, passons à l’action</h3>
+                    <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400 text-balance text-left">
+                        Qu’il s’agisse d’un projet personnel ambitieux, d’un changement technologique ou du lancement
+                        d’un e-commerce, je vous accompagne sur mesure.
+                        <br/> Voici quelques pistes : </p>
+                    <ul class="py-4">
+                        <li>Refonte complète de site</li>
+                        <li>Migration vers une nouvelle technologie</li>
+                        <li>Création de boutique en ligne</li>
+                        <li>Développement sur mesure</li>
+                    </ul>
+
+                </div>
+            </div>
         </div>
     </section>
+    
+    <section class="hero bg-base-100 py-4">
+      <div class="hero-content flex-col lg:flex-row-reverse">
+        <div>
+          <p class="py-6">
+             Vous avez une idée, un projet précis ou simplement l’envie de vous lancer ?  
+             Qu’il s’agisse d’un site vitrine, d’une boutique en ligne ou d’une solution sur mesure, je vous aide à concrétiser votre vision.  
+             Vous pouvez commencer petit et évoluer ensuite — l’important, c’est de commencer.
+           </p>
+          <a href="{{ path('app_contact') }}" class="btn btn-primary">Discutons ensemble de votre projet</a>
+        </div>
+      </div>
+    </section>
 
+    <p>
+      Contact via notre <a href="{{ path('app_contact') }}" class="">la page contact</a> ou par 
+      email <a href="mailto:bonjour@jphiweb.be" class="link">bonjour@jphiweb.be</a>
+    </p>    
 
-    <div class="w-full px-4 md:px-16 lg:px-24 py-8 md:py-16 lg:py-24 bg-gray-100 dark:bg-gray-900">
-        <h3 class="font-semibold mb-8">Passez à un site sur mesure</h3>
-        <p class="inline">
-            Que votre projet soit abouti ou juste une idée ou une envie, n’hésitez pas à me contacter pour toutes questions ou
-            besoins en matière de création de site internet. Vous avez décidé de passer à un site sur mesure ?
-        </p>
-        <p>
-            Qu’il s’agisse d’une boutique e-commerce ou d’une plateforme répondant à des besoins spécifiques, je propose des solutions adaptées
-            pour concrétiser votre vision.
-        </p>
-
-        <p class="italic">Vous pouvez commencer petit, il est possible d'évoluer mais vous devez y aller maintenant !</p>
-
-        <p>Contact via notre <a href="{{ path('app_contact') }}" class="text-indigo-700">la page contact</a> ou par email <a href="mailto:info@pixelservices.be" class="text-indigo-700">info@pixelservices.be</a></p>
-    </div>
 {% endblock %}
