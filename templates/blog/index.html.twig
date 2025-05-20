@@ -8,7 +8,7 @@
         <!-- Boucle pour afficher chaque news dans un petit bloc -->
 
         {% for topic in topics %}
-        <article class="bg-white rounded-lg shadow-md p-6 flex flex-col justify-between">
+        <article class="bg-base-100 rounded-lg shadow-md p-6 flex flex-col justify-between">
             <div>
                 <h2 class="text-xl font-bold mb-2">{{ topic.title }}</h2>
             </div>
@@ -16,7 +16,7 @@
         </article>
         {% endfor %}
         {% for post in posts %}
-        <article class="bg-white rounded-lg shadow-md p-6 flex flex-col justify-between">
+        <article class="bg-base-100 rounded-lg shadow-md p-6 flex flex-col justify-between">
             <div>
                 <h2 class="text-xl font-bold mb-2">{{ post.title }}</h2>
                 <p class="text-gray-600 mb-4">{{ post.summary|raw }}</p>
