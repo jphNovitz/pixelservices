@@ -14,7 +14,7 @@
               content="Création et maintenance de sites web à Liège et en Brabant Wallon. Service personnalisé pour indépendants, commerçants et associations souhaitant développer leur présence en ligne. Devis gratuit. Prix abordables"/>
     {% endblock %}
     <meta name="author" content="Novitz Jean-Philippe <novitz@gmail.com>"/>
-    <meta name="copyright" content="Novitz Jean-Philippe /Jphiweb"/>
+    <meta name="copyright" content="Novitz Jean-Philippe / Jphiweb"/>
     {% block follow %}
         <meta name="robots" content="index,follow"/> {% endblock %}
     <meta charset="UTF-8">
@@ -27,14 +27,14 @@
     : path(app.request.pathinfo)) }}" />
 
     <meta property="og:title"
-          content="{% block og_title %}Votre site web sur mesure, accompagné de A à Z parJphiweb {% endblock %}"/>
+          content="{% block og_title %}Votre site web sur mesure, accompagné de A à Z par Jphiweb {% endblock %}"/>
     <meta property="og:type" content="{% block og_type %}article {% endblock %}"/>
     <meta property="og:url" content="{% block og_url %}{{ app.request.uri }}{% endblock %}"/>
     <meta property="og:image"
-          content="{% block og_image %}https://jphiweb.be/images/logos/pixelservices.webp {% endblock %}"/>
+          content="{% block og_image %} https://jphiweb.be/images/jphiweb_facebook_image.webp {% endblock %}"/>
     <meta property="og:image:alt" content="{% block og_image_alt %}Développeur web à Court-Saint-Étienne{% endblock %}">
 
-    <meta property="og:site_name" content="{% block og_site_name %}Pixel Services {% endblock %}"/>
+    <meta property="og:site_name" content="{% block og_site_name %}JPHiWEB : Le Web du BW {% endblock %}"/>
     <meta property="og:locale" content="{% block og_locale %}fr_BE{% endblock %}"/>
     <meta property="og:description"
           content="{% block og_description %}Vous souhaitez un site web professionnel qui reflète votre activité ? À Liège et en Brabant Wallon,Jphiweb crée, met à jour et répare des sites web sur mesure pour indépendants et PME. Contactez-nous pour un accompagnement personnalisé.{% endblock %}"/>
@@ -47,7 +47,7 @@
     <meta name="twitter:description"
           content="{% block twitter_description %}Création de sites web à Court-Saint-Étienne et dans tout le Brabant wallon. Sites vitrines, landing pages, e-commerce.{% endblock %}">
     <meta name="twitter:image"
-          content="{% block twitter_image %}{{ asset('images/logos/pixelservices.webp') }} {% endblock %}">
+          content="{% block twitter_image %}https://jphiweb.be/images/jphiweb_facebook_image.webp {% endblock %}">
     <meta name="twitter:image:alt"
           content="{% block twitter_image_alt %}Développeur web en Brabant wallon{% endblock %}">
 

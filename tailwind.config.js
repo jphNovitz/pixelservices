@@ -11,6 +11,7 @@ module.exports = {
         extend: {
             backgroundImage: {
                 'hero': "linear-gradient(rgba(248, 250, 252, .8), rgba(248, 250, 252, 0.6), rgba(248, 250, 252, 1))",
+                'base_share': "url('../images/jphiweb_facebook_image.webp')",
                 'hero-mobile': "url('../images/abbaye2.webp')",
                 'hero-md': "url('../images/abbaye2.webp')",
             },
@@ -56,10 +57,15 @@ module.exports = {
     ]
     ,
     daisyui: {
-        base: true,
-        themes: "corporate",
-        // darkTheme: "black",
-        // // themes: ["light", "black"],
+        themes: ["corporate", "dracula"],
+        darkTheme: "dracula",
     },
-    darkMode: ['selector', '[data-theme="dracula"]'],
+    darkMode: "media",
+    // daisyui: {
+    //     base: true,
+    //     themes: "corporate",
+    //     // darkTheme: "black",
+    //     // // themes: ["light", "black"],
+    // },
+    // darkMode: ['selector', '[data-theme="dracula"]'],
 }
