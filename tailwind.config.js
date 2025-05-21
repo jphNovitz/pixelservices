@@ -54,17 +54,14 @@ module.exports = {
     plugins: [
         require("@tailwindcss/typography"),
         require('daisyui')
-    ]
-    ,
+    ],
+    // darkMode: "media",
     daisyui: {
-        themes: ["corporate", "dracula"],
-        darkTheme: "dracula",
+        themes: ["corporate"],
+        darkTheme: "black",
     },
     darkMode: "media",
-    // daisyui: {
-    //     base: true,
-    //     themes: "corporate",
-    //     // darkTheme: "black",
+    // darkTheme: "black",
     //     // // themes: ["light", "black"],
     // },
     // darkMode: ['selector', '[data-theme="dracula"]'],
