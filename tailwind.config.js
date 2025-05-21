@@ -57,10 +57,10 @@ module.exports = {
     ],
     // darkMode: "media",
     daisyui: {
-        themes: ["corporate"],
-        darkTheme: "black",
+        themes: ['corporate', 'dracula'],
+        darkTheme: "dracula",
     },
-    darkMode: "media",
+    // darkMode: "media",
     // darkTheme: "black",
     //     // // themes: ["light", "black"],
     // },
