@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Découvrez mes services pour booster votre présence en ligne{% if works['general'] is defined %} {% for work in works['general'] %}{{ work.name }} {% if  not loop.last %},{% endif %} {% endfor %} {% endif %} | pixelservices.be{% endblock %}
+{% block title %} Découvrez mes services pour booster votre présence en ligne{% if works['general'] is defined %} {% for work in works['general'] %}{{ work.name }} {% if  not loop.last %},{% endif %} {% endfor %} {% endif %} | Jphweb{% endblock %}
 {% block og_title %}Découvrez mes services pour booster votre présence en ligne {% if works['general'] is defined %}({% for work in works['general'] %}{{ work.name }} {% if  not loop.last %},{% endif %} {% endfor %}) {% endif %}{% endblock %}
 {#    {% block og_image %} #}
 {#        {% if work.image is defined  %} #}
