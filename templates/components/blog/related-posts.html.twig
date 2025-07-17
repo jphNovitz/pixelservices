@@ -5,7 +5,7 @@
         <li><a href="{{ path('app_topic_show', {'slug': relatedTopic.slug}) }}"
                class="hover:underline">{{ relatedTopic.title }} </a></li>
         {% for post in relatedTopic.articles %}
-            {% if currentPostId != post.id %}
+            {% if currentPostId != post.id and post.slug is not empty %}
                 <li><a href="{{ path('app_blog_show', {'slug': post.slug}) }}"
                        class="hover:underline">{{ post.title }} </a></li>
             {% endif %}
