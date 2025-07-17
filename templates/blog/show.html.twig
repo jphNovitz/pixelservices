@@ -22,7 +22,7 @@
 
     }) }}
 
-    {% if post.topic is not empty %}
+    {% if post.topic is not empty and post.slug is not empty %}
         <twig:Blog:RelatedPosts topicId="{{ post.topic.id }}" currentPostId="{{ post.id }}"/>
     {% endif %}
     {{ component('Button:Button', {
