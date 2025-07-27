@@ -28,13 +28,13 @@ class RedirectController extends AbstractController
 //        ], 301);
 //    }
 
-    #[Route('/topic/developpeur-web-en-brabant-wallon-comment-choisir-le-bon-partenaire-pour-votre-projet', name:"redirect_topic_01")]
-    public function redirectArticle2(): RedirectResponse
-    {
-        return $this->redirectToRoute('app_topic_show', [
-            'slug' => 'developpeur-web-local-brabant-wallon-le-guide-2025'
-        ], 301);
-    }
+//    #[Route('/topic/developpeur-web-en-brabant-wallon-comment-choisir-le-bon-partenaire-pour-votre-projet', name:"redirect_topic_01")]
+//    public function redirectTopic01(): RedirectResponse
+//    {
+//        return $this->redirectToRoute('app_topic_show', [
+//            'slug' => 'developpeur-web-local-brabant-wallon-le-guide-2025'
+//        ], 301);
+//    }
 
 //    /**
 //     * Redirection avec paramètres dynamiques
