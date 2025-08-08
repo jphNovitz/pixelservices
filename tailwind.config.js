@@ -12,8 +12,10 @@ module.exports = {
             backgroundImage: {
                 'hero': "linear-gradient(rgba(248, 250, 252, .8), rgba(248, 250, 252, 0.6), rgba(248, 250, 252, 1))",
                 'base_share': "url('../images/jphiweb_facebook_image.webp')",
-                'hero-mobile': "url('../images/abbaye2.webp')",
-                'hero-md': "url('../images/abbaye2.webp')",
+                'hero-mobile': "url('../images/st-antoine-sart-messire-guillaume.webp')",
+                'hero-md': "url('../images/st-antoine-sart-messire-guillaume.webp')",
+                // 'hero-mobile': "url('../images/abbaye2.webp')",
+                // 'hero-md': "url('../images/abbaye2.webp')",
             },
             transitionProperty: {
                 'height': 'height',
@@ -55,14 +57,8 @@ module.exports = {
         require("@tailwindcss/typography"),
         require('daisyui')
     ],
-    // darkMode: "media",
     daisyui: {
         themes: ['corporate', 'dracula'],
         darkTheme: "dracula",
-    },
-    // darkMode: "media",
-    // darkTheme: "black",
-    //     // // themes: ["light", "black"],
-    // },
-    // darkMode: ['selector', '[data-theme="dracula"]'],
+    }
 }
