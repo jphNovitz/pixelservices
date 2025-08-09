@@ -13,6 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Translation\TranslatableMessage;
 
 class WorkCrudController extends AbstractCrudController
@@ -28,6 +29,7 @@ class WorkCrudController extends AbstractCrudController
             ->setEntityLabelInSingular('Service')
             ->setEntityLabelInPlural('Service')
             ->setDateFormat('long')
+            ->setFormThemes(['@FOSCKEditor/Form/ckeditor_widget.html.twig', '@EasyAdmin/crud/form_theme.html.twig'])
 //            ->setDateIntervalFormat('%%d Day(s) %%m Month(s) %%y Year(s)')
 //            ->setPageTitle('index', '%entity_label_plural% listing')
             // ...
@@ -49,12 +51,9 @@ class WorkCrudController extends AbstractCrudController
             TextField::new('name', new TranslatableMessage('Name')),
             TextField::new('description_short', new TranslatableMessage('Description_short')),
             TextEditorField::new('description_long', new TranslatableMessage('Description_long'))
-                ->setTrixEditorConfig([
-                    'blockAttributes' => [
-                        'default' => ['tagName' => 'p'],
-                        'heading1' => ['tagName' => 'h3']
-                    ]
-                ]),
+                ->setFormType(CKEditorType::class)
+                ->hideOnIndex()
+                ->setColumns(80),
             IntegerField::new('price', new TranslatableMessage('Price')),
             BooleanField::new('active', new TranslatableMessage('Active')),
             BooleanField::new('front', new TranslatableMessage('Front')),
