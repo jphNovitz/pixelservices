@@ -14,6 +14,8 @@ module.exports = {
                 'base_share': "url('../images/jphiweb_facebook_image.webp')",
                 'hero-mobile': "url('../images/st-antoine-sart-messire-guillaume.webp')",
                 'hero-md': "url('../images/st-antoine-sart-messire-guillaume.webp')",
+                'logo-light': "url('../images/logo/logo-jphiweb-light.webp')",
+                'logo-dark': "url('../images/logo/logo-jphiweb-dark-pink.webp')"
                 // 'hero-mobile': "url('../images/abbaye2.webp')",
                 // 'hero-md': "url('../images/abbaye2.webp')",
             },
