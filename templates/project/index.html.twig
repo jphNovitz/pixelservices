@@ -1,22 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProjectController!{% endblock %}
+{% block title %}Projets ete réalisations clients | Jphiweb{% endblock %}
 
 {% block body %}
-    <div class="min-h-screen bg-gray-100 py-10">
+    <div class="min-h-screen  py-6">
         <div class="container mx-auto px-4">
             <h1 class="text-4xl font-bold text-center mb-8">Mes Projets</h1>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {% for project in projects %}
-                    <div class="bg-white shadow-md rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-                        <div class="bg-gray-300 h-40 flex items-center justify-center p-4">
-                            <h2 class="text-xl font-semibold text-gray-800">{{ project.header }}</h2>
+                    <article class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
+                        {% if project.image %}
+                            <figure class="max-h-56 overflow-hidden bg-base-200">
+                                <img src="/images/projets/{{ project.image }}"
+                                     alt="Vignette du projet {{ project.title }}"
+                                     class="w-full object-cover" />
+                            </figure>
+                        {% else %}
+                            <figure class="max-h-56 overflow-hidden bg-base-200 flex items-center justify-center">
+                                <div class="text-base-content/60 p-8">Aucune image</div>
+                            </figure>
+                        {% endif %}
+                        <div class="card-body">
+                            {% if project.header %}
+                                <h2 class="card-title text-base">{{ project.header }}</h2>
+                            {% endif %}
+                            <h3 class="text-xl font-bold">{{ project.title }}</h3>
+                            <div class="card-actions justify-end mt-4">
+                                <a href="{{ path('app_project_show', {'slug': project.slug}) }}" class="btn btn-primary">Voir le projet</a>
+                            </div>
                         </div>
-                        <div class="p-4">
-                            <h3 class="text-lg font-bold text-gray-700 mb-2">{{ project.title }}</h3>
-                            <a href="{{ path('app_project_show', {'slug': project.slug}) }}" class="block text-center bg-blue-600 text-white py-2 px-4 rounded-lg mt-4 hover:bg-blue-700 transition">Voir le projet</a>
-                        </div>
-                    </div>
+                    </article>
                 {% endfor %}
             </div>
         </div>
