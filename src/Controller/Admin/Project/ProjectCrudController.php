@@ -3,12 +3,14 @@
 namespace App\Controller\Admin\Project;
 
 use App\Entity\Project;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 class ProjectCrudController extends AbstractCrudController
 {
@@ -17,14 +19,22 @@ class ProjectCrudController extends AbstractCrudController
         return Project::class;
     }
 
+    public function configureCrud(Crud $crud): Crud
+    {
+        $crud->setFormThemes(['@FOSCKEditor/Form/ckeditor_widget.html.twig', '@EasyAdmin/crud/form_theme.html.twig']);
+        return $crud;
+    }
 
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title'),
-            TextField::new('header'),
+            TextField::new('title')->setColumns('20'),
+            TextField::new('header')->setColumns('20'),
             TextField::new('link'),
-            TextEditorField::new('description'),
+            TextEditorField::new('description')
+                ->setFormType(CKEditorType::class)
+                ->setColumns('20')
+                ->hideOnIndex(),
             AssociationField::new('category', 'Category'),
             AssociationField::new('tags', 'Tags')
                 ->setFormTypeOptions([

@@ -32,6 +32,7 @@ class TopicCrudController extends AbstractCrudController
             TextField::new('summary')->setColumns('20'),
             TextEditorField::new('content')
                 ->setFormType(CKEditorType::class)
+                ->setColumns('20')
                 ->hideOnIndex(),
             ImageField::new('image', new TranslatableMessage('Image'))
                 ->setUploadDir('public/images/topic/')
