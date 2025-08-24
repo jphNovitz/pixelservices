@@ -2,6 +2,18 @@
 
 {% block title %}Projets ete réalisations clients | Jphiweb{% endblock %}
 
+{% block breadcrumb %}
+    <div class="w-full flex justify-center items-center">
+
+        <div class="breadcrumbs py-2 text-sm">
+            <ul>
+                <li class="m-0"><a href="{{ path('app_home') }}" class="link">Accueil</a></li>
+                <li class="m-0"><a href="{{ path('app_project_list') }}" class="link">Réalisations</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
 {% block body %}
     <div class="min-h-screen  py-6">
         <div class="container mx-auto px-4">
@@ -14,7 +26,7 @@
                             <figure class="max-h-56 overflow-hidden bg-base-200">
                                 <img src="/images/projets/{{ project.image }}"
                                      alt="Vignette du projet {{ project.title }}"
-                                     class="w-full object-cover" />
+                                     class="w-full object-cover"/>
                             </figure>
                         {% else %}
                             <figure class="max-h-56 overflow-hidden bg-base-200 flex items-center justify-center">
@@ -27,7 +39,8 @@
                             {% endif %}
                             <h3 class="text-xl font-bold">{{ project.title }}</h3>
                             <div class="card-actions justify-end mt-4">
-                                <a href="{{ path('app_project_show', {'slug': project.slug}) }}" class="btn btn-primary">Voir le projet</a>
+                                <a href="{{ path('app_project_show', {'slug': project.slug}) }}"
+                                   class="btn btn-primary">Voir le projet</a>
                             </div>
                         </div>
                     </article>
