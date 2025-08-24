@@ -14,6 +14,18 @@
     {% if project.role %}{{ project.role.name }},{% endif %} "/>
 {% endblock %}
 
+{% block breadcrumb %}
+    <div class="w-full flex justify-center items-center">
+
+        <div class="breadcrumbs flex justify-center pt-4 text-sm">
+            <ul>
+                <li><a href="{{ path('app_home') }}" >Accueil</a></li>
+                <li class="!mt-0"><a href="{{ path('app_project_list') }}">Réalisations</a></li>
+                <li class="!mt-0">{{ project.title }}</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
 
 {% block body %}
     <div class="p-4 md:p-8 lg:p-16 flex flex-col gap-6 md:gap-12 lg:gap-24">
