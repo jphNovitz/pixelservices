@@ -1,28 +1,65 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Focus: blog et articles | Jphweb{% endblock %}
+{% block title %}Focus: blog et articles | Jphiweb{% endblock %}
 
 {% block body %}
 
-    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Boucle pour afficher chaque news dans un petit bloc -->
+    <section class="space-y-8">
+        <header class="px-1">
+            <h1 class="text-2xl md:text-3xl font-bold">Articles</h1>
+{#            <p class="opacity-80">Derniers topics et articles</p>#}
+        </header>
 
-        {% for topic in topics %}
-        <article class="bg-base-100 rounded-lg shadow-md p-6 flex flex-col justify-between">
-            <div>
-                <h2 class="text-xl font-bold mb-2">{{ topic.title }}</h2>
+        <!-- Grille des topics -->
+        <div class="space-y-3">
+{#            <h2 class="text-xl font-semibold">Topics</h2>#}
+            <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {% for topic in topics %}
+                    <a href="{{ path('app_topic_show', {'slug' :  topic.slug}) }}" class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
+                        <figure class="relative aspect-video overflow-hidden">
+                            {% if topic.image %}
+                                <img src="{{ asset('images/topic/' ~ topic.image) }}" alt="{{ topic.title }}" class="w-full h-full object-cover"/>
+                            {% else %}
+                                <div class="w-full h-full bg-base-200 flex items-center justify-center text-base-content/60">Aperçu</div>
+                            {% endif %}
+                        </figure>
+                        <div class="card-body p-4">
+                            <h3 class="card-title text-base md:text-lg">{{ topic.title }}</h3>
+                            {% if topic.summary %}
+                                <p class="text-sm opacity-80">{{ topic.summary|striptags }}</p>
+                            {% endif %}
+                        </div>
+                    </a>
+                {% else %}
+                    <p class="col-span-full opacity-60">Aucun topic pour le moment.</p>
+                {% endfor %}
             </div>
-            <twig:Button:Button href="{{ path('app_topic_show', {'slug' :  topic.slug}) }}" label="Lire"/>
-        </article>
-        {% endfor %}
-        {% for post in posts %}
-        <article class="bg-base-100 rounded-lg shadow-md p-6 flex flex-col justify-between">
-            <div>
-                <h2 class="text-xl font-bold mb-2">{{ post.title }}</h2>
-                <p class="text-gray-600 mb-4">{{ post.summary|raw }}</p>
+        </div>
+
+        <!-- Grille des posts -->
+        <div class="space-y-3">
+{#            <h2 class="text-xl font-semibold">Articles</h2>#}
+            <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {% for post in posts %}
+                    <a href="{{ path('app_blog_show', {'slug' :  post.slug}) }}" class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
+                        <figure class="relative aspect-video overflow-hidden">
+                            {% if post.image %}
+                                <img src="{{ asset('images/blog/' ~ post.image) }}" alt="{{ post.title }}" class="w-full h-full object-cover"/>
+                            {% else %}
+                                <div class="w-full h-full bg-base-200 flex items-center justify-center text-base-content/60">Aperçu</div>
+                            {% endif %}
+                        </figure>
+                        <div class="card-body p-4">
+                            <h3 class="card-title text-base md:text-lg">{{ post.title }}</h3>
+                            {% if post.summary %}
+                                <p class="text-sm opacity-80">{{ post.summary|striptags }}</p>
+                            {% endif %}
+                        </div>
+                    </a>
+                {% else %}
+                    <p class="col-span-full opacity-60">Aucun article pour le moment.</p>
+                {% endfor %}
             </div>
-            <twig:Button:Button href="{{ path('app_blog_show', {'slug' :  post.slug}) }}" label="Lire plus"/>
-        </article>
-        {% endfor %}
-    </div>
+        </div>
+    </section>
 {% endblock %}
