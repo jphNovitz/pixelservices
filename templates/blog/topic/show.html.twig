@@ -15,7 +15,18 @@
 {% block twitter_image %}{{ asset("images/topic"~topic.image) }} {% endblock %}
 {% block twitter_image_alt %}{{ topic.title }} | Le web du BW{% endblock %}
 
+{% block breadcrumb %}
+    <div class="w-full flex justify-center items-center">
 
+        <div class="breadcrumbs flex justify-center pt-4 text-sm">
+            <ul>
+                <li><a href="{{ path('app_home') }}" >Accueil</a></li>
+                <li class="!mt-0"><a href="{{ path('app_blog_index') }}">Focus</a></li>
+                <li class="!mt-0">{{ topic.title }}</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
 
 {% block body %}
 

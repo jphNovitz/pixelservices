@@ -1,13 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ post.title }} | Jphweb{% endblock %}
-{% block og_title %}{{ post.title }} | Jphweb {% endblock %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block og_title %}{{ post.title }} {% endblock %}
 {% block og_image %}{{ asset("images/blog/"~post.image) }}{% endblock %}
 {% block og_description %} {{ post.summary }} {% endblock %}
 {% block metas %}
     <meta name="description"
           content=" {{ post.summary }}"/>
     <meta name="keywords" content="site web, ecommerce, vitrine, site vitrine, wp, wordpress, wix"/>
+{% endblock %}
+
+{% block breadcrumb %}
+    <div class="w-full flex justify-center items-center">
+
+        <div class="breadcrumbs flex justify-center pt-4 text-sm">
+            <ul>
+                <li><a href="{{ path('app_home') }}" >Accueil</a></li>
+                <li class="!mt-0"><a href="{{ path('app_blog_index') }}">Focus</a></li>
+                <li class="!mt-0"><a href="{{ path('app_topic_show', {'slug': post.topic.slug}) }}">{{ post.topic.title }}</a></li>
+                <li class="!mt-0">{{ post.title }}</li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}
 
 {% block body %}
@@ -23,7 +37,7 @@
     }) }}
 
     {% if post.topic is not empty and post.slug is not empty %}
-        <twig:Blog:RelatedPosts topicId="{{ post.topic.id }}" currentPostId="{{ post.id }}"/>
+        <twig:Blog:RelatedPosts topic="true" topicId="{{ post.topic.id }}" currentPostId="{{ post.id }}"/>
     {% endif %}
     {{ component('Button:Button', {
         href: path('app_blog_index'),
