@@ -21,6 +21,12 @@ class Topic
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
+    #[ORM\Column(type: 'string', length: 65, nullable: true)]
+    private ?string $seoTitle = null;
+
+    #[ORM\Column(type: 'string', length: 65, nullable: true)]
+    private ?string $slugTitle = null;
+
     /**
      * @var Collection<int, Blog>
      */
@@ -36,8 +42,18 @@ class Topic
     private ?string $summary = null;
 
     #[ORM\Column(length: 255, unique: true)]
-    #[Gedmo\Slug(fields: ['title'])]
+    #[Gedmo\Slug(fields: ['slugTitle'])]
     private ?string $slug = null;
+
+    #[ORM\PrePersist]
+    #[ORM\PreUpdate]
+    public function ensureSlugBase(): void
+    {
+        if (!$this->slugTitle) {
+            $this->slugTitle = $this->title;
+        }
+    }
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -113,6 +129,28 @@ class Topic
 
         return $this;
     }
+
+    public function getSeoTitle(): ?string
+    {
+        return $this->seoTitle ?? $this->title;
+    }
+
+    public function setSeoTitle(?string $seoTitle): void
+    {
+        $this->seoTitle = $seoTitle;
+    }
+
+    public function getSlugTitle(): ?string
+    {
+        return $this->slugTitle ?? $this->title;
+    }
+
+    public function setSlugTitle(?string $slugTitle): void
+    {
+        $this->slugTitle = $slugTitle;
+    }
+
+    
 
     public function getImage(): ?string
     {

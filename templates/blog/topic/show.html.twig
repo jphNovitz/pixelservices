@@ -1,19 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ topic.title }}{% endblock %}
+{% block title %}{{ topic.seoTitle }}{% endblock %}
 {% block metas %}
     <meta name="description"
           content=" {{ topic.summary}}"/>
     <meta name="keywords" content="site web, ecommerce, vitrine, site vitrine, wp, wordpress, wix"/>
 {% endblock %}
-{% block og_title %}{{ topic.title}}{% endblock %}
+{% block og_title %}{{ topic.seoTitle}}{% endblock %}
 {% block og_image %}{{ asset("images/topic/"~topic.image) }} {% endblock %}
-{% block og_image_alt %}{{ topic.title }} | Le web du BW {% endblock %}
+{% block og_image_alt %}{{ topic.seoTitle }}{% endblock %}
 {% block og_description %}{{ topic.summary }}{% endblock %}
-{% block twitter_title %}{{ topic.title }} | Le web du BW{% endblock %}
-{% block twitter_description %}{{ topic.summary }} | Le web du BW{% endblock %}
+{% block twitter_title %}{{ topic.seoTitle }}{% endblock %}
+{% block twitter_description %}{{ topic.summary }}{% endblock %}
 {% block twitter_image %}{{ asset("images/topic"~topic.image) }} {% endblock %}
-{% block twitter_image_alt %}{{ topic.title }} | Le web du BW{% endblock %}
+{% block twitter_image_alt %}{{ topic.seoTitle }}{% endblock %}
 
 {% block breadcrumb %}
     <div class="w-full flex justify-center items-center">

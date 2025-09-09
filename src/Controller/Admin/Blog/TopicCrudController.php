@@ -28,7 +28,13 @@ class TopicCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title'),
+            TextField::new('title')->setColumns('20')->setLabel('Titre'),
+            TextField::new('seoTitle')
+                ->setColumns('20')
+                ->setLabel(new TranslatableMessage('SEO Title'))
+                ->setHelp('Max 65 caractères')
+                ->setFormTypeOption('attr', ['maxlength' => 65]),
+            TextField::new('slugTitle')->setColumns('20')->setLabel(new TranslatableMessage('Slug Title')),
             TextField::new('summary')->setColumns('20'),
             TextEditorField::new('content')
                 ->setFormType(CKEditorType::class)

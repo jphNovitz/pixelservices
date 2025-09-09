@@ -24,3 +24,6 @@ form:
   username.placeholder: "Nom d'utilisateur ou email"
   password: "Mot de passe"
   login: "Connexion"
+
+'SEO Title': 'Titre SEO'
+'Slug Title': 'Titre pour le slug'
