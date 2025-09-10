@@ -29,25 +29,40 @@
 {% endblock %}
 
 {% block body %}
+    <div class="bg-base-100 text-base-content">
+    <article class="hero min-h-screen"
+            style="background-image: url({{ asset("images/topic/"~topic.image) }});">
+        <div class="hero-overlay"></div>
+        <div class="hero-content bg-base-100 bg-opacity-50 backdrop-blur-md text-neutral-content text-left text-pretty">
+            <div class="max-w-2xl p-8">
+                <h1 class="mb-5 text-3xl font-bold">{{ topic.title }}</h1>
+                <p class="mb-5">
+                    {{ topic.summary }}
+                </p>
+                <a class="btn btn-primary">{{ 'get_started' | trans }}</a>
+            </div>
+        </div>
+    </article>
 
-    {{ component('Blog:Article', {
-        'title' : topic.title,
-        'summary': topic.summary,
-        'content' : topic.content,
-        'image_url' : '/topic/'~topic.image,
-        'image_alt' : topic.title,
-        'home' :  app.request.pathinfo == '/'
+        <article class="flex flex-col items-start leading-8 text-lg mx-auto my-8 max-w-2xl mx-auto">
 
-    }) }}
+            {{ topic.content |raw }}
 
-    <twig:Topic:RelatedPosts topicId="{{ topic.id }}" />
+        </article>
 
+{#    {{ component('Blog:Article', {#}
+{#        'title' : topic.title,#}
+{#        'summary': topic.summary,#}
+{#        'content' : topic.content,#}
+{#        'image_url' : '/topic/'~topic.image,#}
+{#        'image_alt' : topic.title,#}
+{#        'home' :  app.request.pathinfo == '/'#}
 
-    {{ component('Button:Button', {
-        href: path('app_blog_index'),
-        label: 'Focus'
-    }) }}
+{#    }) }}#}
 
+    <twig:Topic:RelatedPosts topicId="{{ topic.id }}" class="bg-base-200" />
+
+    </div>
 
 
 {#    <div class="w-1/2 after:content-[','] hover:bg-blue-800"> ddsq</div>#}
