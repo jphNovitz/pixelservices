@@ -74,9 +74,9 @@
         </div>
     {% endfor %}
     {% block breadcrumb %} {% endblock %}
-    <div class="p-2 md:p-6 lg:p-8 min-h-screen m-auto">
+    <main class="p-2 md:p-6 lg:p-8 min-h-screen m-auto">
         {% block body %}{% endblock %}
-    </div>
+    </main>
     {% block javascripts %}
         {% block importmap %}{{ importmap('app') }}{% endblock %}
 
