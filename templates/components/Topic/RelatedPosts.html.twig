@@ -1,0 +1,14 @@
+{% if relatedPosts is not empty %}
+    <div{{ attributes.defaults({class: "w-full p-4"}) }}>
+        <h2>A lire aussi</h2>
+        <ul>
+            {% for post in relatedPosts %}
+                <li>
+                    <a href="{{ path('app_blog_show', {'slug': post.slug}) }}" class="hover:underline">
+                        {{ post.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
