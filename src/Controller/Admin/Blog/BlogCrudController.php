@@ -15,6 +15,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Translation\TranslatableMessage;
 
 class BlogCrudController extends AbstractCrudController
@@ -26,14 +27,11 @@ class BlogCrudController extends AbstractCrudController
 
     public function configureCrud(Crud $crud): Crud
     {
-        return $crud
+        $crud->setFormThemes(['@FOSCKEditor/Form/ckeditor_widget.html.twig', '@EasyAdmin/crud/form_theme.html.twig'])
             ->setEntityLabelInSingular('Blog')
             ->setEntityLabelInPlural('Blog')
-            ->setDateFormat('long')
-//            ->setDateIntervalFormat('%%d Day(s) %%m Month(s) %%y Year(s)')
-//            ->setPageTitle('index', '%entity_label_plural% listing')
-            // ...
-            ;
+            ->setDateFormat('long');
+        return $crud;
     }
 
     public function configureActions(Actions $actions): Actions
@@ -47,12 +45,19 @@ class BlogCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-//            IdField::new('id'),
             TextField::new('title', new TranslatableMessage('Title'))->setColumns(12),
+            TextField::new('seoTitle')
+                ->setColumns('20')
+                ->setLabel(new TranslatableMessage('SEO Title'))
+                ->setHelp('Max 65 caractères')
+                ->setFormTypeOption('attr', ['maxlength' => 65]),
+            TextField::new('slugTitle')->setColumns('20')->setLabel(new TranslatableMessage('Slug Title')),
             TextField::new('summary', new TranslatableMessage('Summary'))->setColumns(12)
                 ->setMaxLength(255),
-            TextEditorField::new('content', new TranslatableMessage('Content'))
-                ->setNumOfRows(20)
+            TextEditorField::new('content')
+                ->setFormType(CKEditorType::class)
+                ->setColumns('20')
+                ->hideOnIndex()
             ->setTrixEditorConfig([
                 'blockAttributes' => [
                     'default' => ['tagName' => 'p'],

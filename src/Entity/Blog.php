@@ -11,6 +11,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 #[ORM\Entity(repositoryClass: BlogRepository::class)]
 #[Table(name: 'blogs')]
+#[ORM\HasLifecycleCallbacks]
 class Blog
 {
     use TimestampableEntity;
@@ -21,6 +22,12 @@ class Blog
 
     #[ORM\Column(length: 255)]
     private ?string $title = null;
+
+    #[ORM\Column(type: 'string', length: 65, nullable: true)]
+    private ?string $seoTitle = null;
+
+    #[ORM\Column(type: 'string', length: 65, nullable: true)]
+    private ?string $slugTitle = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
@@ -38,11 +45,12 @@ class Blog
     private ?string $summary = null;
 
     #[ORM\Column(length: 255, unique: true)]
-    #[Gedmo\Slug(fields: ['title'])]
+    #[Gedmo\Slug(fields: ['slugTitle'])]
     private ?string $slug = null;
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
     private ?Topic $topic = null;
+
 
     public function getId(): ?int
     {
@@ -145,5 +153,33 @@ class Blog
         return $this;
     }
 
+    #[ORM\PrePersist]
+    #[ORM\PreUpdate]
+    public function ensureSlugBase(): void
+    {
+        if (!$this->slugTitle) {
+            $this->slugTitle = $this->title;
+        }
+    }
+
+    public function getSeoTitle(): ?string
+    {
+        return $this->seoTitle ?? $this->title;
+    }
+
+    public function setSeoTitle(?string $seoTitle): void
+    {
+        $this->seoTitle = $seoTitle;
+    }
+
+    public function getSlugTitle(): ?string
+    {
+        return $this->slugTitle ?? $this->title;
+    }
+
+    public function setSlugTitle(?string $slugTitle): void
+    {
+        $this->slugTitle = $slugTitle;
+    }
 
 }
