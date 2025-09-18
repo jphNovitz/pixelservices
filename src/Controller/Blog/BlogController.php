@@ -40,7 +40,7 @@ class BlogController extends AbstractController
             'post' => $post,
         ]);
     }
-    #[Route('/topic/{slug}', name: 'app_topic_show')]
+    #[Route('/{slug}', name: 'app_topic_show')]
     public function showTopic(Topic $topic): Response
     {
         return $this->render('blog/topic/show.html.twig', [
