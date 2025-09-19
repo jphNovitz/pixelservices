@@ -5,6 +5,13 @@ redirect_guide_2025:
     path: /creation-site-internet-brabant-wallon
     permanent: true
 
+redirect_removed_to_guide_2025:
+  path: focus-sur/pourquoi-investir-creation-site-internet-votre-entreprise
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    path: /creation-site-internet-brabant-wallon
+    permanent: true
+
 redirect_old_slug:
   path: /topic/developpeur-web-en-brabant-wallon-comment-choisir-le-bon-partenaire-pour-votre-projet
   controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
