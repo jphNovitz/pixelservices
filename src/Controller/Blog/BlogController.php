@@ -14,6 +14,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BlogController extends AbstractController
 {
+    #[Route('/{slug}', name: 'app_topic_show')]
+    public function showTopic(Topic $topic): Response
+    {
+        return $this->render('blog/topic/show.html.twig', [
+            'topic' => $topic,
+        ]);
+    }
     #[Route('/focus', name: 'app_blog_index')]
     public function index(EntityManagerInterface $entityManager,
                           PaginatorInterface $paginator,
@@ -40,12 +47,6 @@ class BlogController extends AbstractController
             'post' => $post,
         ]);
     }
-    #[Route('/{slug}', name: 'app_topic_show')]
-    public function showTopic(Topic $topic): Response
-    {
-        return $this->render('blog/topic/show.html.twig', [
-            'topic' => $topic,
-        ]);
-    }
+
 
 }
