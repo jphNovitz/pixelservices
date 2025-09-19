@@ -74,7 +74,10 @@ class BlogCrudController extends AbstractCrudController
                 ->setRequired(true)
                 ->setColumns(12)
                 ->setFormTypeOption('choice_label', 'title')
-                ->setFormTypeOption('placeholder', 'Select a topic'),
+                ->setFormTypeOption('placeholder', 'Select a topic')
+                ->setRequired(false)        // champ pas obligatoire
+                ->setFormTypeOption('required', false) // le FormType Symfony devient nullable
+                ->setFormTypeOption('placeholder', '— Aucun —') // affichage d’une option vide
 
         ];
     }
