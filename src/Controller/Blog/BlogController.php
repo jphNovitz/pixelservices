@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BlogController extends AbstractController
 {
-    #[Route('/{slug}', name: 'app_topic_show', requirements: ['slug' => '^(?!admin).*'])]
+    #[Route('/{slug}', name: 'app_topic_show', requirements: ['slug' => '^(?!admin).*'], priority: -10)]
     public function showTopic(Topic $topic): Response
     {
         return $this->render('blog/topic/show.html.twig', [
