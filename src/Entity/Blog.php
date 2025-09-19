@@ -49,6 +49,7 @@ class Blog
     private ?string $slug = null;
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Topic $topic = null;
 
 

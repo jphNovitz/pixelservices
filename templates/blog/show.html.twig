@@ -16,8 +16,10 @@
         <div class="breadcrumbs flex justify-center pt-4 text-sm">
             <ul>
                 <li><a href="{{ path('app_home') }}" >Accueil</a></li>
-                <li class="!mt-0"><a href="{{ path('app_blog_index') }}">Focus</a></li>
-                <li class="!mt-0"><a href="{{ path('app_topic_show', {'slug': post.topic.slug}) }}">{{ post.topic.title }}</a></li>
+                <li class="!mt-0"><a href="{{ path('app_blog_index') }}">Ressources</a></li>
+                {% if post.topic is defined %}
+                    <li class="!mt-0"><a href="{{ path('app_topic_show', {'slug': post.topic.slug}) }}">{{ post.topic.title }}</a></li>
+                {% endif %}
                 <li class="!mt-0">{{ post.title }}</li>
             </ul>
         </div>
