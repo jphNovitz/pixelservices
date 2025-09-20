@@ -10,6 +10,8 @@
 {% block metas %}
     <meta name="description"
           content="  Services: {% for work in works['front'] %}{{ work.name }} {% if not loop.last %},{% endif %} {% endfor %} "/>
+{#    <meta name="description"#}
+{#          content="  Services: {% for work in works['front'] %}{{ work.name }} {% if not loop.last %},{% endif %} {% endfor %} "/>#}
 {% endblock %}
 
 {% block body %}
@@ -36,6 +38,9 @@
                         Voici trois solutions simples pour établir une première présence pro :
                     </p>
                     <ul class="py-4">
+                        <li><a class="link link-primary"
+                               href="{{ path('app.works.show', {'slug': 'creation-de-site-vitrine'}) }}">
+                                Site vitrine</a></li>
                         <li><a class="link link-primary"
                                href="{{ path('app.works.show', {'slug': 'carte-de-visite-numerique'}) }}">
                                 Carte de visite virtuelle</a></li>
