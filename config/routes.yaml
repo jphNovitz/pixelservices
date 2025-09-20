@@ -9,7 +9,7 @@ redirect_vitrine_cse:
   path: focus-sur/site-vitrine-court-saint-etienne
   controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
   defaults:
-    path: focus-sur/creation-site-vitrine-court-saint-etienne
+    path: /focus-sur/creation-site-vitrine-court-saint-etienne
     permanent: true
 
 redirect_removed_to_guide_2025:
