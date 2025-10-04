@@ -12,7 +12,7 @@
 {% block og_description %}{{ topic.summary }}{% endblock %}
 {% block twitter_title %}{{ topic.seoTitle }}{% endblock %}
 {% block twitter_description %}{{ topic.summary }}{% endblock %}
-{% block twitter_image %}{{ asset("images/topic"~topic.image) }} {% endblock %}
+{% block twitter_image %}{{ asset("images/topic/"~topic.image) }} {% endblock %}
 {% block twitter_image_alt %}{{ topic.seoTitle }}{% endblock %}
 
 {% block breadcrumb %}
