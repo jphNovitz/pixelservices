@@ -1,0 +1,4 @@
+easy_admin:
+  assets:
+    css:
+      - 'css/admin.css'
