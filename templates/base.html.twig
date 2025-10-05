@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>{% block title %}Création site internet BW : boostez à 100%{% endblock %}</title>
+    <title>{% block title %}Sites web pour artisans et indépendants - Court-Saint-Étienne{% endblock %}</title>
     <link rel="icon" type="image/png" href="{{ asset('favicon-96x96.png') }}" sizes="96x96"/>
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}"/>
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
@@ -11,45 +11,43 @@
     <link rel="manifest" href="{{ asset('site.webmanifest') }}"/>
     {% block metas %}
         <meta name="description"
-              content="Création de site internet à Court-Saint-Étienne. Pour pros locaux souhaitant être visibles en ligne. Service personnalisé. Tarifs accessibles."/>
+              content="Création site vitrine à Court-Saint-Étienne : solution professionnelle pour artisans et indépendants. Valorisez vos services et renforcez votre image en ligne."/>
     {% endblock %}
-    <meta name="author" content="Novitz Jean-Philippe <novitz@gmail.com>"/>
-    <meta name="copyright" content="Novitz Jean-Philippe / Jphiweb"/>
+    <meta name="author" content="Novitz Jean-Philippe <bonjour@jphiweb>"/>
+    <meta name="copyright" content="Novitz Jean-Philippe <jphiweb.be>"/>
     {% block follow %}
         <meta name="robots" content="index,follow"/> {% endblock %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Language" content="fr-BE">
-    {# <link rel="canonical" href="{{ app.request.uri }}">#}
-    {# <link rel="canonical" href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params'), absolute=true) }}"> #}
-    <link rel="canonical" href="{{ absolute_url(app.request.attributes.get('_route') 
+    <link rel="canonical" href="{{ absolute_url(app.request.attributes.get('_route')
     ? path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params', {}))
     : path(app.request.pathinfo)) }}" />
 
     <meta property="og:title"
-          content="{% block og_title %}Votre site web sur mesure, accompagné de A à Z par Jphiweb {% endblock %}"/>
-    <meta property="og:type" content="{% block og_type %}article {% endblock %}"/>
+          content="{% block og_title %}Sites web pour artisans et indépendants - Court-Saint-Étienne{% endblock %}"/>
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}"/>
     <meta property="og:url" content="{% block og_url %}{{ app.request.uri }}{% endblock %}"/>
     <meta property="og:image"
           content="{% block og_image %} https://jphiweb.be/images/jphiweb_facebook_image.webp {% endblock %}"/>
-    <meta property="og:image:alt" content="{% block og_image_alt %}Développeur web à Court-Saint-Étienne{% endblock %}">
+    <meta property="og:image:alt" content="{% block og_image_alt %}Site web à Court-Saint-Étienne{% endblock %}">
 
-    <meta property="og:site_name" content="{% block og_site_name %}JPHiWEB : Le Web du BW {% endblock %}"/>
+    <meta property="og:site_name" content="{% block og_site_name %}Sites web pour artisans et indépendants - Court-Saint-Étienne{% endblock %}"/>
     <meta property="og:locale" content="{% block og_locale %}fr_BE{% endblock %}"/>
     <meta property="og:description"
-          content="{% block og_description %}Vous souhaitez un site web professionnel qui reflète votre activité ? À Liège et en Brabant Wallon,Jphiweb crée, met à jour et répare des sites web sur mesure pour indépendants et PME. Contactez-nous pour un accompagnement personnalisé.{% endblock %}"/>
+          content="{% block og_description %}Création site vitrine à Court-Saint-Étienne : solution professionnelle pour artisans et indépendants. Valorisez vos services et renforcez votre image en ligne.{% endblock %}"/>
 
     <!-- Image partagée sur les réseaux -->
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title"
-          content="{% block twitter_title %}Développeur web en Brabant wallon - Sites Web sur mesure, landing page et vitrines{% endblock %}">
+          content="{% block twitter_title %}Sites web pour artisans et indépendants - Court-Saint-Étienne{% endblock %}">
     <meta name="twitter:description"
-          content="{% block twitter_description %}Création de sites web à Court-Saint-Étienne et dans tout le Brabant wallon. Sites vitrines, landing pages, e-commerce.{% endblock %}">
+          content="{% block twitter_description %}Création site vitrine à Court-Saint-Étienne : solution professionnelle pour artisans et indépendants. Valorisez vos services et renforcez votre image en ligne.{% endblock %}">
     <meta name="twitter:image"
           content="{% block twitter_image %}https://jphiweb.be/images/jphiweb_facebook_image.webp {% endblock %}">
     <meta name="twitter:image:alt"
-          content="{% block twitter_image_alt %}Développeur web en Brabant wallon{% endblock %}">
+          content="{% block twitter_image_alt %}Sites web pour artisans et indépendants - Court-Saint-Étienne{% endblock %}">
 
     <link
             rel="icon"
