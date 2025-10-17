@@ -1,0 +1,70 @@
+{# Maintenance section — full viewport height minus navbar (h-16 => 4rem) #}
+<section class="min-h-[calc(100vh-4rem)] py-20 md:py-28 lg:py-32 flex items-center">
+    <div class="mx-auto w-full max-w-5xl px-6 md:px-12 lg:px-24 py-16 md:py-24 lg:py-32">
+        <div class="flex flex-col  items-center text-center gap-10 md:gap-14 lg:gap-20">
+
+
+            <header class="space-y-2">
+                <p class="badge badge-primary badge-lg badge-outline">Evolution</p>
+                <h2 class="text-xl md:text-2xl lg:text-2xl font-extrabold tracking-tight">
+                    Maintenance et mise à jour de votre site web
+                </h2>
+                <p class="text-base text-left md:text-lg lg:text-xl text-base-content/70 max-w-3xl mx-auto">
+                    Votre site web fonctionne parfaitement et répond aux besoins de vos clients, mais il commence à
+                    dater ? Vous le trouvez démodé ou souhaitez simplement rafraîchir son apparence ?
+                    Il est temps de lui offrir une seconde jeunesse.
+                </p>
+            </header>
+
+
+            <figure class="w-full">
+                <div class="mockup-browser border border-base-300 bg-base-100 shadow-2xl rounded-3xl">
+                    <div class="mockup-browser-toolbar">
+                        <div class="input">https://votre-site.be</div>
+                    </div>
+                    <div class="bg-base-200 p-2 md:p-4 lg:p-6 rounded-b-3xl">
+                        <img
+                                src="{{ asset('images/home/offre_maintenance_jphiweb_be.webp') }}"
+                                alt="maintenace ou mise à jour de site web"
+                                class="w-full rounded-2xl shadow-xl ring-1 ring-base-300/60"/>
+                    </div>
+                </div>
+            </figure>
+
+            <div class="max-w-3xl mx-auto text-left">
+                <h3>Je propose :</h3>
+                <h4>Mises à jour techniques</h4>
+                <ul>
+                    <li>Migration et mise à jour de Symfony, WordPress, Laravel ou autres CMS</li>
+                    <li>Corrections de bugs et résolution de problèmes techniques</li>
+                    <li>Amélioration des performances et de la vitesse de chargement</li>
+                    <li>Compatibilité mobile et responsive design</li>
+                </ul>
+                <h3>Rafraîchissement graphique</h3>
+                <ul>
+                    <li>Modernisation des couleurs, typographies et visuels selon vos directives</li>
+                    <li>Intégration de votre nouvelle charte graphique (si vous en avez une)</li>
+                    <li>Mise à jour de l'apparence générale pour un rendu plus actuel</li>
+                    <li>Implémentation de designs fournis par votre graphiste</li>
+                </ul>
+                <h3>Modifications ponctuelles</h3>
+                <ul>
+                    <li>Ajout ou modification de boutons, formulaires, sections</li>
+                    <li>Correction d'éléments visuels (titres, encarts, images)</li>
+                    <li> Ajustements de mise en page et d'affichage</li>
+                    <li> Application des bonnes pratiques SEO de base (balises, structure, vitesse)</li>
+                </ul>
+
+                <p class="my-6 text-lg md:text-xl leading-relaxed text-base-content/80 text-left">
+                    Votre site mérite d'être actualisé pour continuer à bien servir votre activité. {# En tant que
+                        développeur, je m'occupe de la partie technique et de l'intégration. Si vous avez besoin d'un
+                        travail de design complet, je peux collaborer avec votre graphiste ou vous orienter vers des
+                        professionnels du design. #} <a href="{{ path('app_contact') }}" class="link link-primary">
+                        Contactez-moi pour discuter</a> de vos besoins et redonner vie à votre
+                    site web.
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>

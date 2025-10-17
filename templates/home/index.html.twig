@@ -4,7 +4,7 @@
     {% include '_partials/_hero.html.twig' %}
     {#    {% include '_partials/_home_cta.html.twig' %} #}
 
-    <section class="my-48">
+    <section class="py-20 md:py-28 lg:py-32 bg-base-100">
         <div class="max-w-lg mx-auto mb-12 ">
             <h2>Votre présence en ligne, à votre mesure</h2>
             <p>Du site carte de visite au site complet, je concois des solutions web claires, rapides et évolutives,
@@ -97,25 +97,24 @@
         </div>
     </section>
 
-    {% include 'home/_webdev.html.twig' %}
-    <section class="p-8 md:p-32 lg:p-48 space-y-16 bg-base-100">
+    {% include 'home/_caseStudy.html.twig' %}
 
-        <p class="mx-auto ">
-            Vous avez besoins d'un site internet pour votre activité à Court-Saint-Etienne ou dans le Brabant wallon ?
-            <br/>Quel type de site, comment, combien ça coûte ?
-            <br/> Vous ne savez pas par où commencer ?
-            <br/> Vous cherchez un développeur web local pour vous accompagner ?
-            <br/><br/>
+    {% include 'home/_webdev.html.twig' %}
+
+    {% include 'home/_maintenance.html.twig' %}
+
+    <section class="pb-20 md:pb-28 lg:pb-32 ">
+
             <a href="{{ path('app_topic_show', {'slug': 'creation-de-sites-internet-en-brabant-wallon-guide-2025'}) }}"
-               class="link link-primary underline">
+               class="btn btn-xl btn-primary ml-[50%] -translate-x-1/2">
                 Guide 2025 pour trouver développeur web local en Brabant wallon
             </a>
-        </p>
+
     </section>
 
 
 
-    <section class="bg-base-300">
+    <section class="py-20 md:py-28 lg:py-32 bg-base-100">
         <div class="p-8 md:px-32 md:py-12 lg:px-48 lg-py-16 space-y-8">
             <h2>Comment se déroule la création de votre site internet étape par étape ?</h2>
 
@@ -124,7 +123,7 @@
         </div>
         <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
 
-            <li>
+            <li class="!m-0">
                 <div class="timeline-middle">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                          class="text-primary h-5 w-5">
@@ -141,11 +140,11 @@
                         votre secteur et vos attentes. C’est la première étape essentielle pour toute création de <b>site</b>
                         internet réussie. Commencez par le formulaire de contact ou en envoyant un e-mail.</p>
                 </div>
-                <hr class="bg-base-200"/>
+                <hr class="bg-base-300"/>
             </li>
 
-            <li>
-                <hr class="bg-base-100"/>
+            <li class="!m-0">
+                <hr class="bg-base-300"/>
                 <div class="timeline-middle">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                          class="text-primary h-5 w-5">
@@ -161,11 +160,11 @@
                         refonte, corrections, ajouts spécifiques, etc. Je vous propose un tarif adapté, clair et sans
                         surprise.</p>
                 </div>
-                <hr class="bg-base-100"/>
+                <hr class="bg-base-300"/>
             </li>
 
-            <li>
-                <hr class="bg-base-100"/>
+            <li class="!m-0">
+                <hr class="bg-base-300"/>
                 <div class="timeline-middle">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                          class="text-primary h-5 w-5">
@@ -181,11 +180,11 @@
                         charge technique. Mon objectif : une <b>création</b> de site internet à votre image,
                         fonctionnelle et efficace.</p>
                 </div>
-                <hr class="bg-base-100"/>
+                <hr class="bg-base-300"/>
             </li>
 
-            <li>
-                <hr class="bg-base-100"/>
+            <li class="!m-0">
+                <hr class="bg-base-300"/>
                 <div class="timeline-middle">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                          class="text-primary h-5 w-5">
@@ -201,14 +200,13 @@
                         à être mis en ligne. La <b>création</b> de votre site internet se termine ici, prête à servir
                         vos objectifs.</p>
                 </div>
-                <hr class="bg-base-100"/>
+                <hr class="bg-base-300"/>
             </li>
 
         </ul>
 
     </section>
 
-    {% include 'home/_caseStudy.html.twig' %}
 
     <div class="w-full md:max-w-3xl lg:max-w-4xl m-auto">
         {% for article in pinned %}
