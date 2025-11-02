@@ -11,14 +11,22 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 class RelatedPosts
 {
     public array $relatedPosts = [];
+    public Topic|null $parentTopic = null;
+    public array $childrenTopics = [];
     public int $topicId = 0;
-    public function __construct(private BlogRepository $blogRepository)
+
+    public function __construct(
+        private BlogRepository  $blogRepository,
+        private TopicRepository $topicRepository)
     {
     }
 
     public function mount(int $topicId): void
     {
         $this->relatedPosts = $this->blogRepository->findBy(['topic' => $topicId]);
+        $topic = $this->topicRepository->findOneBy(['id' => $topicId]);
+        $this->parentTopic= $topic->getParentTopic();
+        $this->childrenTopics= $topic->getChildrenTopics()->toArray();
     }
 
 }

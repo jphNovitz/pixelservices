@@ -41,9 +41,21 @@ class Topic
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $summary = null;
 
+    #[ORM\Column(length: 160, nullable: true)]
+    private ?string $seoSummary = null;
+
     #[ORM\Column(length: 255, unique: true)]
     #[Gedmo\Slug(fields: ['slugTitle'])]
     private ?string $slug = null;
+
+    #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'childrenTopics')]
+    #[ORM\JoinColumn(name: 'parent_id', referencedColumnName: 'id', nullable: true, onDelete: 'SET NULL')]
+    private ?self $parentTopic = null;
+
+    /** @var Collection<int,self> */
+    #[ORM\OneToMany(mappedBy: 'parentTopic', targetEntity: self::class, cascade: ['persist'])]
+    private Collection $childrenTopics;
+
 
     #[ORM\PrePersist]
     #[ORM\PreUpdate]
@@ -57,6 +69,7 @@ class Topic
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->childrenTopics = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -175,4 +188,60 @@ class Topic
 
         return $this;
     }
+
+    public function getParentTopic(): ?self
+    {
+        return $this->parentTopic;
+    }
+
+    public function setParentTopic(?self $parentTopic): static
+    {
+        $this->parentTopic = $parentTopic;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Topic>
+     */
+    public function getChildrenTopics(): Collection
+    {
+        return $this->childrenTopics;
+    }
+
+    public function addChildrenTopic(Topic $childrenTopic): static
+    {
+        if (!$this->childrenTopics->contains($childrenTopic)) {
+            $this->childrenTopics->add($childrenTopic);
+            $childrenTopic->setParentTopic($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChildrenTopic(Topic $childrenTopic): static
+    {
+        if ($this->childrenTopics->removeElement($childrenTopic)) {
+            // set the owning side to null (unless already changed)
+            if ($childrenTopic->getParentTopic() === $this) {
+                $childrenTopic->setParentTopic(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getSeoSummary(): ?string
+    {
+        return $this->seoSummary;
+    }
+
+    public function setSeoSummary(?string $seoSummary): static
+    {
+        $this->seoSummary = $seoSummary;
+
+        return $this;
+    }
+
+
 }

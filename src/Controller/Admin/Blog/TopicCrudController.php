@@ -5,6 +5,7 @@ namespace App\Controller\Admin\Blog;
 use App\Entity\Topic;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -36,6 +37,8 @@ class TopicCrudController extends AbstractCrudController
                 ->setFormTypeOption('attr', ['maxlength' => 65]),
             TextField::new('slugTitle')->setColumns('20')->setLabel(new TranslatableMessage('Slug Title')),
             TextField::new('summary')->setColumns('20'),
+            TextField::new('seoSummary', new TranslatableMessage('Meta Description'))->setColumns(12)
+                ->setMaxLength(160),
             TextEditorField::new('content')
                 ->setFormType(CKEditorType::class)
                 ->setColumns('20')
@@ -43,6 +46,13 @@ class TopicCrudController extends AbstractCrudController
             ImageField::new('image', new TranslatableMessage('Image'))
                 ->setUploadDir('public/images/topic/')
                 ->setBasePath('public/images/topic/'),
+            AssociationField::new('parentTopic', new TranslatableMessage('ParentTopic'))
+                ->setColumns(12)
+                ->setFormTypeOption('choice_label', 'title')
+                ->setFormTypeOption('placeholder', 'Select a topic')
+                ->setRequired(false)        // champ pas obligatoire
+                ->setFormTypeOption('required', false) // le FormType Symfony devient nullable
+                ->setFormTypeOption('placeholder', '— Aucun —')
         ];
     }
 

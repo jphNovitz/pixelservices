@@ -33,9 +33,13 @@ class BlogController extends AbstractController
             10 /*limit per page*/
         );
 
+        $topics = $topicRepository->findAll();
+
+
+
         return $this->render('blog/index.html.twig', [
             'posts' => $posts,
-            'topics' => $topicRepository->findAll(),
+            'topics' => $topics,
         ]);
     }
 

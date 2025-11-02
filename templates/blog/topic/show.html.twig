@@ -50,15 +50,6 @@
 
         </article>
 
-{#    {{ component('Blog:Article', {#}
-{#        'title' : topic.title,#}
-{#        'summary': topic.summary,#}
-{#        'content' : topic.content,#}
-{#        'image_url' : '/topic/'~topic.image,#}
-{#        'image_alt' : topic.title,#}
-{#        'home' :  app.request.pathinfo == '/'#}
-
-{#    }) }}#}
 
     <twig:Topic:RelatedPosts topicId="{{ topic.id }}" class="bg-base-200" />
 

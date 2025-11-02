@@ -54,6 +54,8 @@ class BlogCrudController extends AbstractCrudController
             TextField::new('slugTitle')->setColumns('20')->setLabel(new TranslatableMessage('Slug Title')),
             TextField::new('summary', new TranslatableMessage('Summary'))->setColumns(12)
                 ->setMaxLength(255),
+            TextField::new('seoSummary', new TranslatableMessage('Meta Description'))->setColumns(12)
+                ->setMaxLength(160),
             TextEditorField::new('content')
                 ->setFormType(CKEditorType::class)
                 ->setColumns('20')

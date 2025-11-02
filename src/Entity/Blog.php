@@ -15,6 +15,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 class Blog
 {
     use TimestampableEntity;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -39,10 +40,13 @@ class Blog
     private ?string $image = null;
 
     #[ORM\Column]
-    private ?bool $published =false;
+    private ?bool $published = false;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $summary = null;
+
+    #[ORM\Column(length: 160, nullable: true)]
+    private ?string $seoSummary = null;
 
     #[ORM\Column(length: 255, unique: true)]
     #[Gedmo\Slug(fields: ['slugTitle'])]
@@ -181,6 +185,18 @@ class Blog
     public function setSlugTitle(?string $slugTitle): void
     {
         $this->slugTitle = $slugTitle;
+    }
+
+    public function getSeoSummary(): ?string
+    {
+        return $this->seoSummary;
+    }
+
+    public function setSeoSummary(?string $seoSummary): static
+    {
+        $this->seoSummary = $seoSummary;
+
+        return $this;
     }
 
 }
