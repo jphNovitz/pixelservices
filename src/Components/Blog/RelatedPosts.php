@@ -17,6 +17,7 @@ class RelatedPosts
     public function __construct(private TopicRepository $topicRepository)
     {
     }
+
     public function mount(int $topicId): void
     {
         $this->relatedTopic = $this->topicRepository->findOneBy(['id' => $topicId]);

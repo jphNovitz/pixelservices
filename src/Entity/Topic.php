@@ -233,7 +233,7 @@ class Topic
 
     public function getSeoSummary(): ?string
     {
-        return $this->seoSummary;
+        return $this->seoSummary ?? $this->summary;
     }
 
     public function setSeoSummary(?string $seoSummary): static
