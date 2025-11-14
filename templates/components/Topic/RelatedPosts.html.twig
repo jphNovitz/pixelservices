@@ -1,33 +1,40 @@
 {% if (parentTopic is not null ) or (childrenTopics is not empty) or (relatedPosts is not empty) %}
 
-    <div{{ attributes.defaults({class: "w-full p-4"}) }}>
-        <h2>A lire aussi</h2>
-        <ul>
-            {% if parentTopic is not null %}
-                <li>
-                    <a href="{{ path('app_topic_show', {'slug': parentTopic.slug}) }}" class="hover:underline">
-                        {{ parentTopic.title }}
-                    </a>
-                </li>
-            {% endif %}
-            {% if childrenTopics is not empty %}
-                {% for childTopic in childrenTopics %}
+    <aside{{ attributes.defaults({ class: "w-full p-4" }) }} aria-labelledby="related-reading">
+        <nav aria-label="À lire aussi">
+            <h2 id="related-reading" class="text-xl font-semibold mb-3">
+                À lire aussi
+            </h2>
+
+            <ul class="list-disc list-inside space-y-1">
+                {% if parentTopic is not null %}
                     <li>
-                        <a href="{{ path('app_topic_show', {'slug': childTopic.slug}) }}" class="hover:underline">
-                            {{ childTopic.title }}
+                        <a href="{{ path('app_topic_show', {'slug': parentTopic.slug}) }}" class="hover:underline">
+                            {{ parentTopic.title }}
                         </a>
                     </li>
-                {% endfor %}
-            {% endif %}
-            {% if relatedPosts is not empty %}
-                {% for post in relatedPosts %}
-                    <li>
-                        <a href="{{ path('app_blog_show', {'slug': post.slug}) }}" class="hover:underline">
-                            {{ post.title }}
-                        </a>
-                    </li>
-                {% endfor %}
-            {% endif %}
-        </ul>
-    </div>
+                {% endif %}
+
+                {% if childrenTopics is not empty %}
+                    {% for childTopic in childrenTopics %}
+                        <li>
+                            <a href="{{ path('app_topic_show', {'slug': childTopic.slug}) }}" class="hover:underline">
+                                {{ childTopic.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+
+                {% if relatedPosts is not empty %}
+                    {% for post in relatedPosts %}
+                        <li>
+                            <a href="{{ path('app_blog_show', {'slug': post.slug}) }}" class="hover:underline">
+                                {{ post.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </nav>
+    </aside>
 {% endif %}

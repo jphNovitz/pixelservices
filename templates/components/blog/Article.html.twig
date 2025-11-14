@@ -1,32 +1,39 @@
 <article class="w-full mx-auto mt-8 p-6 bg-white/10 rounded-lg shadow-lg">
     <div class="max-w-2xl mx-auto">
 
-        {% if home %}
-            <h2 class="text-3xl font-bold text-left mb-12">
-                {{ title }}
-            </h2>
-        {% else %}
-            <h1 class="text-3xl font-bold text-left mb-12">
-                {{ title }}
-            </h1>
-        {% endif %}
-        {% if summary is defined %}
-            <p>{{ summary }}</p>
-        {% endif %}
-        <section class="flex flex-col items-start leading-8 text-lg mx-auto my-8">
+        <header class="mb-12">
+            {% if home %}
+                <h2 class="text-3xl font-bold text-left">
+                    {{ title }}
+                </h2>
+            {% else %}
+                <h1 class="text-3xl font-bold text-left">
+                    {{ title }}
+                </h1>
+            {% endif %}
+
+            {% if summary is defined and summary is not empty %}
+                <p class="mt-4">{{ summary }}</p>
+            {% endif %}
+        </header>
+
+        <div class="flex flex-col items-start leading-8 text-lg mx-auto my-8">
             {% if image_url is not empty %}
                 <figure class="w-full text-center">
-                    <img class="w-full  md:w-3/4 h-auto  mx-auto  my-8  rounded-lg shadow-md"
-                         src="{{ asset("images/"~image_url) }}"
+                    <img
+                            class="w-full md:w-3/4 h-auto mx-auto my-8 rounded-lg shadow-md"
+                            src="{{ asset('images/' ~ image_url) }}"
+                            loading="lazy"
                             {% if image_alt is not empty %}
                                 alt="{{ image_alt }}"
                             {% else %}
-                                alt="Pixel Services"
-                            {% endif %} />
+                                alt="{{ title }}"
+                            {% endif %}
+                    />
                 </figure>
             {% endif %}
-            {{ content |raw }}
 
-        </section>
+            {{ content | raw }}
+        </div>
     </div>
 </article>

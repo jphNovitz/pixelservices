@@ -16,46 +16,102 @@
 {% block twitter_image_alt %}{{ topic.seoTitle }}{% endblock %}
 
 {% block breadcrumb %}
-    <div class="breadcrumbs flex justify-start md:justify-center pt-4 text-xs">
-        <ul class="max-w-full flex flex-col md:flex-row !items-start md:!items-center space-x-2 ">
-            <li><a href="{{ path('app_home') }}">Accueil</a></li>
-            <li class="!mt-0"><a href="{{ path('app_blog_index') }}"> Ressources</a></li>
+    <nav class="breadcrumbs flex justify-start md:justify-center pt-4 text-xs w-full">
+        <ul class="flex flex-col items-start w-full max-w-xs sm:max-w-sm md:max-w-md">
+            <li class="w-full break-words">
+                <a href="{{ path('app_home') }}">Accueil</a>
+            </li>
+
+            <li class="w-full break-words">
+                <a href="{{ path('app_blog_index') }}">Ressources</a>
+            </li>
+
             {% if topic.parentTopic %}
-                <li class="!mt-0 truncate"><a
-                            href="{{ path('app_topic_show', {'slug': topic.parentTopic.slug}) }}">{{ topic.parentTopic.title }}</a>
+                <li class="w-full break-words truncate inline-block before:inline">
+                    <a href="{{ path('app_topic_show', {'slug': topic.parentTopic.slug}) }}">
+                        {{ topic.parentTopic.title }}
+                    </a>
                 </li>
             {% endif %}
-            <li class="!mt-0 truncate">{{ topic.title }}</li>
+
+            <li class="w-full break-words font-semibold truncate before:content-['›'] before:inline before:mr-1">
+                {{ topic.title }}
+            </li>
         </ul>
-    </div>
+    </nav>
+
+
+
 {% endblock %}
 
 {% block body %}
-    <div class="bg-base-100 text-base-content">
-        <article class="hero min-h-screen"
-                 style="background-image: url({{ asset("images/topic/"~topic.image) }});">
-            <div class="hero-overlay"></div>
-            <div class="hero-content bg-base-100 bg-opacity-50 backdrop-blur-md text-neutral-content text-left text-pretty">
-                <div class="max-w-2xl p-8">
-                    <h1 class="mb-5 text-3xl font-bold">{{ topic.title }}</h1>
-                    <p class="mb-5">
-                        {{ topic.summary }}
-                    </p>
-                    <a class="btn btn-primary">{{ 'get_started' | trans }}</a>
-                </div>
+    <article class="w-full mx-auto mt-8 p-6 bg-white/10 rounded-lg shadow-lg">
+        <div class="max-w-2xl mx-auto">
+
+            <header class="mb-12">
+                <h1 class="text-3xl font-bold text-left">
+                    {{ topic.title }}
+                </h1>
+
+                {% if topic.summary is not empty %}
+                    <p class="mt-4">{{ topic.summary }}</p>
+                {% endif %}
+
+                <a class="btn btn-primary mt-6" href="{{ path('app_contact') }}">
+                    {{ 'get_started' | trans }}
+                </a>
+            </header>
+
+            <div class="flex flex-col items-start leading-8 text-lg mx-auto my-8">
+
+                {% if topic.image is defined and topic.image is not empty %}
+                    <figure class="w-full text-center">
+                        <img
+                                class="w-full md:w-3/4 h-auto mx-auto my-8 rounded-lg shadow-md"
+                                src="{{ asset('images/' ~ topic.image) }}"
+                                loading="lazy"
+                                {% if topic.image_alt is defined and  topic.image_alt is not empty %}
+                                    alt="{{ topic.image_alt }}"
+                                {% else %}
+                                    alt="{{ topic.seoTitle }}"
+                                {% endif %}
+                        />
+                    </figure>
+                {% endif %}
+
+                {{ topic.content | raw }}
             </div>
-        </article>
 
-        <article class="flex flex-col items-start leading-8 text-lg mx-auto my-8 max-w-2xl mx-auto">
+        </div>
+    </article>
 
-            {{ topic.content |raw }}
+    <twig:Topic:RelatedPosts topicId="{{ topic.id }}" class="bg-base-200"/>
 
-        </article>
+    {#    <div class="bg-base-100 text-base-content">#}
+{#        <article class="hero min-h-screen"#}
+{#                 style="background-image: url({{ asset("images/topic/"~topic.image) }});">#}
+{#            <div class="hero-overlay"></div>#}
+{#            <div class="hero-content bg-base-100 bg-opacity-50 backdrop-blur-md text-neutral-content text-left text-pretty">#}
+{#                <div class="max-w-2xl p-8">#}
+{#                    <h1 class="mb-5 text-3xl font-bold">{{ topic.title }}</h1>#}
+{#                    <p class="mb-5">#}
+{#                        {{ topic.summary }}#}
+{#                    </p>#}
+{#                    <a class="btn btn-primary">{{ 'get_started' | trans }}</a>#}
+{#                </div>#}
+{#            </div>#}
+{#        </article>#}
+
+{#        <article class="flex flex-col items-start leading-8 text-lg mx-auto my-8 max-w-2xl mx-auto">#}
+
+{#            {{ topic.content |raw }}#}
+
+{#        </article>#}
 
 
-        <twig:Topic:RelatedPosts topicId="{{ topic.id }}" class="bg-base-200"/>
+{#        <twig:Topic:RelatedPosts topicId="{{ topic.id }}" class="bg-base-200"/>#}
 
-    </div>
+{#    </div>#}
 
 
     {#    <div class="w-1/2 after:content-[','] hover:bg-blue-800"> ddsq</div> #}
