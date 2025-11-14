@@ -21,15 +21,15 @@
 
 {% block breadcrumb %}
     <div class="breadcrumbs flex justify-start md:justify-center pt-4 text-xs">
-        <ul class="flex flex-col md:flex-row !items-start md:!items-center space-x-2 ">
+        <ul class="max-w-full flex flex-col md:flex-row !items-start md:!items-center space-x-2 ">
             <li><a href="{{ path('app_home') }}">Accueil</a></li>
             <li class="!mt-0"><a href="{{ path('app_blog_index') }}">Ressources</a></li>
             {% if post.topic %}
-                <li class="!mt-0 text-ellipsis"><a
+                <li class="!mt-0 text-ellipsis overflow-hidden"><a
                             href="{{ path('app_topic_show', {'slug': post.topic.slug}) }}">{{ post.topic.title }}</a>
                 </li>
             {% endif %}
-            <li class="!mt-0">{{ post.title }}</li>
+            <li class="!mt-0 text-ellipsis overflow-hidden">{{ post.title }}</li>
         </ul>
     </div>
 {% endblock %}
