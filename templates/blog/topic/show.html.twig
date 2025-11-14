@@ -3,10 +3,10 @@
 {% block title %}{{ topic.seoTitle }}{% endblock %}
 {% block metas %}
     <meta name="description"
-          content=" {{ topic.seoSummary}}"/>
+          content=" {{ topic.seoSummary }}"/>
     <meta name="keywords" content="site web, ecommerce, vitrine, site vitrine, wp, wordpress, wix"/>
 {% endblock %}
-{% block og_title %}{{ topic.seoTitle}}{% endblock %}
+{% block og_title %}{{ topic.seoTitle }}{% endblock %}
 {% block og_image %}{{ asset("images/topic/"~topic.image) }} {% endblock %}
 {% block og_image_alt %}{{ topic.seoTitle }}{% endblock %}
 {% block og_description %}{{ topic.seoSummary }}{% endblock %}
@@ -16,36 +16,35 @@
 {% block twitter_image_alt %}{{ topic.seoTitle }}{% endblock %}
 
 {% block breadcrumb %}
-    <div class="w-full flex justify-center items-center">
-
-        <div class="breadcrumbs flex justify-center pt-4 text-sm">
-            <ul class="flex flex-col md:flex-row">
-                <li><a href="{{ path('app_home') }}" >Accueil</a></li>
-                <li class="!mt-0"><a href="{{ path('app_blog_index') }}"> Ressources</a></li>
-                {% if topic.parentTopic %}
-                    <li class="!mt-0"><a href="{{ path('app_topic_show', {'slug': topic.parentTopic.slug}) }}">{{ topic.parentTopic.title }}</a></li>
-                {% endif %}
-                <li class="!mt-0">{{ topic.title }}</li>
-            </ul>
-        </div>
+    <div class="breadcrumbs flex justify-start md:justify-center pt-4 text-xs">
+        <ul class="flex flex-col md:flex-row !items-start md:!items-center space-x-2 ">
+            <li><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li class="!mt-0"><a href="{{ path('app_blog_index') }}"> Ressources</a></li>
+            {% if topic.parentTopic %}
+                <li class="!mt-0 truncate"><a
+                            href="{{ path('app_topic_show', {'slug': topic.parentTopic.slug}) }}">{{ topic.parentTopic.title }}</a>
+                </li>
+            {% endif %}
+            <li class="!mt-0 truncate">{{ topic.title }}</li>
+        </ul>
     </div>
 {% endblock %}
 
 {% block body %}
     <div class="bg-base-100 text-base-content">
-    <article class="hero min-h-screen"
-            style="background-image: url({{ asset("images/topic/"~topic.image) }});">
-        <div class="hero-overlay"></div>
-        <div class="hero-content bg-base-100 bg-opacity-50 backdrop-blur-md text-neutral-content text-left text-pretty">
-            <div class="max-w-2xl p-8">
-                <h1 class="mb-5 text-3xl font-bold">{{ topic.title }}</h1>
-                <p class="mb-5">
-                    {{ topic.summary }}
-                </p>
-                <a class="btn btn-primary">{{ 'get_started' | trans }}</a>
+        <article class="hero min-h-screen"
+                 style="background-image: url({{ asset("images/topic/"~topic.image) }});">
+            <div class="hero-overlay"></div>
+            <div class="hero-content bg-base-100 bg-opacity-50 backdrop-blur-md text-neutral-content text-left text-pretty">
+                <div class="max-w-2xl p-8">
+                    <h1 class="mb-5 text-3xl font-bold">{{ topic.title }}</h1>
+                    <p class="mb-5">
+                        {{ topic.summary }}
+                    </p>
+                    <a class="btn btn-primary">{{ 'get_started' | trans }}</a>
+                </div>
             </div>
-        </div>
-    </article>
+        </article>
 
         <article class="flex flex-col items-start leading-8 text-lg mx-auto my-8 max-w-2xl mx-auto">
 
@@ -54,10 +53,10 @@
         </article>
 
 
-    <twig:Topic:RelatedPosts topicId="{{ topic.id }}" class="bg-base-200" />
+        <twig:Topic:RelatedPosts topicId="{{ topic.id }}" class="bg-base-200"/>
 
     </div>
 
 
-{#    <div class="w-1/2 after:content-[','] hover:bg-blue-800"> ddsq</div>#}
+    {#    <div class="w-1/2 after:content-[','] hover:bg-blue-800"> ddsq</div> #}
 {% endblock %}
