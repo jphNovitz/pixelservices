@@ -3,10 +3,10 @@
 {% block title %}{{ post.seoTitle }}{% endblock %}
 {% block metas %}
     <meta name="description"
-          content=" {{ post.seoSummary}}"/>
+          content=" {{ post.seoSummary }}"/>
     <meta name="keywords" content="site web, ecommerce, vitrine, site vitrine, wp, wordpress, wix"/>
 {% endblock %}
-{% block og_title %}{{ post.seoTitle}}{% endblock %}
+{% block og_title %}{{ post.seoTitle }}{% endblock %}
 {% block og_image %}{{ asset("images/blog/"~post.image) }} {% endblock %}
 {% block og_image_alt %}{{ post.seoTitle }}{% endblock %}
 {% block og_description %}{{ post.seoSummary }}{% endblock %}
@@ -20,18 +20,17 @@
 
 
 {% block breadcrumb %}
-    <div class="w-full flex justify-center items-center">
-
-        <div class="breadcrumbs flex justify-center pt-4 text-sm">
-            <ul class="flex flex-col md:flex-row">
-                <li><a href="{{ path('app_home') }}" >Accueil</a></li>
-                <li class="!mt-0"><a href="{{ path('app_blog_index') }}">Ressources</a></li>
-                {% if post.topic %}
-                    <li class="!mt-0"><a href="{{ path('app_topic_show', {'slug': post.topic.slug}) }}">{{ post.topic.title }}</a></li>
-                {% endif %}
-                <li class="!mt-0">{{ post.title }}</li>
-            </ul>
-        </div>
+    <div class="breadcrumbs flex justify-start md:justify-center pt-4 text-xs">
+        <ul class="flex flex-col md:flex-row !items-start md:!items-center space-x-2 ">
+            <li><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li class="!mt-0"><a href="{{ path('app_blog_index') }}">Ressources</a></li>
+            {% if post.topic %}
+                <li class="!mt-0 text-ellipsis"><a
+                            href="{{ path('app_topic_show', {'slug': post.topic.slug}) }}">{{ post.topic.title }}</a>
+                </li>
+            {% endif %}
+            <li class="!mt-0">{{ post.title }}</li>
+        </ul>
     </div>
 {% endblock %}
 
