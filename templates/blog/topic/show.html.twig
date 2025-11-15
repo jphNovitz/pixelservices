@@ -68,7 +68,7 @@
                     <figure class="w-full text-center">
                         <img
                                 class="w-full md:w-3/4 h-auto mx-auto my-8 rounded-lg shadow-md"
-                                src="{{ asset('images/' ~ topic.image) }}"
+                                src="{{ asset('images/topic/' ~ topic.image) }}"
                                 loading="lazy"
                                 {% if topic.image_alt is defined and  topic.image_alt is not empty %}
                                     alt="{{ topic.image_alt }}"
