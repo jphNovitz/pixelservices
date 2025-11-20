@@ -2,10 +2,12 @@
 <html lang="fr-BE" class="h-full"  >
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta http-equiv="Content-Language" content="fr-BE">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <title>{% block title %}Sites web pour artisans et indépendants - Court-Saint-Étienne{% endblock %}</title>
-    <link rel="icon" type="image/png" href="{{ asset('favicon-96x96.png') }}" sizes="96x96"/>
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}"/>
+    <link rel="icon" type="image/png" href="{{ asset('favicon-96x96.png') }}" sizes="96x96"/>
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}"/>
     <link rel="manifest" href="{{ asset('site.webmanifest') }}"/>
@@ -13,13 +15,12 @@
         <meta name="description"
               content="Création site vitrine à Court-Saint-Étienne : solution professionnelle pour artisans et indépendants. Valorisez vos services et renforcez votre image en ligne."/>
     {% endblock %}
-    <meta name="author" content="Novitz Jean-Philippe <bonjour@jphiweb>"/>
+    <meta name="author" content="Novitz Jean-Philippe <bonjour@jphiweb.be>"/>
     <meta name="copyright" content="Novitz Jean-Philippe <jphiweb.be>"/>
     {% block follow %}
-        <meta name="robots" content="index,follow"/> {% endblock %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Language" content="fr-BE">
+        <meta name="robots" content="index,follow"/> 
+    {% endblock %}
+   
     <link rel="canonical" href="{{ absolute_url(app.request.attributes.get('_route')
     ? path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params', {}))
     : path(app.request.pathinfo)) }}" />
@@ -49,9 +50,7 @@
     <meta name="twitter:image:alt"
           content="{% block twitter_image_alt %}Sites web pour artisans et indépendants - Court-Saint-Étienne{% endblock %}">
 
-    <link
-            rel="icon"
-            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+   
     {% block stylesheets %}
 
         <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
