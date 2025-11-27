@@ -62,7 +62,15 @@ module.exports = {
         require('daisyui')
     ],
     daisyui: {
-        themes: ['corporate', 'dracula'],
+        themes: [
+            {
+                corporate: {
+                    ...require("daisyui/src/theming/themes")["corporate"],
+                    primary: "#1732AB",
+                },
+            },
+            // 'corporate',
+            'dracula'],
         darkTheme: "dracula",
     }
 }
