@@ -17,7 +17,9 @@ module.exports = {
                 'hero-mobile': "url('../images/st-antoine-sart-messire-guillaume.webp')",
                 'hero-md': "url('../images/st-antoine-sart-messire-guillaume.webp')",
                 'logo-light': "url('../images/logo/logo-jphiweb-light.webp')",
-                'logo-dark': "url('../images/logo/logo-jphiweb-dark-pink.webp')"
+                'logo-dark': "url('../images/logo/logo-jphiweb-dark-pink.webp')",
+                'index-think': "url('../images/home/think_jphiweb_be.webp')",
+                'index-think-dark': "url('../images/home/think_jphiweb_be_white.png')",
                 // 'hero-mobile': "url('../images/abbaye2.webp')",
                 // 'hero-md': "url('../images/abbaye2.webp')",
             },
