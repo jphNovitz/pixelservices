@@ -1,0 +1,54 @@
+{# seo section — full viewport height minus navbar (h-16 => 4rem) #}
+<section id="etre-visible"
+         class="min-h-[calc(100vh-4rem)] flex items-center py-20 md:py-28 lg:py-32 bg-base-100">
+    <div class="mx-auto w-full max-w-5xl px-6 md:px-12 lg:px-24 ">
+        <div class="flex flex-col items-center text-center gap-10 md:gap-14 lg:gap-20">
+
+
+            <header class="space-y-2">
+                <p class="badge badge-primary badge-lg badge-outline">Etre trouvé</p>
+
+                <h2 class="text-xl md:text-2xl lg:text-2xl font-extrabold tracking-tight text-balance">
+                    Que trouvent vos voisins quand ils cherchent vos services en ligne ?
+                </h2>
+
+                <p class="text-base md:text-lg lg:text-xl text-base-content/70 max-w-3xl mx-auto text-pretty">
+                    Votre site existe, mais passons au test de réalité : tapez "Votre Métier + Votre Ville" sur Google. Où apparaissez-vous ?
+                </p>
+            </header>
+
+
+            <figure class="w-full">
+                <div class=" border border-base-300 bg-base-100 shadow-2xl rounded-3xl">
+                    <div class="bg-base-200 p-2 md:p-4 lg:p-6 rounded-b-3xl">
+                        <img
+                                src="{{ asset('images/home/seo_jphiweb_be.webp') }}"
+                                alt="Travailler le SEO local pour être visible sur Google"
+                                class="w-full rounded-2xl shadow-xl ring-1 ring-base-300/60"/>
+                    </div>
+                </div>
+            </figure>
+
+
+            <div class="w-full mx-auto text-left space-y-6">
+                <h3>
+                    Si vous n'êtes pas sur la première page, vous êtes invisible pour la majorité de vos futurs clients. </h3>
+                <p>Seuls ceux qui connaissent déjà votre nom vous trouvent. Passons de l'ombre à la lumière. Voici le plan d'attaque :</p>
+
+                <ul>
+                    <li>Optimisation <b>SEO</b> locale</li>
+                    <li>Présence Google <b>Business Profile</b></li>
+                    <li><b>Contenu optimisé</b> pour votre secteur</li>
+                    <li>Ajouter des <b>Témoignages clients</b></li>
+                </ul>
+
+                <div class="!mt-8">
+                    <a href="{{ path('app_contact') }}" class="btn btn-primary">
+                        Je me lance !
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
