@@ -8,6 +8,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Translatable\Translatable;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: WorkRepository::class)]
 class Work
@@ -21,6 +22,10 @@ class Work
     private ?string $name = null;
 
     #[ORM\Column(type: 'string', length: 65, nullable: true)]
+    #[Assert\Length(
+        max: 65,
+        maxMessage: 'Maximum {{ limit }} caractères.'
+    )]
     private ?string $seoTitle = null;
 
     #[ORM\Column(type: 'string', length: 65, nullable: true)]
