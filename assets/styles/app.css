@@ -80,7 +80,12 @@
     font-style: normal;
 }
 
-@layer components {
+/*@layer components {*/
+@layer base {
+    p {
+        @apply text-base leading-relaxed mb-6 text-balance;
+    }
+
     h1 {
         @apply text-4xl text-primary font-black tracking-tight font-lato mt-12 mb-6;
     }
@@ -102,4 +107,5 @@
     ul {
         @apply list-inside list-disc pl-5 space-y-2;
     }
+
 }
