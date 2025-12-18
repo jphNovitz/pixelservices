@@ -48,7 +48,15 @@ class WorkCrudController extends AbstractCrudController
     {
         return [
 //            IdField::new('id'),
-            TextField::new('name', new TranslatableMessage('Name')),
+            TextField::new('name', new TranslatableMessage('Name'))->setColumns(12),
+            TextField::new('seoTitle')
+                ->setColumns('20')
+                ->setLabel(new TranslatableMessage('SEO Title'))
+                ->setHelp('Max 65 caractères')
+                ->setFormTypeOption('attr', ['maxlength' => 65]),
+            TextField::new('slugTitle')->setColumns('20')->setLabel(new TranslatableMessage('Slug Title')),
+            TextField::new('seoDescription', new TranslatableMessage('Meta Description'))->setColumns(12)
+                ->setMaxLength(160),
             TextField::new('description_short', new TranslatableMessage('Description_short')),
             TextEditorField::new('description_long', new TranslatableMessage('Description_long'))
                 ->setFormType(CKEditorType::class)

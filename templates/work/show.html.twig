@@ -1,16 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Service {{ work.name }}{% endblock %}
-{% block og_title %}Service {{ work.name }}{% endblock %}
-    {% block og_image %}
-        {% if work.image is defined  %}
-            {{ asset("images/work/"~work.image) }} {% endif %}
-    {% endblock %}
-{% block og_description %} {{ work.descriptionShort|striptags }}{% endblock %}
+{% block title %}{{ work.seoTitle }}{% endblock %}
 {% block metas %}
     <meta name="description"
-          content=" {{ work.descriptionShort|striptags }}"/>
+          content=" {{ work.seoDescription }}"/>
+    <meta name="keywords" content="site web, ecommerce, vitrine, site vitrine, wp, wordpress, wix"/>
 {% endblock %}
+{% block og_title %}{{ work.seoTitle }}{% endblock %}
+{% block og_image %}{{ asset("images/blog/"~work.image) }} {% endblock %}
+{% block og_image_alt %}{{ work.seoTitle }}{% endblock %}
+{% block og_description %}{{ work.seoDescription }}{% endblock %}
+{% block twitter_title %}{{ work.seoTitle }}{% endblock %}
+{% block twitter_description %}{{ work.seoDescription }}{% endblock %}
+{% block twitter_image %}{{ asset("images/blog/"~work.image) }} {% endblock %}
+{% block twitter_image_alt %}{{ work.seoTitle }}{% endblock %}
 {% block body %}
     <div class="w-full h-full flex flex-col justify-around  md:w-2/3 m-auto">
 

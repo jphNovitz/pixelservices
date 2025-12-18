@@ -20,8 +20,17 @@ class Work
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $name = null;
 
+    #[ORM\Column(type: 'string', length: 65, nullable: true)]
+    private ?string $seoTitle = null;
+
+    #[ORM\Column(type: 'string', length: 65, nullable: true)]
+    private ?string $slugTitle = null;
+
+    #[ORM\Column(length: 160, nullable: true)]
+    private ?string $seoDescription = null;
     #[ORM\Column(nullable: true)]
     private ?int $price = null;
+
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $description_short = null;
@@ -197,5 +206,40 @@ class Work
         return $this;
     }
 
+    public function getSeoTitle(): ?string
+    {
+        return $this->seoTitle;
+    }
+
+    public function setSeoTitle(?string $seoTitle): static
+    {
+        $this->seoTitle = $seoTitle;
+
+        return $this;
+    }
+
+    public function getSlugTitle(): ?string
+    {
+        return $this->slugTitle;
+    }
+
+    public function setSlugTitle(?string $slugTitle): static
+    {
+        $this->slugTitle = $slugTitle;
+
+        return $this;
+    }
+
+    public function getSeoDescription(): ?string
+    {
+        return $this->seoDescription;
+    }
+
+    public function setSeoDescription(?string $seoDescription): static
+    {
+        $this->seoDescription = $seoDescription;
+
+        return $this;
+    }
 
 }
