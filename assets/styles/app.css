@@ -80,10 +80,10 @@
     font-style: normal;
 }
 
-/*@layer components {*/
-@layer base {
+/*@layer base {*/
+@layer components {
     p {
-        @apply text-base leading-relaxed mb-6 text-balance;
+        @apply text-base leading-relaxed mb-6 text-pretty;
     }
 
     h1 {
