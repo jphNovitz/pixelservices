@@ -19,6 +19,10 @@ class Work
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: 'Maximum {{ limit }} caractères.'
+    )]
     private ?string $name = null;
 
     #[ORM\Column(type: 'string', length: 65, nullable: true)]
@@ -29,15 +33,27 @@ class Work
     private ?string $seoTitle = null;
 
     #[ORM\Column(type: 'string', length: 65, nullable: true)]
+    #[Assert\Length(
+        max: 65,
+        maxMessage: 'Maximum {{ limit }} caractères.'
+    )]
     private ?string $slugTitle = null;
 
     #[ORM\Column(length: 160, nullable: true)]
+    #[Assert\Length(
+        max: 160,
+        maxMessage: 'Maximum {{ limit }} caractères.'
+    )]
     private ?string $seoDescription = null;
     #[ORM\Column(nullable: true)]
     private ?int $price = null;
 
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Length(
+        max: 255,
+        maxMessage: 'Maximum {{ limit }} caractères.'
+    )]
     private ?string $description_short = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
