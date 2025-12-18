@@ -82,8 +82,15 @@
 
 /*@layer base {*/
 @layer components {
+    p, li, span, a, div {;
+        @apply text-pretty;
+    }
     p {
-        @apply text-base leading-relaxed mb-6 text-pretty;
+        @apply text-base leading-relaxed mb-6 ;
+    }
+
+    ul {
+        @apply mb-6 ;
     }
 
     h1 {
