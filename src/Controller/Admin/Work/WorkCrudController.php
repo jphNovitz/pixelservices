@@ -56,6 +56,8 @@ class WorkCrudController extends AbstractCrudController
                 ->setHelp('Max 65 caractères')
                 ->setFormTypeOption('attr', ['maxlength' => 65]),
             TextField::new('slugTitle')->setColumns('20')->setLabel(new TranslatableMessage('Slug Title'))->setFormTypeOption('attr', ['maxlength' => 65]),
+            TextField::new('slug', 'Slug')
+                ->onlyOnDetail(),
             TextField::new('seoDescription', new TranslatableMessage('Meta Description'))->setColumns(12)
                 ->setMaxLength(160)->setFormTypeOption('attr', ['maxlength' => 160]),
             TextField::new('description_short', new TranslatableMessage('Description_short')),

@@ -63,7 +63,7 @@ class Work
     private bool $active = false;
 
     #[ORM\Column(length: 128, unique: true)]
-    #[Gedmo\Slug(fields: ['name'])]
+    #[Gedmo\Slug(fields: ['seoTitle'])]
     private ?string $slug = null;
 
     #[ORM\Column(length: 255, nullable: true)]
