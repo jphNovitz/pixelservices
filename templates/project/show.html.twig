@@ -1,18 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ project.title }}{% endblock %}
-{% block og_title %}{{ project.title }}{% endblock %}
-{% block og_image %}/images/projets/{{ project.image }} {% endblock %}
-{% block og_description %}{{ project.header }}{% endblock %}
+{% block title %}{{ project.seoTitle }}{% endblock %}
 {% block metas %}
     <meta name="description"
-          content="{{ project.header }}"/>
-    <meta name="keywords" content="
-    {% if project.category %} {{ project.category.name }}, {% endif %}
-    {% for technology in project.technologies %} {{ technology.name }},{% endfor %}
-    {% for tag in project.tags %}{{ tag.name }},{% endfor %}
-    {% if project.role %}{{ project.role.name }},{% endif %} "/>
+          content=" {{ project.seoSummary }}"/>
+    <meta name="keywords" content="site web, ecommerce, vitrine, site vitrine, wp, wordpress, wix"/>
 {% endblock %}
+{% block og_title %}{{ project.seoTitle }}{% endblock %}
+{% block og_image %}{{ asset("/images/projets/"~project.image) }} {% endblock %}
+{% block og_image_alt %}{{ project.seoTitle }}{% endblock %}
+{% block og_description %}{{ project.seoSummary }}{% endblock %}
+{% block twitter_title %}{{ project.seoTitle }}{% endblock %}
+{% block twitter_description %}{{ project.seoSummary }}{% endblock %}
+{% block twitter_image %}{{ asset("/images/projets/"~project.image) }} {% endblock %}
+{% block twitter_image_alt %}{{ project.seoTitle }}{% endblock %}
+
+
+{% block json_ld %}
+    {% set schema = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "headline": project.seoTitle,
+        "description": project.seoSummary,
+        "image": absolute_url(asset('images/projets/' ~ project.image)),
+        "author": {
+            "@type": "Person",
+            "@id": "https://jphiweb.be/#person_jphnovitz",
+            "name": "Novitz Jean-Philippe"
+        },
+        "publisher": {
+            "@id": "https://jphiweb.be/#organization"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": url('app_project_show', {slug: project.slug})
+        },
+        "articleSection": project.category.title|default(project.category),
+        "abstract": project.seoSummary,
+        "articleBody": project.description|striptags|slice(0, 500)
+    } %}
+
+    <script type="application/ld+json">
+        {{ schema|json_encode(256)|raw }}
+    </script>
+{% endblock %}
+
 
 {% block breadcrumb %}
     <div class="w-full flex justify-center items-center">

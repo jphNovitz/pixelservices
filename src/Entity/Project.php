@@ -18,14 +18,19 @@ class Project
 
     #[ORM\Column(type: 'string', length: 255)]
     private string $title;
-
+    #[ORM\Column(type: 'string', length: 65, nullable: true)]
+    private ?string $seoTitle = null;
 
     #[ORM\Column(length: 255, unique: true)]
-    #[Gedmo\Slug(fields: ['title'], updatable: true, unique: true)]
+    #[Gedmo\Slug(fields: ['slugTitle'], updatable: true, unique: true)]
     private ?string $slug = null;
+
+    #[ORM\Column(type: 'string', length: 65, nullable: true)]
+    private ?string $slugTitle = null;
     #[ORM\Column(type: 'text', nullable: true)]
     private ?string $header = null;
-
+    #[ORM\Column(length: 160, nullable: true)]
+    private ?string $seoSummary = null;
     #[ORM\Column(type: 'text', nullable: true)]
     private ?string $description = null;
 
@@ -201,4 +206,47 @@ class Project
 
         return $this;
     }
+
+    #[ORM\PrePersist]
+    #[ORM\PreUpdate]
+    public function ensureSlugBase(): void
+    {
+        if (!$this->slugTitle) {
+            $this->slugTitle = $this->title;
+        }
+    }
+
+    public function getSeoTitle(): ?string
+    {
+        return $this->seoTitle ?? $this->title;
+    }
+
+    public function setSeoTitle(?string $seoTitle): void
+    {
+        $this->seoTitle = $seoTitle;
+    }
+
+    public function getSlugTitle(): ?string
+    {
+        return $this->slugTitle ?? $this->title;
+    }
+
+    public function setSlugTitle(?string $slugTitle): void
+    {
+        $this->slugTitle = $slugTitle;
+    }
+
+    public function getSeoSummary(): ?string
+    {
+        return $this->seoSummary ?? $this->header;
+    }
+
+    public function setSeoSummary(?string $seoSummary): static
+    {
+        $this->seoSummary = $seoSummary;
+
+        return $this;
+    }
+
+
 }

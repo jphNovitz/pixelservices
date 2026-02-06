@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\Translation\TranslatableMessage;
 
 class ProjectCrudController extends AbstractCrudController
 {
@@ -29,6 +30,14 @@ class ProjectCrudController extends AbstractCrudController
     {
         return [
             TextField::new('title')->setColumns('20'),
+            TextField::new('seoTitle')
+                ->setColumns('20')
+                ->setLabel(new TranslatableMessage('SEO Title'))
+                ->setHelp('Max 65 caractères')
+                ->setFormTypeOption('attr', ['maxlength' => 65]),
+            TextField::new('slugTitle')->setColumns('20')->setLabel(new TranslatableMessage('Slug Title')),
+            TextField::new('seoSummary', new TranslatableMessage('Meta Description'))->setColumns(12)
+                ->setMaxLength(160),
             TextField::new('header')->setColumns('20'),
             TextField::new('link'),
             TextEditorField::new('description')
