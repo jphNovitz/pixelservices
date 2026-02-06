@@ -57,20 +57,23 @@
 
     {% endblock %}
 
-   {%  block jason_ld %}
+   {%  block json_ld %}
        <script type="application/ld+json">
            {
                "@context": "https://schema.org",
                "@type": "ProfessionalService",
-               "name": "JPHiWeb",
-               "image": "https://jphiweb.be/images/jphiweb_facebook_image.webp",
-               "url": "https://jphiweb.be",
                "@id": "https://jphiweb.be/#organization",
-               "telephone": "+32-XXX-XX-XX-XX",
+               "name": "JPHiWeb",
+               "legalName": "JPHiWeb",
+               "url": "https://jphiweb.be",
+               "logo": "https://jphiweb.be/images/votre-logo.png",
+               "image": "https://jphiweb.be/images/jphiweb_facebook_image.webp",
+               "description": "Partenaire web à Court-Saint-Étienne : création de sites vitrines, ecommerce, services web, optimisation pour artisans et PME en Brabant Wallon.",
+               "telephone": "+32XXXXXXXXy",
                "email": "bonjour@jphiweb.be",
+               "priceRange": "€€",
                "address": {
                    "@type": "PostalAddress",
-                   "streetAddress": "Votre adresse si tu veux la publier",
                    "addressLocality": "Court-Saint-Étienne",
                    "postalCode": "1490",
                    "addressRegion": "Brabant Wallon",
@@ -82,37 +85,34 @@
                    "longitude": 4.5667
                },
                "areaServed": [
+                   "Court-Saint-Étienne",
+                   "Brabant Wallon",
+                   "Belgique"
+               ],
+               "openingHoursSpecification": [
                    {
-                       "@type": "City",
-                       "name": "Court-Saint-Étienne"
-                   },
-                   {
-                       "@type": "AdministrativeArea",
-                       "name": "Brabant Wallon"
+                       "@type": "OpeningHoursSpecification",
+                       "dayOfWeek": [
+                           "Monday",
+                           "Tuesday",
+                           "Wednesday",
+                           "Thursday",
+                           "Friday"
+                       ],
+                       "opens": "09:00",
+                       "closes": "18:00"
                    }
                ],
-               "priceRange": "€€",
-               "openingHoursSpecification": {
-                   "@type": "OpeningHoursSpecification",
-                   "dayOfWeek": [
-                       "Monday",
-                       "Tuesday",
-                       "Wednesday",
-                       "Thursday",
-                       "Friday"
-                   ],
-                   "opens": "09:00",
-                   "closes": "18:00"
-               },
                "sameAs": [
                    "https://www.linkedin.com/in/jphnovitz",
                    "https://www.facebook.com/jphiweb/",
                    "https://www.instagram.com/jphiweb.be"
                ],
-               "description": "Partenaire web à Court-Saint-Étienne : création de sites vitrines, optimisation et automatisation pour artisans et PME en Brabant Wallon.",
                "founder": {
                    "@type": "Person",
-                   "name": "Novitz Jean-Philippe"
+                   "name": "Novitz Jean-Philippe",
+                   "jobTitle": "Fondateur",
+                   "url": "https://www.linkedin.com/in/jphnovitz"
                }
            }
        </script>

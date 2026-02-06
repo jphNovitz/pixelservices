@@ -16,7 +16,36 @@
 {% block twitter_image_alt %}{{ post.seoTitle }}{% endblock %}
 
 
+{% block json_ld %}
+    {% set schema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post.seoTitle,
+        "description": post.seoSummary,
+        "image": absolute_url(asset('images/blog/' ~ post.image)),
+        "datePublished": post.createdAt|date('c'),
+        "dateModified": post.updatedAt|date('c'),
+        "author": {
+            "@type": "Person",
+            "@id": "https://jphiweb.be/#person_jphnovitz",
+            "name": "Novitz Jean-Philippe"
+        },
+        "publisher": {
+            "@id": "https://jphiweb.be/#organization"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": url('app_blog_show', {slug: post.slug})
+        },
+        "articleSection": post.topic.title|default(post.topic),
+        "abstract": post.summary,
+        "articleBody": post.content|striptags|slice(0, 500)
+    } %}
 
+    <script type="application/ld+json">
+        {{ schema|json_encode(256)|raw }}
+    </script>
+{% endblock %}
 
 
 {% block breadcrumb %}
