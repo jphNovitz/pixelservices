@@ -47,16 +47,19 @@
 
 
 {% block breadcrumb %}
-    <div class="w-full flex justify-center items-center">
-
-        <div class="breadcrumbs flex justify-center pt-4 text-sm">
-            <ul>
-                <li><a href="{{ path('app_home') }}" >Accueil</a></li>
-                <li class="!mt-0"><a href="{{ path('app_project_list') }}">Réalisations</a></li>
-                <li class="!mt-0">{{ project.title }}</li>
-            </ul>
-        </div>
+    <div class="breadcrumbs flex justify-start md:justify-center pt-4 text-xs">
+        <ul class="max-w-full flex flex-col md:flex-row !items-start md:!items-center space-x-2 ">
+            <li><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li class="!mt-0"><a href="{{ path('app_project_list') }}">Ressources</a></li>
+            {% if project.category %}
+                <li class="!mt-0 text-ellipsis overflow-hidden"><a
+                            href="{{ path('app_project_show', {'slug': project.category.slug}) }}">{{ project.category.title }}</a>
+                </li>
+            {% endif %}
+            <li class="!mt-0 text-ellipsis overflow-hidden">{{ project.title }}</li>
+        </ul>
     </div>
+
 {% endblock %}
 
 {% block body %}
