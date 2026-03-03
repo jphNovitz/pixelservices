@@ -54,6 +54,13 @@ redirect_old_gcb_2:
     path: /realisation/digitalisation-et-referencement-local-pour-les-gais-carabiniers
     permanent: true
 
+redirect_coming_soon:
+  path: /focus-sur/page-coming-soon
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    path: /focus-sur/creer-page-coming-soon
+    permanent: true
+
 controllers:
   resource: ../src/Controller/
   type: attribute
