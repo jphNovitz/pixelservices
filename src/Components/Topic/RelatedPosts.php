@@ -10,6 +10,7 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent(template: 'components/Topic/RelatedPosts.html.twig')]
 class RelatedPosts
 {
+    public ?Topic $topic = null;
     public array $relatedPosts = [];
     public Topic|null $parentTopic = null;
     public array $childrenTopics = [];
@@ -25,6 +26,7 @@ class RelatedPosts
     {
         $this->relatedPosts = $this->blogRepository->findBy(['topic' => $topicId]);
         $topic = $this->topicRepository->findOneBy(['id' => $topicId]);
+        $this->topic = $topic;
         $this->parentTopic= $topic->getParentTopic();
         $this->childrenTopics= $topic->getChildrenTopics()->toArray();
     }
