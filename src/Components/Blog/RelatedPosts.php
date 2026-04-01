@@ -21,6 +21,14 @@ class RelatedPosts
     public function mount(int $topicId): void
     {
         $this->relatedTopic = $this->topicRepository->findOneBy(['id' => $topicId]);
+        if ($this->relatedTopic === null) {
+            return;
+        }
+
+        $this->relatedPosts = array_values(array_filter(
+            $this->relatedTopic->getArticles()->toArray(),
+            fn ($post) => $post->getId() !== $this->currentPostId && !empty($post->getSlug())
+        ));
     }
 
 }
