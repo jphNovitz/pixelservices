@@ -7,12 +7,12 @@
     <meta name="keywords" content="site web, ecommerce, vitrine, site vitrine, wp, wordpress, wix"/>
 {% endblock %}
 {% block og_title %}{{ post.seoTitle }}{% endblock %}
-{% block og_image %}{{ asset("images/blog/"~post.image) }} {% endblock %}
+{% block og_image %}{% if post.image %}{{ asset("images/blog/" ~ post.image) }}{% else %}{{ asset("images/jphiweb_facebook_image.webp") }}{% endif %}{% endblock %}
 {% block og_image_alt %}{{ post.seoTitle }}{% endblock %}
 {% block og_description %}{{ post.seoSummary }}{% endblock %}
 {% block twitter_title %}{{ post.seoTitle }}{% endblock %}
 {% block twitter_description %}{{ post.seoSummary }}{% endblock %}
-{% block twitter_image %}{{ asset("images/blog/"~post.image) }} {% endblock %}
+{% block twitter_image %}{% if post.image %}{{ asset("images/blog/" ~ post.image) }}{% else %}{{ asset("images/jphiweb_facebook_image.webp") }}{% endif %}{% endblock %}
 {% block twitter_image_alt %}{{ post.seoTitle }}{% endblock %}
 
 
@@ -22,7 +22,6 @@
         "@type": "BlogPosting",
         "headline": post.seoTitle,
         "description": post.seoSummary,
-        "image": absolute_url(asset('images/blog/' ~ post.image)),
         "datePublished": post.createdAt|date('c'),
         "dateModified": post.updatedAt|date('c'),
         "author": {
@@ -41,6 +40,12 @@
         "abstract": post.summary,
         "articleBody": post.content|striptags|slice(0, 500)
     } %}
+
+    {% set schema = schema|merge({
+        "image": post.image
+            ? absolute_url(asset('images/blog/' ~ post.image))
+            : absolute_url(asset('images/jphiweb_facebook_image.webp'))
+    }) %}
 
     <script type="application/ld+json">
         {{ schema|json_encode(256)|raw }}

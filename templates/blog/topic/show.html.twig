@@ -7,13 +7,90 @@
     <meta name="keywords" content="site web, ecommerce, vitrine, site vitrine, wp, wordpress, wix"/>
 {% endblock %}
 {% block og_title %}{{ topic.seoTitle }}{% endblock %}
-{% block og_image %}{{ asset("images/topic/"~topic.image) }} {% endblock %}
+{% block og_image %}{% if topic.image %}{{ asset("images/topic/" ~ topic.image) }}{% else %}{{ asset("images/jphiweb_facebook_image.webp") }}{% endif %}{% endblock %}
 {% block og_image_alt %}{{ topic.seoTitle }}{% endblock %}
 {% block og_description %}{{ topic.seoSummary }}{% endblock %}
 {% block twitter_title %}{{ topic.seoTitle }}{% endblock %}
 {% block twitter_description %}{{ topic.seoSummary }}{% endblock %}
-{% block twitter_image %}{{ asset("images/topic/"~topic.image) }} {% endblock %}
+{% block twitter_image %}{% if topic.image %}{{ asset("images/topic/" ~ topic.image) }}{% else %}{{ asset("images/jphiweb_facebook_image.webp") }}{% endif %}{% endblock %}
 {% block twitter_image_alt %}{{ topic.seoTitle }}{% endblock %}
+
+{% block json_ld %}
+    {% set schema = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "headline": topic.seoTitle,
+        "name": topic.title,
+        "description": topic.seoSummary,
+        "abstract": topic.summary,
+        "keywords": topic.title,
+        "about": {
+            "@type": "Thing",
+            "name": topic.title
+        },
+        "author": {
+            "@type": "Person",
+            "@id": "https://jphiweb.be/#person_jphnovitz",
+            "name": "Novitz Jean-Philippe"
+        },
+        "publisher": {
+            "@id": "https://jphiweb.be/#organization"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": url('app_topic_show', {slug: topic.slug})
+        },
+        "articleBody": topic.content|striptags|slice(0, 500)
+    } %}
+
+    {% set schema = schema|merge({
+        "image": topic.image
+            ? absolute_url(asset('images/topic/' ~ topic.image))
+            : absolute_url(asset('images/jphiweb_facebook_image.webp'))
+    }) %}
+
+    {% if topic.parentTopic %}
+        {% set schema = schema|merge({
+            "isPartOf": {
+                "@type": "CollectionPage",
+                "@id": url('app_topic_show', {slug: topic.parentTopic.slug}),
+                "name": topic.parentTopic.title
+            }
+        }) %}
+    {% endif %}
+
+    {% set childrenSchema = [] %}
+    {% for childTopic in topic.childrenTopics %}
+        {% set childrenSchema = childrenSchema|merge([{
+            "@type": "CollectionPage",
+            "@id": url('app_topic_show', {slug: childTopic.slug}),
+            "name": childTopic.title
+        }]) %}
+    {% endfor %}
+
+    {% set articleSchema = [] %}
+    {% for article in topic.articles %}
+        {% if article.slug %}
+            {% set articleSchema = articleSchema|merge([{
+                "@type": "BlogPosting",
+                "@id": url('app_blog_show', {slug: article.slug}),
+                "headline": article.seoTitle,
+                "name": article.title
+            }]) %}
+        {% endif %}
+    {% endfor %}
+
+    {% set hasPart = childrenSchema|merge(articleSchema) %}
+    {% if hasPart is not empty %}
+        {% set schema = schema|merge({
+            "hasPart": hasPart
+        }) %}
+    {% endif %}
+
+    <script type="application/ld+json">
+        {{ schema|json_encode(256)|raw }}
+    </script>
+{% endblock %}
 
 {% block breadcrumb %}
     <nav class="breadcrumbs flex justify-start md:justify-center pt-4 text-xs w-full">
