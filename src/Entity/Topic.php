@@ -35,6 +35,10 @@ class Topic
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $imageAlt = null;
+
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $content = null;
 
@@ -173,6 +177,18 @@ class Topic
     public function setImage(?string $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getImageAlt(): ?string
+    {
+        return $this->imageAlt;
+    }
+
+    public function setImageAlt(?string $imageAlt): static
+    {
+        $this->imageAlt = $imageAlt;
 
         return $this;
     }

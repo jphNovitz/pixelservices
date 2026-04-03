@@ -72,6 +72,9 @@ class BlogCrudController extends AbstractCrudController
             ImageField::new('image', new TranslatableMessage('Image'))
                 ->setUploadDir('public/images/blog/')
                 ->setBasePath('public/images/blog/'),
+            TextField::new('imageAlt', new TranslatableMessage('Image alt'))
+                ->setColumns(12)
+                ->setHelp('Texte alternatif de l’image'),
             AssociationField::new('topic', new TranslatableMessage('Topic'))
                 ->setRequired(true)
                 ->setColumns(12)

@@ -39,6 +39,9 @@ class Blog
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $imageAlt = null;
+
     #[ORM\Column]
     private ?bool $published = false;
 
@@ -106,6 +109,18 @@ class Blog
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getImageAlt(): ?string
+    {
+        return $this->imageAlt;
+    }
+
+    public function setImageAlt(?string $imageAlt): self
+    {
+        $this->imageAlt = $imageAlt;
 
         return $this;
     }

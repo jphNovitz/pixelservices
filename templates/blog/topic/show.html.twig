@@ -8,12 +8,12 @@
 {% endblock %}
 {% block og_title %}{{ topic.seoTitle }}{% endblock %}
 {% block og_image %}{% if topic.image %}{{ asset("images/topic/" ~ topic.image) }}{% else %}{{ asset("images/jphiweb_facebook_image.webp") }}{% endif %}{% endblock %}
-{% block og_image_alt %}{{ topic.seoTitle }}{% endblock %}
+{% block og_image_alt %}{{ topic.imageAlt ?: topic.seoTitle }}{% endblock %}
 {% block og_description %}{{ topic.seoSummary }}{% endblock %}
 {% block twitter_title %}{{ topic.seoTitle }}{% endblock %}
 {% block twitter_description %}{{ topic.seoSummary }}{% endblock %}
 {% block twitter_image %}{% if topic.image %}{{ asset("images/topic/" ~ topic.image) }}{% else %}{{ asset("images/jphiweb_facebook_image.webp") }}{% endif %}{% endblock %}
-{% block twitter_image_alt %}{{ topic.seoTitle }}{% endblock %}
+{% block twitter_image_alt %}{{ topic.imageAlt ?: topic.seoTitle }}{% endblock %}
 
 {% block json_ld %}
     {% set schema = {
@@ -147,8 +147,8 @@
                                 class="w-full md:w-3/4 h-auto mx-auto my-8 rounded-lg shadow-md"
                                 src="{{ asset('images/topic/' ~ topic.image) }}"
                                 loading="lazy"
-                                {% if topic.image_alt is defined and  topic.image_alt is not empty %}
-                                    alt="{{ topic.image_alt }}"
+                                {% if topic.imageAlt is not empty %}
+                                    alt="{{ topic.imageAlt }}"
                                 {% else %}
                                     alt="{{ topic.seoTitle }}"
                                 {% endif %}
