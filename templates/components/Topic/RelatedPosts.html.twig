@@ -7,9 +7,21 @@
             </h2>
 
             {% if parentTopic is not null %}
-                <div class="mb-4">
-                    <a href="{{ path('app_topic_show', {'slug': parentTopic.slug}) }}" class="hover:underline">
-                        {{ parentTopic.title }}
+                <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-6">
+                    <a href="{{ path('app_topic_show', {'slug': parentTopic.slug}) }}" class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
+                        <figure class="relative aspect-video overflow-hidden">
+                            {% if parentTopic.image %}
+                                <img src="{{ asset('images/topic/' ~ parentTopic.image) }}" alt="{{ parentTopic.title }}" class="w-full h-full object-cover"/>
+                            {% else %}
+                                <div class="w-full h-full bg-base-200 flex items-center justify-center text-base-content/60">Aperçu</div>
+                            {% endif %}
+                        </figure>
+                        <div class="card-body p-4">
+                            <h3 class="card-title text-base md:text-lg">{{ parentTopic.title }}</h3>
+                            {% if parentTopic.summary %}
+                                <p class="text-sm opacity-80">{{ parentTopic.summary|striptags }}</p>
+                            {% endif %}
+                        </div>
                     </a>
                 </div>
             {% endif %}
