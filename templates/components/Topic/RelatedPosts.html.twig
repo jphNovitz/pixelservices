@@ -2,7 +2,7 @@
 
     <aside{{ attributes.defaults({ class: "w-full p-4" }) }} aria-labelledby="related-reading">
         <nav aria-label="À lire aussi">
-            <h2 id="related-reading" class="text-xl font-semibold mb-3">
+            <h2 id="related-reading" class="text-xl font-semibold mt-12 mb-6 ">
                 {{ 'more.about' |trans }} {{ topic.title }}
             </h2>
 
@@ -17,9 +17,9 @@
                             {% endif %}
                         </figure>
                         <div class="card-body p-4">
-                            <h3 class="card-title text-base md:text-lg">{{ parentTopic.title }}</h3>
+                            <h3 class="card-title text-base mt-3">{{ parentTopic.title }}</h3>
                             {% if parentTopic.summary %}
-                                <p class="text-sm opacity-80 line-clamp-3 mb-0">{{ parentTopic.summary|striptags }}</p>
+                                <p class="text-sm opacity-80 line-clamp-3 leading-none mb-0">{{ parentTopic.summary|striptags }}</p>
                             {% endif %}
                             <span class="link link-primary mt-auto">Lire l'article</span>
                         </div>
@@ -39,9 +39,9 @@
                                 {% endif %}
                             </figure>
                             <div class="card-body p-4">
-                                <h3 class="card-title text-base md:text-lg">{{ childTopic.title }}</h3>
+                                <h3 class="card-title text-base mt-3">{{ childTopic.title }}</h3>
                                 {% if childTopic.summary %}
-                                    <p class="text-sm opacity-80 line-clamp-3 mb-0">{{ childTopic.summary|striptags }}</p>
+                                    <p class="text-sm opacity-80 line-clamp-3 leading-none mb-0">{{ childTopic.summary|striptags }}</p>
                                 {% endif %}
                                 <span class="link link-primary mt-auto">Lire l'article</span>
                             </div>
@@ -62,9 +62,9 @@
                                 {% endif %}
                             </figure>
                             <div class="card-body p-4">
-                                <h3 class="card-title text-base md:text-lg">{{ post.title }}</h3>
+                                <h3 class="card-title text-base mt-3">{{ post.title }}</h3>
                                 {% if post.summary %}
-                                    <p class="text-sm opacity-80 line-clamp-3 mb-0">{{ post.summary|striptags }}</p>
+                                    <p class="text-sm opacity-80 line-clamp-3 leading-none mb-0">{{ post.summary|striptags }}</p>
                                 {% endif %}
                                 <span class="link link-primary mt-auto">Lire l'article</span>
                             </div>
