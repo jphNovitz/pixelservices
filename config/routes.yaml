@@ -63,7 +63,7 @@ redirect_coming_soon:
 
 focus_index_redirect:
   path: /focus
-  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
   defaults:
     url: /
     permanent: true
