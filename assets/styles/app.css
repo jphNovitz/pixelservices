@@ -108,7 +108,7 @@
   }
 
   ul {
-    @apply mb-6;
+    @apply mb-6 leading-loose space-y-4;
   }
 
   h1 {
