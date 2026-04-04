@@ -21,6 +21,7 @@
                             {% if parentTopic.summary %}
                                 <p class="text-sm opacity-80 line-clamp-3">{{ parentTopic.summary|striptags }}</p>
                             {% endif %}
+                            <span class="link link-primary mt-auto">Lire l'article</span>
                         </div>
                     </a>
                 </div>
@@ -42,6 +43,7 @@
                                 {% if childTopic.summary %}
                                     <p class="text-sm opacity-80 line-clamp-3">{{ childTopic.summary|striptags }}</p>
                                 {% endif %}
+                                <span class="link link-primary mt-auto">Lire l'article</span>
                             </div>
                         </a>
                     {% endfor %}
@@ -64,6 +66,7 @@
                                 {% if post.summary %}
                                     <p class="text-sm opacity-80 line-clamp-3">{{ post.summary|striptags }}</p>
                                 {% endif %}
+                                <span class="link link-primary mt-auto">Lire l'article</span>
                             </div>
                         </a>
                     {% endfor %}
