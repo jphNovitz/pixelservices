@@ -25,8 +25,8 @@
                     </li>
                     <li class="{% if (app.request.get('_route') == 'app_works_list') %} link link-primary {% endif %}">
                         <a class="" href="{{ path('app_works_list') }}">Offre</a></li>
-                    <li class="{% if (app.request.get('_route') == 'app_blog_index') %} link link-primary {% endif %}">
-                        <a class="" href="{{ path('app_blog_index') }}">Ressources</a></li>
+                    <li class="{% if (app.request.get('_route') == 'app_contact') %} link link-primary {% endif %}">
+                        <a class="" href="{{ path('app_contact') }}">Contact</a></li>
                 </ul>
             </div>
             <twig:Logo class="w-16"/>
@@ -40,12 +40,12 @@
                 </li>
                 <li class="{% if (app.request.get('_route') == 'app_works_list') %} link link-primary {% endif %}"><a
                             class="" href="{{ path('app_works_list') }}">Offre</a></li>
-                <li class="{% if (app.request.get('_route') == 'app_blog_index') %} link link-primary {% endif %}"><a
-                            class="" href="{{ path('app_blog_index') }}">Ressources</a></li>
+                <li class="{% if (app.request.get('_route') == 'app_contact') %} link link-primary {% endif %}"><a
+                            class="" href="{{ path('app_contact') }}">Contact</a></li>
             </ul>
         </div>
         <div class="navbar-end">
-            <a class="btn" href="{{ path('app_contact') }}">Contact</a>
+            {# <a class="btn" href="{{ path('app_contact') }}">Contact</a> #}
         </div>
     </div>
 </div>
