@@ -61,6 +61,13 @@ redirect_coming_soon:
     path: /focus-sur/creer-page-coming-soon
     permanent: true
 
+focus_index_redirect:
+  path: /focus
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
+  defaults:
+    url: /
+    permanent: true
+
 controllers:
   resource: ../src/Controller/
   type: attribute
