@@ -19,7 +19,7 @@
                         <div class="card-body p-4">
                             <h3 class="card-title text-base md:text-lg">{{ parentTopic.title }}</h3>
                             {% if parentTopic.summary %}
-                                <p class="text-sm opacity-80 line-clamp-3">{{ parentTopic.summary|striptags }}</p>
+                                <p class="text-sm opacity-80 line-clamp-3 overflow-hidden">{{ parentTopic.summary|striptags }}</p>
                             {% endif %}
                         </div>
                     </a>
@@ -40,7 +40,7 @@
                             <div class="card-body p-4">
                                 <h3 class="card-title text-base md:text-lg">{{ childTopic.title }}</h3>
                                 {% if childTopic.summary %}
-                                    <p class="text-sm opacity-80 line-clamp-3">{{ childTopic.summary|striptags }}</p>
+                                    <p class="text-sm opacity-80 line-clamp-3 overflow-hidden">{{ childTopic.summary|striptags }}</p>
                                 {% endif %}
                             </div>
                         </a>
@@ -62,7 +62,7 @@
                             <div class="card-body p-4">
                                 <h3 class="card-title text-base md:text-lg">{{ post.title }}</h3>
                                 {% if post.summary %}
-                                    <p class="text-sm opacity-80 line-clamp-3">{{ post.summary|striptags }}</p>
+                                    <p class="text-sm opacity-80 line-clamp-3 overflow-hidden">{{ post.summary|striptags }}</p>
                                 {% endif %}
                             </div>
                         </a>
