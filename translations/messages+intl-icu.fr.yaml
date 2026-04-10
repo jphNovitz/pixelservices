@@ -1,3 +1,6 @@
+contact.me: "Contactez moi"
+about:
+  work: "A propos de ce service"
 save: Enregistrer
 Send: Envoyer
 Name: Nom
@@ -7,7 +10,7 @@ Your message have been send: Votre message a bien été envoyé
 Email: Email
 Seen: Vu
 Vu: Vu
-# {entity_label_plural}: Liste 
+# {entity_label_plural}: Liste
 Dashboard: Tableau de Bord
 ID: ID
 Text: Contenu
@@ -15,10 +18,9 @@ Description_short: Description (courte)
 Description_long: Description
 Price: Prix
 Active: Actif
-more.about: 'A lire aussi sur '
+more.about: "A lire aussi sur "
 
 get_started: "Je demande un devis"
-
 
 form:
   username: "Nom d'utilisateur"
@@ -26,5 +28,5 @@ form:
   password: "Mot de passe"
   login: "Connexion"
 
-'SEO Title': 'Titre SEO'
-'Slug Title': 'Titre pour le slug'
+"SEO Title": "Titre SEO"
+"Slug Title": "Titre pour le slug"
