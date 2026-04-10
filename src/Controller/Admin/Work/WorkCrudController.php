@@ -15,6 +15,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Translation\TranslatableMessage;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use App\Enum\WorkType;
 
 class WorkCrudController extends AbstractCrudController
 {
@@ -70,19 +72,23 @@ class WorkCrudController extends AbstractCrudController
             BooleanField::new('front', new TranslatableMessage('Front')),
             ImageField::new('image', new TranslatableMessage('Image'))
                 ->setUploadDir('public/images/work/')
-                ->setBasePath('public/images/work/'),
+        ->setBasePath('public/images/work/'),
+      ChoiceField::new('type')
+    ->setLabel('Catégorie')
+    ->setChoices(
+        array_combine(
+            array_map(fn($t) => $t->label(), WorkType::cases()),
+            array_map(fn($t) => $t->value, WorkType::cases()),
+        )
+    )
+    ->renderAsBadges([
+        'zero'      => 'info',
+        'evolution' => 'success',
+        'projet'    => 'warning',
+    ]),
             TextField::new('demoUrl', new TranslatableMessage('DemoUrl')),
                 
         ];
-    }
-//    public function configureFields(string $pageName): iterable
-//    {
-//        return [
-//            IdField::new('id'),
-//            TextField::new('title'),
-//            TextEditorField::new('description'),
-//        ];
-//
-//    }
-
+  }
+  
 }

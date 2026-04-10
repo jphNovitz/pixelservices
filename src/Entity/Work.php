@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\Translatable\Translatable;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Enum\WorkType;
 
 #[ORM\Entity(repositoryClass: WorkRepository::class)]
 class Work
@@ -68,6 +69,10 @@ class Work
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
+
+    
+    #[ORM\Column(type: 'string', enumType: WorkType::class, nullable: true)]
+    private ?WorkType $type = null;
 
     /**
      * @var DateTime
@@ -259,6 +264,18 @@ class Work
     public function setSeoDescription(?string $seoDescription): static
     {
         $this->seoDescription = $seoDescription;
+
+        return $this;
+    }
+
+    public function getType(): ?WorkType
+    {
+        return $this->type;
+    }
+
+    public function setType(?WorkType $type): static
+    {
+        $this->type = $type;
 
         return $this;
     }
