@@ -23,8 +23,8 @@
                         <a class="{% if (app.request.get('_route') == 'app_home') %} link link-primary {% endif %}"
                            href="{{ path('app_home') }}">Accueil</a>
                     </li>
-                    <li class="{% if (app.request.get('_route') == 'app_works_list') %} link link-primary {% endif %}">
-                        <a class="" href="{{ path('app_works_list') }}">Offre</a></li>
+                    <li class="{% if (app.request.get('_route') == 'app_work_index') %} link link-primary {% endif %}">
+                        <a class="" href="{{ path('app_work_index') }}">Offre</a></li>
                     <li class="{% if (app.request.get('_route') == 'app_contact') %} link link-primary {% endif %}">
                         <a class="" href="{{ path('app_contact') }}">Contact</a></li>
                 </ul>
@@ -38,8 +38,8 @@
                     <a class="{% if (app.request.get('_route') == 'app_home') %} link link-primary {% endif %}"
                        href="{{ path('app_home') }}">Accueil</a>
                 </li>
-                <li class="{% if (app.request.get('_route') == 'app_works_list') %} link link-primary {% endif %}"><a
-                            class="" href="{{ path('app_works_list') }}">Offre</a></li>
+                <li class="{% if (app.request.get('_route') == 'app_work_index') %} link link-primary {% endif %}"><a
+                            class="" href="{{ path('app_work_index') }}">Offre</a></li>
                 <li class="{% if (app.request.get('_route') == 'app_contact') %} link link-primary {% endif %}"><a
                             class="" href="{{ path('app_contact') }}">Contact</a></li>
             </ul>

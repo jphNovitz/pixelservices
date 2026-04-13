@@ -1,122 +1,158 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Découvrez mes services pour booster votre présence en ligne{% if works['general'] is defined %} {% for work in works['general'] %}{{ work.name }} {% if  not loop.last %},{% endif %} {% endfor %} {% endif %} | Jphweb{% endblock %}
-{% block og_title %}Découvrez mes services pour booster votre présence en ligne {% if works['general'] is defined %}({% for work in works['general'] %}{{ work.name }} {% if  not loop.last %},{% endif %} {% endfor %}) {% endif %}{% endblock %}
+{% block title %} Découvrez mes services pour booster votre présence en ligne  | Jphiweb{% endblock %}
+{% block og_title %}Découvrez mes services pour booster votre présence en ligne {% endblock %}
 {#    {% block og_image %} #}
 {#        {% if work.image is defined  %} #}
 {#            {{ asset("images/work/"~work.image) }} {% endif %} #}
 {#    {% endblock %} #}
-{% block og_description %} Services: {% for work in works['front'] %}{{ work.name }} {% if  not loop.last %},{% endif %} {% endfor %} {% endblock %}
+{% block og_description %} {% endblock %}
 {% block metas %}
     <meta name="description"
-          content="  Services: {% for work in works['front'] %}{{ work.name }} {% if not loop.last %},{% endif %} {% endfor %} "/>
+          content="  Services:  "/>
 {#    <meta name="description"#}
 {#          content="  Services: {% for work in works['front'] %}{{ work.name }} {% if not loop.last %},{% endif %} {% endfor %} "/>#}
 {% endblock %}
 
+{% block breadcrumb %}
+    <div class="breadcrumbs flex justify-start md:justify-center pt-8 text-xs">
+        <ul class="max-w-full flex flex-col md:flex-row !items-start md:!items-center space-x-2 ">
+            <li><a href="{{ path('app_home') }}">Accueil</a></li>
+            <li class="!mt-0 text-ellipsis overflow-hidden">Services</li>
+        </ul>
+    </div>
+{% endblock %}
+
 {% block body %}
 
-    <section class="">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-            <div class="mx-auto max-w-screen-md text-left mb-8 lg:mb-12">
-                <twig:Title:H1>Jphiweb: Des
-                    <span class="text-primary">solutions web</span> adaptées à vos besoins
-                </twig:Title:H1>
-                <twig:Title:H2> Que vous soyez indépendant ou
-                    entreprise, je vous accompagne pour concrétiser vos <span class="border-b-2 border-primary"> projets numériques</span>.
-                </twig:Title:H2>
+{# ── Hero ─────────────────────────────────────────────────────────────────── #}
+        <section class="bg-base-100 border-b border-base-200">
+            <div class="max-w-3xl mx-auto px-6 py-16 text-center">
+
+                <p class="text-xs font-medium tracking-widest uppercase text-base-content/40 mb-6">
+                    Jphiweb — Brabant Wallon
+                </p>
+
+                <h1 class="text-4xl lg:text-5xl font-bold text-base-content leading-tight mb-6">
+                    Des solutions web adaptées à vos besoins
+                </h1>
+
+                <p class="text-base text-base-content/60 leading-relaxed max-w-xl mx-auto mb-10">
+                    Que vous soyez indépendant ou entreprise, je vous accompagne pour concrétiser vos projets numériques.
+                </p>
+
+                <a href="{{ path('app_contact') }}" class="btn btn-primary btn-lg">
+                    Discutons de votre projet
+                </a>
+
             </div>
+        </section>
 
-            <!-- services card container -->
-            <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
-                <!-- Service Card -->
-                <div class="bg-base-100 flex flex-col justify-between p-6 mx-auto max-w-lg rounded-lg border border-base-content/10 shadow xl:p-8">
-                    <h3 class="mb-4 text-2xl font-semibold text-left">Vous partez de zéro ? <br/>On démarre ensemble !
-                    </h3>
-                    <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400 text-balance text-left">
-                        Vous lancez votre activité et n’avez encore rien en ligne ?
-                        Voici trois solutions simples pour établir une première présence pro :
-                    </p>
-                    <ul class="py-4">
-                        <li><a class="link link-primary"
-                               href="{{ path('app.works.show', {'slug': 'creation-de-site-vitrine'}) }}">Site vitrine</a></li>
-                        <li><a class="link link-primary"
-                               href="{{ path('app.works.show', {'slug': 'creation-site-web-carte-de-visite'}) }}">Carte de visite virtuelle</a></li>
-                        <li>{#<a class="link link-primary"
-                               href="{{ path('app.works.show', {'slug': 'bio-link-la-carte-de-visite-numerique-ideale-pour-les-independants-du-brabant-wallon'}) }}">#}
-                            Page bio-link{#</a>#}
-                        </li>
-                        <li> <a class="link link-primary" 
-                                href="/service/site-vitrine-horeca-cle-en-main">Site Vitrine HoReCa Clé en main</a>
-                        </li>
-                        <li>{#<a class="link link-primary"
-                               href="{{ path('app.', {'slug': 'une-page-coming-soon'}) }}">#}
-                                Page “Coming
-                                Soon”
-                            {#</a>#}
-                        </li>
-                        <li><a class="link link-primary"
-                               href="{{ path('app.works.show', {'slug': 'landing-page-soyez-visible-avec-page-accueil-professionnelle'}) }}">Landing
-                                page</a>
-                        </li>
-                    </ul>
+        {# ── Cartes formules ───────────────────────────────────────────────────────── #}
+        <section class="bg-base-200">
+            <div class="max-w-5xl mx-auto px-6 py-14">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-                </div>
-                <!-- Service Card -->
-                <div class="bg-base-100 flex flex-col justify-between p-6 mx-auto max-w-lg rounded-lg border border-base-content/10 shadow xl:p-8">
-                  <h3 class="mb-4 text-2xl font-semibold text-left">Faites évoluer votre site web</h3>
-                    <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400 text-balance text-left">
-                        Vous avez déjà une landing page ou un site en ligne, il date un peu ? <br/>
-                        Offrez-lui une seconde jeunesse ou faites-le évoluer vers un outil plus performant.
-                        Voici quelques services pour passer à l’étape suivante :
-                    </p>
-                    <ul class="py-4">
-                        <li><a class="link link-primary"
-                               href="{{ path('app.works.show', {'slug': 'refonte-et-amelioration-de-site-web'}) }}">Refonte de site web</a>
-                        </li>
-                        <li><a class="link link-primary"
-                               href="{{ path('app.works.show', {'slug': 'referencement-local-court-saint-etienne'}) }}">Référencement naturel (SEO)</a>
-                        </li>
-                        <li>Ajout d'une section, d'une fonctionnalité, Adaptation du site web au responsive ou mobile first</li>
-                        <li>Réparation de petits bugs ou defauts</li>
-                        <li>Migration vers un autre hebergeur</li>
+                    {# Carte 1 — Partir de zéro #}
+                    <div class="card bg-base-100 border border-base-200 shadow-none">
+                        <div class="card-body gap-4">
 
-                    </ul>
+                            <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
 
-                </div>
-                <!-- Service Card -->
-                <div class="bg-base-100 flex flex-col justify-between p-6 mx-auto max-w-lg rounded-lg border border-base-content/10 shadow xl:p-8">
-                    <h3 class="mb-4 text-2xl font-semibold text-left">Votre projet est clair, passons à l’action</h3>
-                    <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400 text-balance text-left">
-                        Qu’il s’agisse d’un projet personnel ambitieux, d’un changement technologique ou du lancement
-                        d’un e-commerce, je vous accompagne sur mesure.
-                        <br/> Voici quelques pistes : </p>
-                    <ul class="py-4">
-                        <li>Migration vers une nouvelle technologie</li>
-                        <li>Création de boutique en ligne</li>
-                        <li>Développement sur mesure</li>
-                    </ul>
+                            <h2 class="card-title text-base font-semibold">Vous partez de zéro ?</h2>
+
+                            <p class="text-sm text-base-content/60 leading-relaxed">
+                                Vous lancez votre activité et n'avez encore rien en ligne. Je vous propose une première présence pro, rapide à mettre en place.
+                            </p>
+
+                            <a href="{{ path('app_work_type', {type: 'creation'}) }}" class="text-sm font-medium text-primary inline-flex items-center gap-1 mt-auto">
+                                Voir les formules
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    {# Carte 2 — Faire évoluer #}
+                    <div class="card bg-base-100 border border-base-200 shadow-none">
+                        <div class="card-body gap-4">
+
+                            <div class="w-10 h-10 rounded-lg bg-success/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"/>
+                                </svg>
+                            </div>
+
+                            <h2 class="card-title text-base font-semibold">Faites évoluer votre site</h2>
+
+                            <p class="text-sm text-base-content/60 leading-relaxed">
+                                Votre site date un peu ? Je le modernise, l'optimise pour le SEO ou l'adapte au mobile — sans tout recommencer de zéro.
+                            </p>
+
+                            <a href="{{ path('app_work_type', {type: 'evolution'}) }}" class="text-sm font-medium text-success inline-flex items-center gap-1 mt-auto">
+                                Voir les services
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    {# Carte 3 — Projet défini #}
+                    <div class="card bg-base-100 border border-base-200 shadow-none">
+                        <div class="card-body gap-4">
+
+                            <div class="w-10 h-10 rounded-lg bg-warning/10 flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-5 text-warning" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+
+                            <h2 class="card-title text-base font-semibold">Votre projet est clair ?</h2>
+
+                            <p class="text-sm text-base-content/60 leading-relaxed">
+                                Migration technologique, boutique en ligne, développement sur mesure — je vous accompagne de A à Z sur des projets ambitieux.
+                            </p>
+
+                            <a href="{{ path('app_work_type', {type: 'projet'}) }}" class="text-sm font-medium text-warning inline-flex items-center gap-1 mt-auto">
+                                En savoir plus
+                                <svg xmlns="http://www.w3.org/2000/svg" class="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+
+                        </div>
+                    </div>
 
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <section class="hero bg-base-100 py-16">
-      <div class="hero-content flex-col lg:flex-row-reverse">
-        <div class="max-w-md">
-          <p class="py-6">
-             Vous avez une idée, un projet précis ou simplement l’envie de vous lancer ?  
-             Qu’il s’agisse d’un site vitrine, d’une boutique en ligne ou d’une solution sur mesure, je vous aide à concrétiser votre vision.  
-             Vous pouvez commencer petit et évoluer ensuite — l’important, c’est de commencer.
-             <br /> <a href="mailto:bonjour@jphiweb.be" class="link">bonjour@jphiweb.be</a>
+        </section>
 
-           </p>
-          <a href="{{ path('app_contact') }}" class="btn btn-primary">Discutons ensemble de votre projet</a>
-        </div>
-      </div>
-    </section>
+        {# ── CTA final ─────────────────────────────────────────────────────────────── #}
+        <section class="bg-base-100 border-t border-base-200">
+            <div class="max-w-2xl mx-auto px-6 py-16 text-center">
 
-      
+                <p class="text-base text-base-content/60 leading-relaxed mb-4">
+                    Une idée, un projet précis ou simplement l'envie de vous lancer ? Commencez petit et évoluez ensuite — l'important, c'est de démarrer.
+                </p>
 
-{% endblock %}
+                <a href="mailto:bonjour@jphiweb.be" class="text-sm text-primary block mb-8">
+                    bonjour@jphiweb.be
+                </a>
+
+                <a href="{{ path('app_contact') }}" class="btn btn-primary btn-lg">
+                    Discutons ensemble de votre projet
+                </a>
+
+            </div>
+        </section>
+
+    {% endblock %}

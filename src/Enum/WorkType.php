@@ -4,16 +4,16 @@ namespace App\Enum;
 
 enum WorkType: string
 {
-    case Zero      = 'zero';
+    case Create      = 'creation';
     case Evolution = 'evolution';
-    case Projet    = 'projet';
+    case Project    = 'projet';
 
     public function label(): string
     {
         return match($this) {
-            self::Zero      => 'Partir de zéro',
-            self::Evolution => 'Faire évoluer',
-            self::Projet    => 'Projet défini',
+            self::Create  => 'Création de site',
+            self::Evolution => 'Refonte & évolution',
+            self::Project    => 'Projet sur mesure',
         };
     }
 }

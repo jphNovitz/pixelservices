@@ -3,6 +3,7 @@
 namespace App\Controller\Work;
 
 use App\Entity\Work;
+use App\Enum\WorkType;
 use App\Repository\WorkRepository;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
@@ -13,22 +14,39 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class WorkController extends AbstractController
 {
-    #[Route('/services', name: 'app_works_list')]
-    public function index(WorkRepository $workRepository): Response
+    // src/Controller/WorkController.php
+
+    #[Route('/services', name: 'app_work_index')]
+    public function index(WorkRepository $repo): Response
     {
-        foreach ($workRepository->findAll() as $item){
-            if ($item['front']) $works['front'][]=$item ;
-                else $works['general'][]=$item ;
-        }
-//        dd($works);
+        $works = $repo->findBy(['active' => true]);
+
         return $this->render('work/index.html.twig', [
             'works' => $works,
         ]);
     }
 
-    #[Route('/service/{slug}', name: 'app.works.show')]
-    public function show(?Work $work): Response
+    #[Route('/services/{type}', name: 'app_work_type')]
+    public function byType(string $type, WorkRepository $repo): Response
     {
+        $workType = WorkType::from($type);
+        $works = $repo->findBy(['type' => $workType, 'active' => true]);
+
+        return $this->render('work/type/index.html.twig', [
+            'works' => $works,
+            'type'  => $workType,
+        ]);
+    }
+
+    #[Route('/services/{type}/{slug}', name: 'app_work_show')]
+    public function show(string $type, string $slug, WorkRepository $repo): Response
+    {
+        $work = $repo->findOneBy(['slug' => $slug, 'active' => true]);
+
+        if (!$work) {
+            throw $this->createNotFoundException();
+        }
+
         return $this->render('work/show.html.twig', [
             'work' => $work,
         ]);

@@ -72,23 +72,15 @@ class WorkCrudController extends AbstractCrudController
             BooleanField::new('front', new TranslatableMessage('Front')),
             ImageField::new('image', new TranslatableMessage('Image'))
                 ->setUploadDir('public/images/work/')
-        ->setBasePath('public/images/work/'),
-      ChoiceField::new('type')
-    ->setLabel('Catégorie')
-    ->setChoices(
-        array_combine(
-            array_map(fn($t) => $t->label(), WorkType::cases()),
-            array_map(fn($t) => $t->value, WorkType::cases()),
-        )
-    )
-    ->renderAsBadges([
-        'zero'      => 'info',
-        'evolution' => 'success',
-        'projet'    => 'warning',
-    ]),
+                ->setBasePath('public/images/work/'),
+            ChoiceField::new('type')
+                ->setChoices(WorkType::cases())
+                ->setFormTypeOption('choice_label', fn (WorkType $choice) => $choice->name)
+                ->setFormTypeOption('choice_value', fn (?WorkType $choice) => $choice?->value)
+                ->setFormTypeOption('placeholder', '—'),
             TextField::new('demoUrl', new TranslatableMessage('DemoUrl')),
-                
+
         ];
-  }
-  
+    }
+
 }
