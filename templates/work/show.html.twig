@@ -14,83 +14,153 @@
 {% block twitter_description %}{{ work.seoDescription }}{% endblock %}
 {% block twitter_image %}{{ asset("images/blog/"~work.image) }} {% endblock %}
 {% block twitter_image_alt %}{{ work.seoTitle }}{% endblock %}
+
+{% block breadcrumb %}
+  <div class="breadcrumbs flex justify-start md:justify-center pt-8 text-xs">
+    <ul class="max-w-full flex flex-col md:flex-row !items-start md:!items-center space-x-2 ">
+      <li><a href="{{ path('app_home') }}">Accueil</a></li>
+      <li class="!mt-0"><a href="{{ path('app_work_index') }}">services</a></li>
+      <li class="!mt-0"><a href="{{ path('app_work_type', {'type': work.type.value}) }}">{{ work.type.value }}</a></li>
+      <li class="!mt-0 text-ellipsis overflow-hidden">{{ work.name }}</li>
+    </ul>
+  </div>
+{% endblock %}
 {% block body %}
 {#    <div class="w-full h-full flex flex-col justify-around  md:w-2/3 m-auto">#}
-  <section class="bg-base-100">
-    <div class="max-w-6xl mx-auto px-6 py-12 lg:py-20">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
- 
-        <!-- Image -->
-        <figure class="rounded-2xl overflow-hidden aspect-video lg:aspect-[4/3] w-full bg-base-200 border border-base-300 flex items-center justify-center">
+  <section class="bg-base-100">
+
+    <div class="max-w-6xl mx-auto px-6 py-12 lg:py-20">
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+ 
+
+        <!-- Image -->
+
+        <figure class="rounded-2xl overflow-hidden aspect-video lg:aspect-[4/3] w-full bg-base-200 border border-base-300 flex items-center justify-center">
+
           {% if work.image is not null %}
-            <img src="..." alt="Nom du produit" class="w-full h-full object-cover"> -->
+            <img src="..." alt="Nom du produit" class="w-full h-full object-cover"> -->
+
           {% else %}
-            <svg xmlns="http://www.w3.org/2000/svg" class="size-16 text-base-content/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-16 text-base-content/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+
             </svg>
           {% endif %}
-        </figure>
+        </figure>
+
  
-        <!-- Infos principales -->
-        <div class="flex flex-col gap-6">
- 
-          <!-- Nom -->
-          <h1>
+        <!-- Infos principales -->
+
+        <div class="flex flex-col gap-6">
+
+ 
+
+          <!-- Nom -->
+
+          <h1>
+
             {{work.name}}
-          </h1>
- 
-          <!-- Excerpt -->
-          <p class="text-lg text-base-content/70 leading-relaxed">
+          </h1>
+
+ 
+
+          <!-- Excerpt -->
+
+          <p class="text-lg text-base-content/70 leading-relaxed">
+
             {{work.descriptionShort}}
-          </p>
- 
-          <!-- CTA démo -->
-          <div class="flex flex-wrap gap-3 pt-2">
+          </p>
+
+ 
+
+          <!-- CTA démo -->
+
+          <div class="flex flex-wrap gap-3 pt-2">
+
           {% if work.demoUrl %}
-            <a
-              href="{{work.demoUrl}}"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-primary btn-lg gap-2"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              Voir la démo
+            <a
+
+              href="{{work.demoUrl}}"
+
+              target="_blank"
+
+              rel="noopener noreferrer"
+
+              class="btn btn-primary btn-lg gap-2"
+
+            >
+
+              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+
+              </svg>
+
+              Voir la démo
+
             </a>
             {% endif %}
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-primary btn-lg gap-2"
-            >
+            <a
+
+              href="#"
+
+              target="_blank"
+
+              rel="noopener noreferrer"
+
+              class="btn btn-primary btn-lg gap-2"
+
+            >
+
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0l-9.75 6.75L2.25 6.75"/>
               </svg>
               {{ 'contact.me'|trans}}
-            </a>
+            </a>
 
-          </div>
- 
-        </div>
-      </div>
-    </div>
-  </section>
- 
-  <!-- Description complète -->
-  <section class="bg-base-200">
-    <div class="max-w-6xl mx-auto px-6 py-12 lg:py-16">
- 
-      <div class="divider divider-start text-base font-semibold mb-8">
+
+          </div>
+
+ 
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+ 
+
+  <!-- Description complète -->
+
+  <section class="bg-base-200">
+
+    <div class="max-w-6xl mx-auto px-6 py-12 lg:py-16">
+
+ 
+
+      <div class="divider divider-start text-base font-semibold mb-8">
+
         {{'about.work'|trans}}
-      </div>
- 
-      <div class="prose prose-lg max-w-4xl text-base-content/80">
+      </div>
+
+ 
+
+      <div class="prose prose-lg max-w-4xl text-base-content/80">
+
         {{work.descriptionLong |raw}}        
-      </div>
- 
-    </div>
+      </div>
+
+ 
+
+    </div>
+
   </section>
 {% endblock %}
