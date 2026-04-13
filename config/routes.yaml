@@ -67,6 +67,60 @@ focus_index_redirect:
   defaults:
     path: /
     permanent: true
+    
+redirect_service_creation_vitrine:
+  path: /service/creation-de-site-vitrine
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    route: app_work_show
+    permanent: true
+    type: creation
+    slug: creation-de-site-vitrine
+
+redirect_service_carte_visite:
+  path: /service/creation-site-web-carte-de-visite
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    route: app_work_show
+    permanent: true
+    type: creation
+    slug: creation-site-web-carte-de-visite
+
+redirect_service_horeca:
+  path: /service/site-vitrine-horeca-cle-en-main
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    route: app_work_show
+    permanent: true
+    type: creation
+    slug: site-vitrine-horeca-cle-en-main
+
+redirect_service_landing_page:
+  path: /service/landing-page-soyez-visible-avec-page-accueil-professionnelle
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    route: app_work_show
+    permanent: true
+    type: creation
+    slug: landing-page-soyez-visible-avec-page-accueil-professionnelle
+
+redirect_service_refonte:
+  path: /service/refonte-et-amelioration-de-site-web
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    route: app_work_show
+    permanent: true
+    type: evolution
+    slug: refonte-et-amelioration-de-site-web
+
+redirect_service_referencement:
+  path: /service/referencement-local-court-saint-etienne
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    route: app_work_show
+    permanent: true
+    type: evolution
+    slug: referencement-local-court-saint-etienne
 
 controllers:
   resource: ../src/Controller/
