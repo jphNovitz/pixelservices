@@ -7,8 +7,7 @@
    - work.type.value
    - work.slug
  #}
-<article class="card bg-base-100 card-lg shadow-sm"
-        class="card bg-base-100 border border-base-200 shadow-none hover:border-primary/30 hover:shadow-sm transition-all">
+<article class="card bg-base-100 card-lg shadow-sm transition-all">
     <figure class="aspect-square overflow-hidden p-10">
         {% if work.image %}
             <img src="/images/work/{{ asset(work.image) }}" alt="{{ work.name }}"
