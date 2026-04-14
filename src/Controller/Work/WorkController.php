@@ -30,7 +30,7 @@ class WorkController extends AbstractController
     public function byType(string $type, WorkRepository $repo): Response
     {
         $workType = WorkType::from($type);
-        $works = $repo->findBy(['type' => $workType, 'active' => true]);
+        $works = $repo->findActive($workType);
 
         return $this->render('work/type/index.html.twig', [
             'works' => $works,

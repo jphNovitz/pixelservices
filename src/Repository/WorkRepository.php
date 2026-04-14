@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Work;
+use App\Enum\WorkType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -41,15 +42,19 @@ class WorkRepository extends ServiceEntityRepository
     /**
      * @return Work[] Returns an array of Work objects
      */
-    public function findAll(): array
+    public function findActive(?WorkType $type = null): array
     {
-        return $this->createQueryBuilder('w')
-            ->orderBy('w.price', 'ASC')
-            ->where('w.active = true')
-//            ->setParameter('cond', true)
-            ->getQuery()
-            ->getArrayResult()
-        ;
+        $qb = $this->createQueryBuilder('w')
+            ->where('w.active = :active')
+            ->setParameter('active', true)
+            ->orderBy('w.price', 'ASC');
+
+        if ($type !== null) {
+            $qb->andWhere('w.type = :type')
+                ->setParameter('type', $type);
+        }
+
+        return $qb->getQuery()->getArrayResult();
     }
 
     /**
