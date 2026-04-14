@@ -20,10 +20,10 @@
         {
             "@context": "https://schema.org",
             "@type": "Service",
-            "@id": "{{ absolute_url(path('app_work_show', { slug: work.slug, type: work.type })) }}#service",
+            "@id": "{{ absolute_url(path('app_work_show', { slug: work.slug, type: work.type.value })) }}#service",
             "name": "{{ work.name|e('js') }}",
             "description": "{{ work.description|default('Création de site web professionnel.')|striptags|trim|e('js') }}",
-            "url": "{{ absolute_url(path('app_work_show', { slug: work.slug , type: work.type})) }}",
+            "url": "{{ absolute_url(path('app_work_show', { slug: work.slug , type: work.type.value})) }}",
             {% if work.imageName is defined and work.imageName %}
             "image": "{{ absolute_url(asset('uploads/works/' ~ work.imageName)) }}",
             {% endif %}
