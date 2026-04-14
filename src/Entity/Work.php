@@ -55,10 +55,10 @@ class Work
         max: 255,
         maxMessage: 'Maximum {{ limit }} caractères.'
     )]
-    private ?string $description_short = null;
+    private ?string $descriptionShort = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    private ?string $description_long = null;
+    private ?string $descriptionLong = null;
 
     #[ORM\Column(type: Types::BOOLEAN, nullable: false)]
     private bool $active = false;
@@ -124,30 +124,7 @@ class Work
         return $this;
     }
 
-    public function getDescriptionShort(): ?string
-    {
-        return $this->description_short;
-    }
-
-    public function setDescriptionShort(?string $description_short): self
-    {
-        $this->description_short = $description_short;
-
-        return $this;
-    }
-
-    public function getDescriptionLong(): ?string
-    {
-        return $this->description_long;
-    }
-
-    public function setDescriptionLong(?string $description_long): self
-    {
-        $this->description_long = $description_long;
-
-        return $this;
-    }
-
+    
     public function getSlug(): ?string
     {
         return $this->slug;
@@ -276,6 +253,30 @@ class Work
     public function setType(?WorkType $type): static
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getDescriptionShort(): ?string
+    {
+        return $this->descriptionShort;
+    }
+
+    public function setDescriptionShort(?string $descriptionShort): static
+    {
+        $this->descriptionShort = $descriptionShort;
+
+        return $this;
+    }
+
+    public function getDescriptionLong(): ?string
+    {
+        return $this->descriptionLong;
+    }
+
+    public function setDescriptionLong(?string $descriptionLong): static
+    {
+        $this->descriptionLong = $descriptionLong;
 
         return $this;
     }
