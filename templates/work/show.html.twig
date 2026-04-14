@@ -15,6 +15,58 @@
 {% block twitter_image %}{{ asset("images/blog/"~work.image) }} {% endblock %}
 {% block twitter_image_alt %}{{ work.seoTitle }}{% endblock %}
 
+{% block json_ld %}
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "@id": "{{ absolute_url(path('app_work_show', { slug: work.slug })) }}#service",
+            "name": "{{ work.name|e('js') }}",
+            "description": "{{ work.description|default('Création de site web professionnel.')|striptags|trim|e('js') }}",
+            "url": "{{ absolute_url(path('app_work_show', { slug: work.slug })) }}",
+            {% if work.imageName is defined and work.imageName %}
+            "image": "{{ absolute_url(asset('uploads/works/' ~ work.imageName)) }}",
+            {% endif %}
+            "serviceType": "{{ work.type is defined and work.type ? work.type.value|e('js') : 'Création de site web' }}",
+            "provider": {
+                "@type": "ProfessionalService",
+                "@id": "https://jphiweb.be/#organization",
+                "name": "Novitz Jean-Philippe",
+                "url": "https://jphiweb.be",
+                "telephone": "+32XXXXXXXXy",
+                "email": "bonjour@jphiweb.be",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Court-Saint-Étienne",
+                    "postalCode": "1490",
+                    "addressRegion": "Brabant Wallon",
+                    "addressCountry": "BE"
+                }
+            },
+            "areaServed": [
+                {
+                    "@type": "Place",
+                    "name": "Court-Saint-Étienne"
+                },
+                {
+                    "@type": "Place",
+                    "name": "Brabant Wallon"
+                },
+                {
+                    "@type": "Country",
+                    "name": "Belgique"
+                }
+            ],
+            "offers": {
+                "@type": "Offer",
+                "url": "{{ absolute_url(path('app_work_show', { slug: work.slug })) }}",
+                "priceCurrency": "EUR",
+                "price": "{{ work.price }}"
+            }
+        }
+    </script>
+{% endblock %}
+
 {% block breadcrumb %}
   <div class="breadcrumbs flex justify-start md:justify-center pt-8 text-xs">
     <ul class="max-w-full flex flex-col md:flex-row !items-start md:!items-center space-x-2 ">
