@@ -23,7 +23,7 @@
             "@id": "{{ absolute_url(path('app_work_show', { slug: work.slug })) }}#service",
             "name": "{{ work.name|e('js') }}",
             "description": "{{ work.description|default('Création de site web professionnel.')|striptags|trim|e('js') }}",
-            "url": "{{ absolute_url(path('app_work_show', { slug: work.slug })) }}",
+            "url": "{{ absolute_url(path('app_work_show', { slug: work.slug , type: work.type})) }}",
             {% if work.imageName is defined and work.imageName %}
             "image": "{{ absolute_url(asset('uploads/works/' ~ work.imageName)) }}",
             {% endif %}
