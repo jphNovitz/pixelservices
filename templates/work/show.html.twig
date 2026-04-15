@@ -119,13 +119,29 @@
 
             {{work.descriptionShort}}
           </p>
-
- 
-
+          
+          {% if work.price %}
+            <p class="text-xl">À partir de {{work.price}} € htva <span class="opacity-50">*</span></p> 
+          {% endif %}
           <!-- CTA démo -->
 
           <div class="flex flex-wrap gap-3 pt-2">
 
+            <a
+
+              href="/contact"
+
+              target="_blank"
+
+              class="btn btn-primary gap-2"
+
+            >
+
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0l-9.75 6.75L2.25 6.75"/>
+              </svg>
+              {{ 'contact.me'|trans}}
+            </a>
           {% if work.demoUrl %}
             <a
 
@@ -133,9 +149,7 @@
 
               target="_blank"
 
-              rel="noopener noreferrer"
-
-              class="btn btn-primary btn-lg gap-2"
+              class="btn btn-outline btn-primary gap-2"
 
             >
 
@@ -151,28 +165,11 @@
 
             </a>
             {% endif %}
-            <a
-
-              href="#"
-
-              target="_blank"
-
-              rel="noopener noreferrer"
-
-              class="btn btn-primary btn-lg gap-2"
-
-            >
-
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0l-9.75 6.75L2.25 6.75"/>
-              </svg>
-              {{ 'contact.me'|trans}}
-            </a>
 
 
           </div>
 
- 
+          {% if work.price %} <small>* Tarif indicatif hors frais d'hébergement et nom de domaine </small> {% endif %} 
 
         </div>
 
