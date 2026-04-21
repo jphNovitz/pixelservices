@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Language" content="fr-BE">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>{% block title %}Sites web pour artisans et indépendants - Court-Saint-Étienne{% endblock %}</title>
+    <title>{% block title %}Création et refonte de site web en Brabant wallon et à Liège | Jphiweb{% endblock %}</title>
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}"/>
     <link rel="icon" type="image/png" href="{{ asset('favicon-96x96.png') }}" sizes="96x96"/>
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
@@ -13,9 +13,9 @@
     <link rel="manifest" href="{{ asset('site.webmanifest') }}"/>
     {% block metas %}
         <meta name="description"
-              content="Création site vitrine à Court-Saint-Étienne : solution professionnelle pour artisans et indépendants. Valorisez vos services et renforcez votre image en ligne."/>
+              content="Expert en création et refonte de sites internet à Liège et dans le Brabant wallon. Développez votre visibilité locale avec Jphiweb. Devis gratuit."/>
     {% endblock %}
-    <meta name="author" content="Novitz Jean-Philippe <bonjour@jphiwe.be>"/>
+    <meta name="author" content="Novitz Jean-Philippe <bonjour@jphiweb.be>"/>
     <meta name="copyright" content="Novitz Jean-Philippe <jphiweb.be>"/>
     {% block follow %}
         <meta name="robots" content="index,follow"/> 
@@ -26,7 +26,8 @@
     : path(app.request.pathinfo)) }}" />
 
     <meta property="og:title"
-          content="{% block og_title %}Sites web pour artisans et indépendants - Court-Saint-Étienne{% endblock %}"/>
+          content="{% block og_title %}Besoin d'un site web performant à Liège ou Brabant Wallon ? Découvrez l'expertise Jphiweb{% endblock %}"/>
+          
     <meta property="og:type" content="{% block og_type %}website{% endblock %}"/>
     <meta property="og:url" content="{% block og_url %}{{ app.request.uri }}{% endblock %}"/>
     <meta property="og:image"
@@ -36,19 +37,19 @@
     <meta property="og:site_name" content="{% block og_site_name %}Sites web pour artisans et indépendants - Court-Saint-Étienne{% endblock %}"/>
     <meta property="og:locale" content="{% block og_locale %}fr_BE{% endblock %}"/>
     <meta property="og:description"
-          content="{% block og_description %}Création site vitrine à Court-Saint-Étienne : solution professionnelle pour artisans et indépendants. Valorisez vos services et renforcez votre image en ligne.{% endblock %}"/>
+          content="{% block og_description %}Expert en création et refonte de sites internet à Liège et dans le Brabant wallon. Développez votre visibilité locale avec Jphiweb. Devis gratuit.{% endblock %}"/>
 
     <!-- Image partagée sur les réseaux -->
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title"
-          content="{% block twitter_title %}Sites web pour artisans et indépendants - Court-Saint-Étienne{% endblock %}">
+          content="{% block twitter_title %}Création de Site Web & SEO à Liège & Brabant Wallon | Jphiweb{% endblock %}">
     <meta name="twitter:description"
-          content="{% block twitter_description %}Création site vitrine à Court-Saint-Étienne : solution professionnelle pour artisans et indépendants. Valorisez vos services et renforcez votre image en ligne.{% endblock %}">
+          content="{% block twitter_description %}Expert en création et refonte de sites internet à Liège et dans le Brabant wallon. Développez votre visibilité locale avec Jphiweb. Devis gratuit.{% endblock %}">
     <meta name="twitter:image"
           content="{% block twitter_image %}https://jphiweb.be/images/jphiweb_facebook_image.webp {% endblock %}">
     <meta name="twitter:image:alt"
-          content="{% block twitter_image_alt %}Sites web pour artisans et indépendants - Court-Saint-Étienne{% endblock %}">
+          content="{% block twitter_image_alt %}Création de Site Web à Liège & Brabant Wallon | Jphiweb{% endblock %}">
 
    
     {% block stylesheets %}
