@@ -19,11 +19,7 @@ class WorkController extends AbstractController
     #[Route('/services', name: 'app_work_index')]
     public function index(WorkRepository $repo): Response
     {
-        $works = $repo->findBy(['active' => true]);
-
-        return $this->render('work/index.html.twig', [
-            'works' => $works,
-        ]);
+        return $this->render('work/index.html.twig');
     }
 
     #[Route('/services/{type}', name: 'app_work_type')]
