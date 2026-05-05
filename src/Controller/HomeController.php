@@ -46,20 +46,12 @@ class HomeController extends AbstractController
         // use this method to set several cache settings in one call
         // (this example lists all the available cache settings)
         $response->setCache([
-            'must_revalidate'  => false,
-            'no_cache'         => false,
-            'no_store'         => false,
-            'no_transform'     => false,
-            'public'           => true,
-            'private'          => false,
-            'proxy_revalidate' => false,
-            'max_age'          => 7884000,
-            's_maxage'         => 7884000,
-            'immutable'        => true,
-            'last_modified'    => new \DateTime(),
-            'etag'             => 'abcdef'
+            'public'        => true,
+            'max_age'       => 86400,     // 24h
+            'must_revalidate' => true,
+            'last_modified' => new \DateTime('2026-05-05'),
+            'etag'          => md5($request->getPathInfo()),
         ]);
-
         // (optional) set a custom Cache-Control directive
         $response->headers->addCacheControlDirective('must-revalidate', true);
 

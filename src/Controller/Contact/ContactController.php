@@ -53,19 +53,7 @@ class ContactController extends AbstractController
         // $response->setMaxAge(3600);
         // use this method to set several cache settings in one call
         // (this example lists all the available cache settings)
-        $response->setCache([
-            'must_revalidate'  => false,
-            'no_cache'         => false,
-            'no_store'         => false,
-            'no_transform'     => false,
-            'public'           => true,
-            'private'          => false,
-            'proxy_revalidate' => false,
-            'max_age'          => 7884000,
-            's_maxage'         => 7884000,
-            'immutable'        => true,
-            'last_modified'    => new \DateTime(),
-        ]);
+        $response->headers->set('Cache-Control', 'no-store');
 
         // (optional) set a custom Cache-Control directive
         $response->headers->addCacheControlDirective('must-revalidate', true);
