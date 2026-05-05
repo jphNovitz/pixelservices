@@ -56,65 +56,113 @@
         <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
     {% endblock %}
 
-   {%  block json_ld %}
-       <script type="application/ld+json">
-           {
-               "@context": "https://schema.org",
-               "@type": "ProfessionalService",
-               "@id": "https://jphiweb.be/#organization",
-               "name": "Novitz Jean-Philippe",
-               "legalName": "Novitz Jean-Philippe",
-               "url": "https://jphiweb.be",
-               "logo": "https://jphiweb.be/images/jphiweb_facebook_image.webp",
-               "image": "https://jphiweb.be/images/jphiweb_facebook_image.webp",
-               "description": "Partenaire web à Court-Saint-Étienne : création de sites vitrines, ecommerce, services web, optimisation pour artisans et PME en Brabant Wallon.",
-               "telephone": "+32XXXXXXXXy",
-               "email": "bonjour@jphiweb.be",
-               "priceRange": "€€",
-               "address": {
-                   "@type": "PostalAddress",
-                   "addressLocality": "Court-Saint-Étienne",
-                   "postalCode": "1490",
-                   "addressRegion": "Brabant Wallon",
-                   "addressCountry": "BE"
-               },
-               "geo": {
-                   "@type": "GeoCoordinates",
-                   "latitude": 50.6333,
-                   "longitude": 4.5667
-               },
-               "areaServed": [
-                   "Court-Saint-Étienne",
-                   "Brabant Wallon",
-                   "Belgique"
-               ],
-               "openingHoursSpecification": [
-                   {
-                       "@type": "OpeningHoursSpecification",
-                       "dayOfWeek": [
-                           "Monday",
-                           "Tuesday",
-                           "Wednesday",
-                           "Thursday",
-                           "Friday"
-                       ],
-                       "opens": "09:00",
-                       "closes": "18:00"
-                   }
-               ],
-               "sameAs": [
-                   "https://www.linkedin.com/in/jphnovitz",
-                   "https://www.facebook.com/jphiweb/",
-                   "https://www.instagram.com/jphiweb.be"
-               ],
-               "founder": {
-                   "@type": "Person",
-                   "name": "Novitz Jean-Philippe",
-                   "jobTitle": "Fondateur",
-                   "url": "https://www.linkedin.com/in/jphnovitz"
-               }
-           }
-       </script>
+    {% block json_ld %}
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@graph": [
+                    {
+                        "@type": "ProfessionalService",
+                        "@id": "https://jphiweb.be/#organization",
+                        "name": "jphiweb.be",
+                        "legalName": "Novitz Jean-Philippe",
+                        "url": "https://jphiweb.be",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://jphiweb.be/images/jphiweb_facebook_image.webp",
+                            "width": 1200,
+                            "height": 630
+                        },
+                        "image": "https://jphiweb.be/images/jphiweb_facebook_image.webp",
+                        "description": "Partenaire web à Court-Saint-Étienne : création de sites vitrines, e-commerce, optimisation SEO local pour artisans et PME en Brabant Wallon.",
+                        "telephone": "+32XXXXXXXXX",
+                        "email": "bonjour@jphiweb.be",
+                        "priceRange": "€€",
+                        "currenciesAccepted": "EUR",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "",
+                            "addressLocality": "Court-Saint-Étienne",
+                            "postalCode": "1490",
+                            "addressRegion": "Brabant Wallon",
+                            "addressCountry": "BE"
+                        },
+                        "geo": {
+                            "@type": "GeoCoordinates",
+                            "latitude": 50.6333,
+                            "longitude": 4.5667
+                        },
+                        "areaServed": [
+                            {
+                                "@type": "City",
+                                "name": "Court-Saint-Étienne"
+                            },
+                            {
+                                "@type": "AdministrativeArea",
+                                "name": "Brabant Wallon"
+                            },
+                            {
+                                "@type": "Country",
+                                "name": "Belgique"
+                            }
+                        ],
+                        "openingHoursSpecification": [
+                            {
+                                "@type": "OpeningHoursSpecification",
+                                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                                "opens": "09:00",
+                                "closes": "18:00"
+                            }
+                        ],
+                        "sameAs": [
+                            "https://www.linkedin.com/in/jphnovitz",
+                            "https://www.facebook.com/jphiweb/",
+                            "https://www.instagram.com/jphiweb.be"
+                        ],
+                        "founder": { "@id": "https://jphiweb.be/#person" },
+                        "employee": { "@id": "https://jphiweb.be/#person" }
+                    },
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://jphiweb.be/#website",
+                        "url": "https://jphiweb.be/",
+                        "name": "jphiweb.be",
+                        "description": "Création de sites web et SEO local pour indépendants et PME en Brabant Wallon",
+                        "inLanguage": "fr-BE",
+                        "publisher": { "@id": "https://jphiweb.be/#organization" }
+                    },
+                    {
+                        "@type": "Person",
+                        "@id": "https://jphiweb.be/#person",
+                        "name": "Jean-Philippe Novitz",
+                        "jobTitle": "Développeur web freelance",
+                        "url": "https://jphiweb.be/",
+                        "email": "bonjour@jphiweb.be",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Court-Saint-Étienne",
+                            "postalCode": "1490",
+                            "addressRegion": "Brabant Wallon",
+                            "addressCountry": "BE"
+                        },
+                        "sameAs": [
+                            "https://www.linkedin.com/in/jphnovitz",
+                            "https://www.facebook.com/jphiweb/",
+                            "https://www.instagram.com/jphiweb.be"
+                        ],
+                        "knowsAbout": [
+                            "Création de sites web",
+                            "Symfony",
+                            "PHP",
+                            "SEO local",
+                            "Tailwind CSS",
+                            "Référencement naturel"
+                        ],
+                        "worksFor": { "@id": "https://jphiweb.be/#organization" }
+                    }
+                ]
+            }
+        </script>
     {% endblock %}
 
 </head>
