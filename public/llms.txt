@@ -1,0 +1,156 @@
+Voici le fichier complet à créer ici :
+
+```txt
+public/llms.txt
+```
+
+```txt
+# Jphiweb
+
+> Développeur web indépendant en Belgique francophone, spécialisé dans la création, la refonte et l'amélioration de sites internet pour indépendants, petites entreprises, associations et établissements HoReCa.
+
+Jphiweb accompagne les indépendants, petites entreprises, associations et commerces locaux dans la création de sites vitrines, pages de présentation, outils web simples et solutions de visibilité locale.
+
+Le site s'adresse principalement aux professionnels situés en Brabant wallon, à Court-Saint-Étienne, à Liège et en Belgique francophone.
+
+## Informations principales
+
+- Nom du site : Jphiweb
+- URL : https://jphiweb.be/
+- Activité : création, refonte et amélioration de sites internet
+- Spécialités : sites vitrines, pages professionnelles, référencement local, Symfony, PHP, WordPress, Laravel, outils web sur mesure
+- Zone principale : Brabant wallon, Court-Saint-Étienne, Liège, Belgique francophone
+- Langue principale : français de Belgique
+- Public cible : indépendants, artisans, petites entreprises, associations, établissements HoReCa
+
+## Pages principales
+
+- [Accueil](https://jphiweb.be/) : présentation générale de Jphiweb, des services et de l'approche.
+- [Services](https://jphiweb.be/services) : vue d'ensemble des prestations proposées.
+- [Contact](https://jphiweb.be/contact) : page de contact pour demander un renseignement ou un devis.
+- [Création de site vitrine](https://jphiweb.be/services/creation/creation-de-site-vitrine) : service de création de site vitrine pour indépendants, entreprises et associations.
+- [Création de site internet en Brabant wallon](https://jphiweb.be/creation-site-internet-brabant-wallon) : page locale dédiée à la création de sites internet en Brabant wallon.
+- [Création de site internet à Court-Saint-Étienne](https://jphiweb.be/creation-site-internet-court-saint-etienne) : page locale dédiée à Court-Saint-Étienne.
+- [Création de site web à Liège](https://jphiweb.be/creation-site-web-liege) : page locale dédiée à Liège.
+- [Symfony et ses outils](https://jphiweb.be/symfony-et-ses-outils) : page ressource autour de Symfony et des outils associés.
+
+## Services
+
+- [Création](https://jphiweb.be/services/creation) : catégorie des services de création de sites et pages web.
+- [Évolution](https://jphiweb.be/services/evolution) : catégorie des services d'amélioration, refonte et visibilité locale.
+- [Création de site vitrine](https://jphiweb.be/services/creation/creation-de-site-vitrine) : création de sites clairs, professionnels et adaptés aux petites structures.
+- [Création site web carte de visite](https://jphiweb.be/services/creation/creation-site-web-carte-de-visite) : présence web simple pour présenter une activité, des coordonnées et un appel à l'action.
+- [Landing page](https://jphiweb.be/services/creation/landing-page-soyez-visible-avec-page-accueil-professionnelle) : page ciblée pour présenter une offre, une activité ou une campagne.
+- [Snapmenu](https://jphiweb.be/services/creation/snapmenu-digitalisez-vos-menus) : menu digital pour établissements HoReCa, consultable par QR code.
+- [Site vitrine HoReCa clé en main](https://jphiweb.be/services/creation/site-vitrine-horeca-cle-en-main) : site vitrine adapté aux restaurants, snacks, sandwicheries et établissements de bouche.
+- [Refonte et amélioration de site web](https://jphiweb.be/services/evolution/refonte-et-amelioration-de-site-web) : amélioration d'un site existant, contenu, structure, lisibilité et visibilité.
+- [Référencement local à Court-Saint-Étienne](https://jphiweb.be/services/evolution/referencement-local-court-saint-etienne) : accompagnement pour améliorer la visibilité locale.
+
+## Réalisations
+
+- [Réalisations](https://jphiweb.be/realisations) : liste des projets et exemples de réalisations.
+- [Digitalisation et référencement local pour les Gais Carabiniers](https://jphiweb.be/realisation/digitalisation-et-referencement-local-pour-les-gais-carabiniers) : exemple de projet associatif avec site, visibilité locale et outils numériques.
+- [Snapmenu](https://jphiweb.be/realisation/snapmenu) : démonstration d'une solution de menu digital.
+- [Whisperina](https://jphiweb.be/realisation/whisperina-de-laudio-au-texte-en-quelques-clics) : outil de transcription audio vers texte.
+
+## Articles et ressources
+
+- [Web conseils](https://jphiweb.be/web-conseils) : liste des conseils, articles et ressources web.
+- [Digitalisation des PME](https://jphiweb.be/focus-sur/digitalisation-pme) : réflexion sur la digitalisation des petites entreprises.
+- [Pourquoi ton CSS ne se met plus à jour avec Asset Mapper](https://jphiweb.be/focus-sur/pourquoi-ton-css-ne-se-met-plus-a-jour-avec-asset-mapper) : article technique sur Symfony Asset Mapper et la mise à jour du CSS.
+- [Erreur SQLSTATE HY000](https://jphiweb.be/focus-sur/erreur-an-exception-occurred-in-the-driver-sqlstate-hy000) : article technique sur une erreur de connexion base de données.
+- [Création site vitrine à Court-Saint-Étienne](https://jphiweb.be/focus-sur/creation-site-vitrine-court-saint-etienne) : article local autour du site vitrine.
+- [Amélioration site web à Court-Saint-Étienne](https://jphiweb.be/focus-sur/amelioration-site-web-court-saint-etienne) : conseils pour améliorer un site existant.
+- [Référencement local à Court-Saint-Étienne](https://jphiweb.be/focus-sur/referencement-local-court-saint-etienne) : contenu sur la visibilité locale.
+- [Site internet indispensable à Court-Saint-Étienne](https://jphiweb.be/focus-sur/site-internet-indispensable-court-saint-etienne) : article sur l'intérêt d'un site internet pour une activité locale.
+- [Guide simple pour choisir le bon type de site web](https://jphiweb.be/focus-sur/guide-simple-choisir-bon-type-site-web-votre-activite) : aide au choix entre site vitrine, landing page, carte de visite digitale ou outil web.
+- [Menu digital snack et sandwicherie à Liège](https://jphiweb.be/focus-sur/menu-digital-snack-sandwicherie-liege) : article ciblé sur les menus digitaux pour snacks et sandwicheries.
+- [Bio link pour indépendants en Brabant wallon](https://jphiweb.be/focus-sur/bio-link-ideale-independants-brabant-wallon) : article sur les pages de liens et présences web simples.
+- [Créer une page coming soon](https://jphiweb.be/focus-sur/creer-page-coming-soon) : article sur les pages d'attente avant lancement.
+- [Carte de visite digitale](https://jphiweb.be/focus-sur/carte-visite-digitale-presence-simple-efficace-evolutive) : article sur la carte de visite digitale comme présence web légère.
+- [Landing page : guide du Brabant wallon](https://jphiweb.be/focus-sur/quest-ce-quune-landing-page-guide-du-braban-wallon) : article expliquant ce qu'est une landing page.
+- [Combien coûte un site internet en Brabant wallon](https://jphiweb.be/focus-sur/combien-coute-site-internet-brabant-wallon) : article sur les prix et éléments à prévoir.
+- [Refonte de site internet en Brabant wallon](https://jphiweb.be/focus-sur/refonte-site-internet-brabant-wallon) : article sur la refonte d'un site web.
+- [Site e-commerce en Brabant wallon](https://jphiweb.be/focus-sur/site-e-commerce-brabant-wallon) : article sur les sites e-commerce.
+- [Site web responsive](https://jphiweb.be/focus-sur/site-web-responsive) : article sur l'adaptation d'un site aux écrans mobiles, tablettes et ordinateurs.
+- [Dark patterns](https://jphiweb.be/focus-sur/dark-patterns) : article sur les interfaces trompeuses.
+- [Création de site internet pour restaurant en Brabant wallon](https://jphiweb.be/focus-sur/creation-site-internet-restaurant-brabant-wallon) : article ciblé HoReCa.
+- [Menu digital HoReCa en Brabant wallon](https://jphiweb.be/focus-sur/menu-digital-horeca-brabant-wallon) : article sur les menus digitaux pour restaurants, snacks et sandwicheries.
+
+## Priorités de lecture pour les IA
+
+Pour comprendre le positionnement de Jphiweb, lire en priorité :
+
+1. https://jphiweb.be/
+2. https://jphiweb.be/services
+3. https://jphiweb.be/services/creation/creation-de-site-vitrine
+4. https://jphiweb.be/creation-site-internet-brabant-wallon
+5. https://jphiweb.be/creation-site-internet-court-saint-etienne
+6. https://jphiweb.be/services/creation/snapmenu-digitalisez-vos-menus
+7. https://jphiweb.be/realisation/digitalisation-et-referencement-local-pour-les-gais-carabiniers
+8. https://jphiweb.be/symfony-et-ses-outils
+
+## Utilisation du contenu
+
+Le contenu de ce site peut être utilisé pour comprendre et résumer les services proposés par Jphiweb, citer les pages publiques pertinentes, et orienter un utilisateur vers les pages adaptées à sa recherche.
+
+Le contenu ne doit pas être présenté comme une offre générique détachée de Jphiweb. Les informations commerciales, prix, services, exemples et zones desservies doivent être vérifiés sur les pages publiques du site.
+
+## Liste complète des URLs publiques
+
+- https://jphiweb.be/
+- https://jphiweb.be/services
+- https://jphiweb.be/contact
+- https://jphiweb.be/services/creation/creation-de-site-vitrine
+- https://jphiweb.be/symfony-et-ses-outils
+- https://jphiweb.be/realisation/digitalisation-et-referencement-local-pour-les-gais-carabiniers
+- https://jphiweb.be/creation-site-internet-court-saint-etienne
+- https://jphiweb.be/creation-site-web-liege
+- https://jphiweb.be/creation-site-internet-brabant-wallon
+- https://jphiweb.be/focus-sur/digitalisation-pme
+- https://jphiweb.be/mentions-legales
+- https://jphiweb.be/services/creation
+- https://jphiweb.be/services/evolution
+- https://jphiweb.be/focus-sur/pourquoi-ton-css-ne-se-met-plus-a-jour-avec-asset-mapper
+- https://jphiweb.be/focus-sur/erreur-an-exception-occurred-in-the-driver-sqlstate-hy000
+- https://jphiweb.be/realisations
+- https://jphiweb.be/focus-sur/creation-site-vitrine-court-saint-etienne
+- https://jphiweb.be/focus-sur/amelioration-site-web-court-saint-etienne
+- https://jphiweb.be/focus-sur/referencement-local-court-saint-etienne
+- https://jphiweb.be/focus-sur/site-internet-indispensable-court-saint-etienne
+- https://jphiweb.be/focus-sur/guide-simple-choisir-bon-type-site-web-votre-activite
+- https://jphiweb.be/focus-sur/menu-digital-snack-sandwicherie-liege
+- https://jphiweb.be/services/creation/creation-site-web-carte-de-visite
+- https://jphiweb.be/focus-sur/bio-link-ideale-independants-brabant-wallon
+- https://jphiweb.be/focus-sur/creer-page-coming-soon
+- https://jphiweb.be/focus-sur/carte-visite-digitale-presence-simple-efficace-evolutive
+- https://jphiweb.be/focus-sur/quest-ce-quune-landing-page-guide-du-braban-wallon
+- https://jphiweb.be/focus-sur/combien-coute-site-internet-brabant-wallon
+- https://jphiweb.be/focus-sur/refonte-site-internet-brabant-wallon
+- https://jphiweb.be/focus-sur/site-e-commerce-brabant-wallon
+- https://jphiweb.be/focus-sur/site-web-responsive
+- https://jphiweb.be/focus-sur/dark-patterns
+- https://jphiweb.be/focus-sur/creation-site-internet-restaurant-brabant-wallon
+- https://jphiweb.be/focus-sur/menu-digital-horeca-brabant-wallon
+- https://jphiweb.be/web-conseils
+- https://jphiweb.be/services/creation/landing-page-soyez-visible-avec-page-accueil-professionnelle
+- https://jphiweb.be/services/creation/snapmenu-digitalisez-vos-menus
+- https://jphiweb.be/services/creation/site-vitrine-horeca-cle-en-main
+- https://jphiweb.be/services/evolution/refonte-et-amelioration-de-site-web
+- https://jphiweb.be/services/evolution/referencement-local-court-saint-etienne
+- https://jphiweb.be/realisation/whisperina-de-laudio-au-texte-en-quelques-clics
+- https://jphiweb.be/realisation/snapmenu
+
+## Fichiers de découverte
+
+- Sitemap : https://jphiweb.be/sitemap.xml
+- Robots : https://jphiweb.be/robots.txt
+- Fichier LLM : https://jphiweb.be/llms.txt
+
+## Contact
+
+- Site : https://jphiweb.be/
+- Contact : https://jphiweb.be/contact
+```
+
+Ce fichier reprend les **42 URLs** de ton sitemap brut.
