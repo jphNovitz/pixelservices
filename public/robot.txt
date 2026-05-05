@@ -1,0 +1,39 @@
+# /public/robots.txt
+
+# Autoriser les moteurs de recherche classiques
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jphiweb.be/sitemap.xml
+
+# -----------------------------
+# Politique IA
+# -----------------------------
+
+# OpenAI - entraînement des modèles
+User-agent: GPTBot
+Disallow: /
+
+# OpenAI - recherche / citation dans ChatGPT
+# Autorisé pour garder une possibilité de visibilité via la recherche IA
+User-agent: OAI-SearchBot
+Allow: /
+
+# Google - IA générative / Gemini
+# N'affecte pas Google Search classique
+User-agent: Google-Extended
+Disallow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Disallow: /
+
+# Common Crawl
+# Souvent utilisé comme source de données pour l'entraînement IA
+User-agent: CCBot
+Disallow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Disallow: /
