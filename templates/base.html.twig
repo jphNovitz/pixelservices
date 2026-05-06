@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html lang="fr-BE" class="h-full scroll-smooth"  >
+<html lang="fr-BE" class="h-full scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Language" content="fr-BE">
+    <link rel="alternate" hreflang="fr-BE" href="https://jphiweb.be{{ app.request.pathInfo }}"/>
+    <link rel="alternate" hreflang="x-default" href="https://jphiweb.be{{ app.request.pathInfo }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <title>{% block title %}Création de site web Brabant Wallon et Liège | Jphiweb{% endblock %}</title>
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}"/>
     <link rel="icon" type="image/png" href="{{ asset('favicon-96x96.png') }}" sizes="96x96"/>
+    <link
+            rel="preload"
+            as="image"
+            href="{{ asset('images/hero/hero_laptop_jphiweb.webp') }}"
+            media="(orientation: landscape)"
+            fetchpriority="high"
+    >
+    <link
+            rel="preload"
+            as="image"
+            href="{{ asset('images/hero/hero_laptop_vertical_jphiweb.webp') }}"
+            media="(orientation: portrait)"
+            fetchpriority="high"
+    >
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}"/>
     <link rel="manifest" href="{{ asset('site.webmanifest') }}"/>
@@ -18,23 +34,24 @@
     <meta name="author" content="Novitz Jean-Philippe <bonjour@jphiweb.be>"/>
     <meta name="copyright" content="Novitz Jean-Philippe <jphiweb.be>"/>
     {% block follow %}
-        <meta name="robots" content="index,follow"/> 
+        <meta name="robots" content="index,follow"/>
     {% endblock %}
-   
+
     <link rel="canonical" href="{{ absolute_url(app.request.attributes.get('_route')
-    ? path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params', {}))
-    : path(app.request.pathinfo)) }}" />
+        ? path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params', {}))
+        : path(app.request.pathinfo)) }}"/>
 
     <meta property="og:title"
           content="{% block og_title %}Votre site web professionnel en Brabant Wallon et à Liège | Jphiweb{% endblock %}"/>
-          
+
     <meta property="og:type" content="{% block og_type %}website{% endblock %}"/>
     <meta property="og:url" content="{% block og_url %}{{ app.request.uri }}{% endblock %}"/>
     <meta property="og:image"
           content="{% block og_image %}https://jphiweb.be/images/jphiweb_facebook_image.webp{% endblock %}"/>
     <meta property="og:image:alt" content="{% block og_image_alt %}Site web à Court-Saint-Étienne{% endblock %}">
 
-    <meta property="og:site_name" content="{% block og_site_name %}Sites web pour artisans et indépendants - Court-Saint-Étienne{% endblock %}"/>
+    <meta property="og:site_name"
+          content="{% block og_site_name %}Sites web pour artisans et indépendants - Court-Saint-Étienne{% endblock %}"/>
     <meta property="og:locale" content="{% block og_locale %}fr_BE{% endblock %}"/>
     <meta property="og:description"
           content="{% block og_description %}Indépendant ou PME en Brabant Wallon ? Création, refonte ou évolution de votre site web depuis Court-Saint-Etienne. Parlons de votre projet.{% endblock %}"/>
@@ -51,7 +68,7 @@
     <meta name="twitter:image:alt"
           content="{% block twitter_image_alt %}Création de Site Web à Liège & Brabant Wallon | Jphiweb{% endblock %}">
 
-   
+
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
     {% endblock %}
@@ -109,7 +126,13 @@
                         "openingHoursSpecification": [
                             {
                                 "@type": "OpeningHoursSpecification",
-                                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                                "dayOfWeek": [
+                                    "Monday",
+                                    "Tuesday",
+                                    "Wednesday",
+                                    "Thursday",
+                                    "Friday"
+                                ],
                                 "opens": "09:00",
                                 "closes": "18:00"
                             }
@@ -119,8 +142,12 @@
                             "https://www.facebook.com/jphiweb/",
                             "https://www.instagram.com/jphiweb.be"
                         ],
-                        "founder": { "@id": "https://jphiweb.be/#person" },
-                        "employee": { "@id": "https://jphiweb.be/#person" }
+                        "founder": {
+                            "@id": "https://jphiweb.be/#person"
+                        },
+                        "employee": {
+                            "@id": "https://jphiweb.be/#person"
+                        }
                     },
                     {
                         "@type": "WebSite",
@@ -129,7 +156,9 @@
                         "name": "jphiweb.be",
                         "description": "Création de sites web et SEO local pour indépendants et PME en Brabant Wallon",
                         "inLanguage": "fr-BE",
-                        "publisher": { "@id": "https://jphiweb.be/#organization" }
+                        "publisher": {
+                            "@id": "https://jphiweb.be/#organization"
+                        }
                     },
                     {
                         "@type": "Person",
@@ -158,7 +187,9 @@
                             "Tailwind CSS",
                             "Référencement naturel"
                         ],
-                        "worksFor": { "@id": "https://jphiweb.be/#organization" }
+                        "worksFor": {
+                            "@id": "https://jphiweb.be/#organization"
+                        }
                     }
                 ]
             }
