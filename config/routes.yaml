@@ -33,12 +33,14 @@ redirect_old_slug_liege:
     path: /creation-site-web-liege
     permanent: true
 
-#redirect_old_carte_visite:
-#  path: /service/carte-de-visite-numerique
-#  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
-#  defaults:
-#    path: /service/creation-site-web-carte-de-visite
-#    permanent: true
+redirect_old_carte_visite:
+  path: /service/carte-de-visite-numerique
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    route: app_work_show
+    permanent: true
+    type: creation
+    slug: creation-site-web-carte-de-visite
 
 redirect_old_gcb:
   path: /realisation/site-web-les-gais-carabiniers-de-bernissart
