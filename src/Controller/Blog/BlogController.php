@@ -21,27 +21,27 @@ class BlogController extends AbstractController
             'topic' => $topic,
         ]);
     }
-//    #[Route('/focus', name: 'app_blog_index')]
-//    public function index(EntityManagerInterface $entityManager,
-//                          PaginatorInterface $paginator,
-//                          TopicRepository $topicRepository,
-//                          Request $request): Response
-//    {
-//        $posts = $paginator->paginate(
-//            $entityManager->getRepository(Blog::class)->findAllQuery(),
-//            $request->query->getInt('page', 1), /*page number*/
-//            10 /*limit per page*/
-//        );
-//
-//        $topics = $topicRepository->findAll();
-//
-//
-//
-//        return $this->render('blog/index.html.twig', [
-//            'posts' => $posts,
-//            'topics' => $topics,
-//        ]);
-//    }
+    #[Route('/focus', name: 'app_blog_index')]
+    public function index(EntityManagerInterface $entityManager,
+                          PaginatorInterface $paginator,
+                          TopicRepository $topicRepository,
+                          Request $request): Response
+    {
+        $posts = $paginator->paginate(
+            $entityManager->getRepository(Blog::class)->findAllQuery(),
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
+
+        $topics = $topicRepository->findAll();
+
+
+
+        return $this->render('blog/index.html.twig', [
+            'posts' => $posts,
+            'topics' => $topics,
+        ]);
+    }
 
 
     #[Route('/{topicSlug}/{slug}', name: 'app_blog_show', requirements: [
