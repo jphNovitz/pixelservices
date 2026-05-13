@@ -99,10 +99,6 @@
                 <a href="{{ path('app_home') }}">Accueil</a>
             </li>
 
-            <li class="w-full break-words">
-                <a href="{{ path('app_blog_index') }}">Ressources</a>
-            </li>
-
             {% if topic.parentTopic %}
                 <li class="w-full break-words truncate inline-block before:inline">
                     <a href="{{ path('app_topic_show', {'slug': topic.parentTopic.slug}) }}">
