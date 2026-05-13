@@ -131,6 +131,13 @@ redirect_service_referencement:
     type: evolution
     slug: referencement-local-court-saint-etienne
 
+redirect_landing_page_typo:
+  path: /focus-sur/quest-ce-quune-landing-page-guide-du-braban-wallon
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    path: /focus-sur/quest-ce-quune-landing-page-guide-du-brabant-wallon
+    permanent: true
+
 controllers:
   resource: ../src/Controller/
   type: attribute
