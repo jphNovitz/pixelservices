@@ -34,7 +34,7 @@
         },
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": url('app_blog_show', {slug: post.slug})
+            "@id": url('app_blog_show', {topicSlug: post.topic.slug, slug: post.slug})
         },
         "articleSection": post.topic.title|default(post.topic),
         "abstract": post.summary,

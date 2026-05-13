@@ -53,7 +53,7 @@
             {% if relatedPosts is not empty %}
                 <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {% for post in relatedPosts %}
-                        <a href="{{ path('app_blog_show', {'slug': post.slug}) }}" class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
+                        <a href="{{ path('app_blog_show', {'topicSlug': post.topic.slug, 'slug': post.slug}) }}" class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
                             <figure class="relative aspect-video overflow-hidden">
                                 {% if post.image %}
                                     <img src="{{ asset('images/blog/' ~ post.image) }}" alt="{{ post.title }}" class="w-full h-full object-cover"/>

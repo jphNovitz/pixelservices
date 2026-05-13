@@ -44,12 +44,24 @@ class BlogController extends AbstractController
     }
 
 
-    #[Route('/focus-sur/{slug}', name: 'app_blog_show')]
-    public function show(Blog $post): Response
+    #[Route('/{topicSlug}/{slug}', name: 'app_blog_show', requirements: [
+        'topicSlug' => '[a-z0-9\-]+',
+        'slug' => '[a-z0-9\-]+'
+    ])]
+    public function show(string $topicSlug, Blog $post): Response
     {
         return $this->render('blog/show.html.twig', [
             'post' => $post,
         ]);
+    }
+
+    #[Route('/focus-sur/{slug}', name: 'app_blog_redirect_legacy')]
+    public function redirectLegacy(Blog $post): Response
+    {
+        return $this->redirectToRoute('app_blog_show', [
+            'topicSlug' => $post->getTopic()->getSlug(),
+            'slug' => $post->getSlug(),
+        ], 301);
     }
 
 

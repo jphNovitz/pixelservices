@@ -73,7 +73,7 @@
         {% if article.slug %}
             {% set articleSchema = articleSchema|merge([{
                 "@type": "BlogPosting",
-                "@id": url('app_blog_show', {slug: article.slug}),
+                "@id": url('app_blog_show', {topicSlug: article.topic.slug, slug: article.slug}),
                 "headline": article.seoTitle,
                 "name": article.title
             }]) %}
