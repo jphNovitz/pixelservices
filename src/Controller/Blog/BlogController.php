@@ -21,31 +21,31 @@ class BlogController extends AbstractController
             'topic' => $topic,
         ]);
     }
-    #[Route('/focus', name: 'app_blog_index')]
-    public function index(EntityManagerInterface $entityManager,
-                          PaginatorInterface $paginator,
-                          TopicRepository $topicRepository,
-                          Request $request): Response
-    {
-        $posts = $paginator->paginate(
-            $entityManager->getRepository(Blog::class)->findAllQuery(),
-            $request->query->getInt('page', 1), /*page number*/
-            10 /*limit per page*/
-        );
-
-        $topics = $topicRepository->findAll();
-
-
-
-        return $this->render('blog/index.html.twig', [
-            'posts' => $posts,
-            'topics' => $topics,
-        ]);
-    }
+//    #[Route('/focus', name: 'app_blog_index')]
+//    public function index(EntityManagerInterface $entityManager,
+//                          PaginatorInterface $paginator,
+//                          TopicRepository $topicRepository,
+//                          Request $request): Response
+//    {
+//        $posts = $paginator->paginate(
+//            $entityManager->getRepository(Blog::class)->findAllQuery(),
+//            $request->query->getInt('page', 1), /*page number*/
+//            10 /*limit per page*/
+//        );
+//
+//        $topics = $topicRepository->findAll();
+//
+//
+//
+//        return $this->render('blog/index.html.twig', [
+//            'posts' => $posts,
+//            'topics' => $topics,
+//        ]);
+//    }
 
 
     #[Route('/{topicSlug}/{slug}', name: 'app_blog_show', requirements: [
-        'topicSlug' => '[a-z0-9\-]+',
+        'topicSlug' => 'creation-site-internet-brabant-wallon|creation-site-internet-court-saint-etienne|creation-site-web-liege|web-conseils|symfony-et-ses-outils',
         'slug' => '[a-z0-9\-]+'
     ])]
     public function show(string $topicSlug, Blog $post): Response
@@ -54,7 +54,6 @@ class BlogController extends AbstractController
             'post' => $post,
         ]);
     }
-
     #[Route('/focus-sur/{slug}', name: 'app_blog_redirect_legacy')]
     public function redirectLegacy(Blog $post): Response
     {
