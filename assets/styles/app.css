@@ -94,7 +94,7 @@
         @apply text-pretty;
     }
     div a, article a{
-        @apply link-underline;
+        @apply link;
     }
     p {
         @apply text-base leading-relaxed mb-6;
