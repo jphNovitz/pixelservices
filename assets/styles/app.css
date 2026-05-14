@@ -5,129 +5,126 @@
 @plugin "daisyui";
 
 @font-face {
-  font-family: "Lato";
-  src:
-    url("./fonts/Lato/Lato-Thin.ttf") format("truetype"),
+    font-family: "Lato";
+    src: url("./fonts/Lato/Lato-Thin.ttf") format("truetype"),
     url("./fonts/Lato/Lato-Thin.ttf") format("truetype");
-  font-weight: 200;
-  font-style: normal;
+    font-weight: 200;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: "Lato";
-  src:
-    url("./fonts/Lato/Lato-Light.ttf") format("truetype"),
+    font-family: "Lato";
+    src: url("./fonts/Lato/Lato-Light.ttf") format("truetype"),
     url("./fonts/Lato/Lato-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-style: normal;
+    font-weight: 300;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: "Lato";
-  src:
-    url("./fonts/Lato/Lato-Regular.ttf") format("truetype"),
+    font-family: "Lato";
+    src: url("./fonts/Lato/Lato-Regular.ttf") format("truetype"),
     url("./fonts/Lato/Lato-Regular.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
+    font-weight: 500;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "Lato";
-  src:
-    url("./fonts/Lato/Lato-Bold.ttf") format("truetype"),
+    font-family: "Lato";
+    src: url("./fonts/Lato/Lato-Bold.ttf") format("truetype"),
     url("./fonts/Lato/Lato-Bold.ttf") format("truetype");
-  font-weight: 800;
-  font-style: normal;
+    font-weight: 800;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: "Lato";
-  src:
-    url("./fonts/Lato/Lato-BoldItalic.ttf") format("truetype"),
+    font-family: "Lato";
+    src: url("./fonts/Lato/Lato-BoldItalic.ttf") format("truetype"),
     url("./fonts/Lato/Lato-BoldItalic.ttf") format("truetype");
-  font-weight: 800;
-  font-style: normal;
+    font-weight: 800;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "Lato";
-  src:
-    url("./fonts/Lato/Lato-Black.ttf") format("truetype"),
+    font-family: "Lato";
+    src: url("./fonts/Lato/Lato-Black.ttf") format("truetype"),
     url("./fonts/Lato/Lato-Black.ttf") format("truetype");
-  font-weight: 900;
-  font-style: normal;
+    font-weight: 900;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: "Lato";
-  src:
-    url("./fonts/Lato/Lato-BlackItalic.ttf") format("truetype"),
+    font-family: "Lato";
+    src: url("./fonts/Lato/Lato-BlackItalic.ttf") format("truetype"),
     url("./fonts/Lato/Lato-BlackItalic.ttf") format("truetype");
-  font-weight: 900;
-  font-style: normal;
+    font-weight: 900;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "Kalam";
-  src:
-    url("./fonts/Kalam/Kalam-Light.ttf") format("truetype"),
+    font-family: "Kalam";
+    src: url("./fonts/Kalam/Kalam-Light.ttf") format("truetype"),
     url("./fonts/Kalam/Kalam-Light.ttf") format("truetype");
-  font-weight: 200;
-  font-style: normal;
+    font-weight: 200;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "Kalam";
-  src:
-    url("./fonts/Kalam/Kalam-Regular.ttf") format("truetype"),
+    font-family: "Kalam";
+    src: url("./fonts/Kalam/Kalam-Regular.ttf") format("truetype"),
     url("./fonts/Kalam/Kalam-Regular.ttf") format("truetype");
-  font-weight: 500;
-  font-style: normal;
+    font-weight: 500;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: "Kalam";
-  src:
-    url("./fonts/Kalam/Kalam-Bold.ttf") format("truetype"),
+    font-family: "Kalam";
+    src: url("./fonts/Kalam/Kalam-Bold.ttf") format("truetype"),
     url("./fonts/Kalam/Kalam-Bold.ttf") format("truetype");
-  font-weight: 900;
-  font-style: normal;
+    font-weight: 900;
+    font-style: normal;
 }
 
 /*@layer base {*/
 @layer components {
-  p,
-  li,
-  span,
-  a,
-  div {
-    @apply text-pretty;
-  }
-  p {
-    @apply text-base leading-relaxed mb-6;
-  }
+    p,
+    li,
+    span,
+    a,
+    div, article {
+        @apply text-pretty;
+    }
+    div a, article a{
+        @apply link-underline;
+    }
+    p {
+        @apply text-base leading-relaxed mb-6;
+    }
 
-  li {
-    @apply leading-loose;
-  }
+    li {
+        @apply leading-loose;
+    }
 
-  ul {
-    @apply mb-6 leading-loose space-y-4;
-  }
+    ul {
+        @apply mb-6 leading-loose space-y-4;
+    }
 
-  h1 {
-    @apply text-4xl text-primary font-black tracking-tight font-lato mt-12 mb-6;
-  }
+    h1 {
+        @apply text-4xl text-primary font-black tracking-tight font-lato mt-12 mb-6;
+    }
 
-  h2 {
-    @apply text-2xl tracking-tight font-bold font-lato mt-8 mb-4;
-  }
+    h2 {
+        @apply text-2xl tracking-tight font-bold font-lato mt-8 mb-4;
+    }
 
-  h3 {
-    @apply text-xl tracking-tight font-semibold font-lato mt-6 mb-3;
-  }
+    h3 {
+        @apply text-xl tracking-tight font-semibold font-lato mt-6 mb-3;
+    }
 
-  h4 {
-    @apply text-lg tracking-tight font-medium font-lato mt-4 mb-2;
-  }
+    h4 {
+        @apply text-lg tracking-tight font-medium font-lato mt-4 mb-2;
+    }
 
-  ul {
-    @apply list-inside list-disc pl-5 space-y-2;
-  }
+    ul {
+        @apply list-inside list-disc pl-5 space-y-2;
+    }
 }
