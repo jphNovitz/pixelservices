@@ -10,6 +10,7 @@ use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\GoneHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 class BlogController extends AbstractController
@@ -17,8 +18,8 @@ class BlogController extends AbstractController
     #[Route('/{slug}', name: 'app_topic_show', requirements: ['slug' => '^(?!admin).*'], priority: -10)]
     public function showTopic(Topic $topic): Response
     {
-        if (!$topic->isPublished()){
-            return new Response('', Response::HTTP_GONE);
+        if (!$topic->isPublished()) {
+            throw new GoneHttpException();
         }
         return $this->render('blog/topic/show.html.twig', [
             'topic' => $topic,
@@ -51,10 +52,10 @@ class BlogController extends AbstractController
         'topicSlug' => 'creation-site-internet-brabant-wallon|creation-site-internet-court-saint-etienne|creation-site-web-liege|web-conseils|symfony-et-ses-outils',
         'slug' => '[a-z0-9\-]+'
     ])]
-    public function show(string $topicSlug, Blog $post): Response
+    public function show(Blog $post): Response
     {
-        if (!$post->isPublished()){
-            return new Response('', Response::HTTP_GONE);
+        if (!$post->isPublished()) {
+            throw new GoneHttpException();
         }
 
         return $this->render('blog/show.html.twig', [
