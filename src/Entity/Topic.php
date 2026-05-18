@@ -48,6 +48,9 @@ class Topic
     #[ORM\Column(length: 160, nullable: true)]
     private ?string $seoSummary = null;
 
+    #[ORM\Column]
+    private ?bool $published = false;
+
     #[ORM\Column(length: 255, unique: true)]
     #[Gedmo\Slug(fields: ['slugTitle'])]
     private ?string $slug = null;
@@ -259,5 +262,16 @@ class Topic
         return $this;
     }
 
+    public function isPublished(): ?bool
+    {
+        return $this->published;
+    }
+
+    public function setPublished(bool $published): static
+    {
+        $this->published = $published;
+
+        return $this;
+    }
 
 }

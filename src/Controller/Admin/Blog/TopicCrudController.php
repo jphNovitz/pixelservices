@@ -6,7 +6,7 @@ use App\Entity\Topic;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -49,6 +49,7 @@ class TopicCrudController extends AbstractCrudController
             TextField::new('imageAlt', new TranslatableMessage('Image alt'))
                 ->setColumns(12)
                 ->setHelp('Texte alternatif de l’image'),
+            BooleanField::new('published', new TranslatableMessage('Published')),
             AssociationField::new('parentTopic', new TranslatableMessage('ParentTopic'))
                 ->setColumns(12)
                 ->setFormTypeOption('choice_label', 'title')
