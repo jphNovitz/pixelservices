@@ -1,11 +1,24 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Page supprimée | Jphiweb{% endblock %}
-
-{% block body %}
-    <div class="flex flex-col items-center justify-center gap-6 py-24 text-center">
-        <h1 class="text-5xl font-bold">410</h1>
-        <p class="text-xl">Cette page n'existe plus.</p>
-        <a href="{{ path('app_home') }}" class="btn btn-primary btn-wide">Retour à l'accueil</a>
+<!DOCTYPE html>
+<html lang="fr-BE">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex,nofollow"/>
+    <title>Page supprimée | Jphiweb</title>
+    <style>
+        body { font-family: sans-serif; background: #f5f5f5; color: #333; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+        .box { text-align: center; padding: 2rem; }
+        h1 { font-size: 5rem; margin: 0; }
+        p { font-size: 1.25rem; margin: 1rem 0 2rem; }
+        a { display: inline-block; padding: .75rem 2rem; background: #4f46e5; color: #fff; text-decoration: none; border-radius: .5rem; font-weight: 600; }
+        a:hover { background: #4338ca; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>410</h1>
+        <p>Cette page n'existe plus.</p>
+        <a href="/">Retour à l'accueil</a>
     </div>
-{% endblock %}
+</body>
+</html>
