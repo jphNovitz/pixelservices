@@ -17,6 +17,9 @@ class BlogController extends AbstractController
     #[Route('/{slug}', name: 'app_topic_show', requirements: ['slug' => '^(?!admin).*'], priority: -10)]
     public function showTopic(Topic $topic): Response
     {
+        if (!$topic->isPublished()){
+            return new Response('', Response::HTTP_GONE);
+        }
         return $this->render('blog/topic/show.html.twig', [
             'topic' => $topic,
         ]);
@@ -50,6 +53,10 @@ class BlogController extends AbstractController
     ])]
     public function show(string $topicSlug, Blog $post): Response
     {
+        if (!$post->isPublished()){
+            return new Response('', Response::HTTP_GONE);
+        }
+
         return $this->render('blog/show.html.twig', [
             'post' => $post,
         ]);
