@@ -20,7 +20,7 @@ final class ProjectController extends AbstractController
         ]);
     }
 
-    #[Route('/realisation/{slug}', name: 'app_project_show')]
+    #[Route('/realisations/{slug}', name: 'app_project_show')]
     public function show(Project $project = null): Response
     {
         return $this->render('project/show.html.twig', [
