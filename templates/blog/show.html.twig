@@ -82,9 +82,5 @@
     {% if post.topic is not empty and post.slug is not empty %}
         <twig:Blog:RelatedPosts topic="true" topicId="{{ post.topic.id }}" currentPostId="{{ post.id }}"/>
     {% endif %}
-    {{ component('Button:Button', {
-        href: path('app_blog_index'),
-        label: 'Focus'
-    }) }}
 
 {% endblock %}
