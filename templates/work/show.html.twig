@@ -4,7 +4,6 @@
 {% block metas %}
     <meta name="description"
           content=" {{ work.seoDescription }}"/>
-    <meta name="keywords" content="site web, ecommerce, vitrine, site vitrine, wp, wordpress, wix"/>
 {% endblock %}
 {% block og_title %}{{ work.seoTitle }}{% endblock %}
 {% block og_image %}{{ asset("images/blog/"~work.image) }} {% endblock %}
@@ -71,7 +70,7 @@
   <div class="breadcrumbs flex justify-start md:justify-center pt-8 text-xs">
     <ul class="max-w-full flex flex-col md:flex-row !items-start md:!items-center space-x-2 ">
       <li><a href="{{ path('app_home') }}">Accueil</a></li>
-      <li class="!mt-0"><a href="{{ path('app_work_index') }}">services</a></li>
+      <li class="!mt-0"><a href="{{ path('app_work_index') }}">Services</a></li>
       <li class="!mt-0"><a href="{{ path('app_work_type', {'type': work.type.value}) }}">{{ work.type.value }}</a></li>
       <li class="!mt-0 text-ellipsis overflow-hidden">{{ work.name }}</li>
     </ul>

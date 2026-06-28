@@ -4,7 +4,7 @@
 {% block metas %}
     <meta name="description"
           content=" {{ post.seoSummary }}"/>
-    <meta name="keywords" content="site web, ecommerce, vitrine, site vitrine, wp, wordpress, wix"/>
+
 {% endblock %}
 {% block og_title %}{{ post.seoTitle }}{% endblock %}
 {% block og_image %}{% if post.image %}{{ asset("images/blog/" ~ post.image) }}{% else %}{{ asset("images/jphiweb_facebook_image.webp") }}{% endif %}{% endblock %}
