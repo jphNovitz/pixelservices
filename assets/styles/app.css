@@ -104,8 +104,8 @@
         @apply leading-loose;
     }
 
-    ul {
-        @apply mb-6 leading-loose space-y-4;
+    ul, ul li {
+        @apply text-base mb-6 leading-loose space-y-4;
     }
 
     h1 {
@@ -125,6 +125,6 @@
     }
 
     ul {
-        @apply list-inside list-disc pl-5 space-y-2;
+        @apply text-base list-inside list-disc pl-5 space-y-2;
     }
 }
