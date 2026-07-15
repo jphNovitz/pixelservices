@@ -5,14 +5,15 @@
 
     {% include 'home/_webdev.html.twig' %}
 
+    {#
     <section class="my-16 md:mt-0 p-8 md:p-28 lg:p-32">
         <div class="w-full h-full bg-index-think dark:bg-index-think-dark pl-0 pt-32 md:pl-32 md:py-32 bg-no-repeat bg-top md:bg-left text-balance"
-             {#style="background-image: url('{{ asset('images/home/think_jphiweb_be.webp') }}'); min-height: 200px;"#}>
+             #}{#style="background-image: url('{{ asset('images/home/think_jphiweb_be.webp') }}'); min-height: 200px;"#}{#>
             <p>J'ai un site, j'en suis fier. Il est pro, rapide, et me représente bien.<br class="hidden md:block">
                 Mais soyons honnêtes : pour l'instant, c'est surtout moi qui l'admire. Mes concurrents historiques sont toujours devant moi sur Google Maps, et les nouveaux clients ne se bousculent pas encore.</p>
-{#            J'ai mon <b>site web</b>, c'est bien... mais maintenant quoi ? <br class="hidden md:block">Personne ne le trouve, je ne sais pas si ça marche, et mes <b>concurrents</b> ont l'air plus pros que moi.#}
+#}{#            J'ai mon <b>site web</b>, c'est bien... mais maintenant quoi ? <br class="hidden md:block">Personne ne le trouve, je ne sais pas si ça marche, et mes <b>concurrents</b> ont l'air plus pros que moi.#}{#
         </div>
-    </section>
+    </section>#}
 
     {% include 'home/_seo.html.twig' %}
     {% include 'home/_tools.html.twig' %}
@@ -110,6 +111,9 @@
                 <hr class="bg-base-300"/>
             </li>
         </ul>
+        <p class="md:w-1/2 mx-[25%] my-8 leading-loose">
+            Une fois le site en ligne, je ne disparais pas. Vous avez mon numéro, pas un ticket de support. Un horaire à changer, une photo à remplacer. Si quelque chose ne va pas, , une faute qui traîne je réponds.
+        </p>
     </section>
 
 {% include 'home/_bw.html.twig' %}
