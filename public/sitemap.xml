@@ -218,7 +218,7 @@
     <url>
         <loc>https://jphiweb.be/realisations/digitalisation-et-referencement-local-pour-les-gais-carabiniers</loc>
         <lastmod>2026-05-13T12:42:28+00:00</lastmod>
-        <priority>0.51</priority>
+        <priority>0.7</priority>
     </url>
     <url>
         <loc>https://jphiweb.be/realisations/whisperina-de-laudio-au-texte-en-quelques-clics</loc>
@@ -230,6 +230,11 @@
         <lastmod>2026-05-13T12:42:28+00:00</lastmod>
         <priority>0.51</priority>
     </url>
-
+    <url>
+        <loc>https://jphiweb.be/realisations/court-des-delices-site-vitrine-sandwicherie</loc>
+        <lastmod>2026-07-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 
 </urlset>
