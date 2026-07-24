@@ -28,6 +28,11 @@
         <priority>0.80</priority>
     </url>
     <url>
+        <loc>https://jphiweb.be/services/evolution/referencement-local-mise-en-place</loc>
+        <lastmod>2026-07-24T00:00:00+00:00</lastmod>
+        <priority>0.51</priority>
+    </url>
+    <url>
         <loc>https://jphiweb.be/symfony-et-ses-outils</loc>
         <lastmod>2026-05-13T12:42:28+00:00</lastmod>
         <priority>0.80</priority>
@@ -207,11 +212,6 @@
     </url>
     <url>
         <loc>https://jphiweb.be/services/evolution/refonte-et-amelioration-de-site-web</loc>
-        <lastmod>2026-05-13T12:42:28+00:00</lastmod>
-        <priority>0.51</priority>
-    </url>
-    <url>
-        <loc>https://jphiweb.be/services/evolution/referencement-local-court-saint-etienne</loc>
         <lastmod>2026-05-13T12:42:28+00:00</lastmod>
         <priority>0.51</priority>
     </url>

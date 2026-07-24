@@ -138,6 +138,13 @@ redirect_landing_page_typo:
     path: /focus-sur/quest-ce-quune-landing-page-guide-du-brabant-wallon
     permanent: true
 
+redirect_referencement_local:
+  path: /services/evolution/referencement-local-court-saint-etienne
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    path: /services/evolution/referencement-local-mise-en-place
+    permanent: true
+
 controllers:
   resource: ../src/Controller/
   type: attribute
