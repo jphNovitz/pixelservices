@@ -29,11 +29,11 @@
 
 {% block body %}
     <div class="min-h-screen  py-6">
-        <div class="container mx-auto px-4 space-y-8">
+        <div class="container mx-auto px-4">
             <h1 class="text-4xl font-bold text-left mb-8">Réalisations</h1>
-            <p>Voici les projets que j'ai développés pour des indépendants, des associations et des commerces, principalement en Brabant wallon. Certains sont des missions clients, d'autres des démonstrations qui montrent ce qu'un site vitrine peut donner selon le secteur d'activité.</p>
+            <p>Voici les projets que j'ai développés pour des indépendants, des associations et des commerces, principalement en Brabant wallon. Certains sont des missions clients, d'autres des démonstrations qui montrent ce qu'un <a href="/services/creation/creation-de-site-vitrine" class="link link-primary">site vitrine</a> peut donner selon le secteur d'activité.</p>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-16">
                 {% for project in projects %}
                     <article class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
                         {% if project.image %}
