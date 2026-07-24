@@ -38,22 +38,26 @@
                         {% if project.image %}
                             <figure class="w-full aspect-video overflow-hidden bg-base-200">
                                 <img src="/images/projets/{{ project.image }}"
-                                     alt="Vignette du projet {{ project.title }}"
-                                     class="w-full object-fill"/>
+                                     alt="{{ project.title }}"
+                                     loading="lazy"
+                                     decoding="async"
+                                     class="w-full h-full object-cover"/>
                             </figure>
                         {% else %}
-                            <figure class="w-full aspect-video overflow-hidden bg-base-200 flex items-center justify-center">
-                                <div class="text-base-content/60 p-8">Aucune image</div>
-                            </figure>
+                            <figure class="w-full aspect-video overflow-hidden bg-base-200" aria-hidden="true"></figure>
                         {% endif %}
                         <div class="card-body">
+                            <h2 class="card-title text-xl font-bold">
+                                <a href="{{ path('app_project_show', {'slug': project.slug}) }}"
+                                   class="link link-hover">{{ project.title }}</a>
+                            </h2>
                             {% if project.header %}
-                                <h2 class="card-title text-base">{{ project.header }}</h2>
+                                <p class="text-base text-base-content/80">{{ project.header }}</p>
                             {% endif %}
-                            <h3 class="text-xl font-bold">{{ project.title }}</h3>
                             <div class="card-actions justify-end mt-4">
                                 <a href="{{ path('app_project_show', {'slug': project.slug}) }}"
-                                   class="btn btn-primary">Voir le projet</a>
+                                   class="btn btn-primary"
+                                   aria-label="Voir le projet {{ project.title }}">Voir le projet</a>
                             </div>
                         </div>
                     </article>
