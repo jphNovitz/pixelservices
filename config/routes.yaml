@@ -139,10 +139,17 @@ redirect_landing_page_typo:
     permanent: true
 
 redirect_referencement_local:
-  path: /services/evolution/referencement-local-court-saint-etienne
+  path: /services/evolution/referencement-local-mise-en-place
   controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
   defaults:
-    path: /services/evolution/referencement-local-mise-en-place
+    path: /services/evolution/referencement-local-court-saint-etienne
+    permanent: true
+
+redirect_creation_e_commerce:
+  path: /services/creation/creation-site-e-commerce
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    path: /services/creation/creation-de-boutique-en-ligne-votre-site-e-commerce
     permanent: true
 
 controllers:
