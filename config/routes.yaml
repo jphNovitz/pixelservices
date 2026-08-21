@@ -152,6 +152,13 @@ redirect_creation_e_commerce:
     path: /services/creation/creation-de-boutique-en-ligne-votre-site-e-commerce
     permanent: true
 
+redirect_mentions_legales_bw_vers_web_conseils:
+  path: /creation-site-internet-brabant-wallon/mentions-legales-obligatoires-site-internet-belgique
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    path: /web-conseils/mentions-legales-obligatoires-site-internet-belgique
+    permanent: true
+
 controllers:
   resource: ../src/Controller/
   type: attribute
