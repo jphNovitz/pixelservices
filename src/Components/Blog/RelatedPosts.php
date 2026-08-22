@@ -2,33 +2,44 @@
 
 namespace App\Components\Blog;
 
+use App\Entity\Blog;
 use App\Entity\Topic;
-use App\Repository\TopicRepository;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 #[AsTwigComponent(template: 'components/blog/related-posts.html.twig')]
 class RelatedPosts
 {
+    public int $maxPosts = 4;
     public ?Topic $relatedTopic = null;
     public array $relatedPosts = [];
     public int $topicId = 0;
-    public int  $currentPostId = 0;
 
-    public function __construct(private TopicRepository $topicRepository)
+    public function mount(Blog $post): void
     {
-    }
+        $currentPostId = $post->getId();
+        $this->relatedTopic = $post->getTopic();
 
-    public function mount(int $topicId): void
-    {
-        $this->relatedTopic = $this->topicRepository->findOneBy(['id' => $topicId]);
         if ($this->relatedTopic === null) {
             return;
         }
 
-        $this->relatedPosts = array_values(array_filter(
+        $candidates = $post->getRelatedBlogs()->toArray();
+        $this->relatedPosts = array_slice($candidates, 0, $this->maxPosts);
+
+        if ($this->relatedPosts !== []) {
+            return;
+        }
+        $candidates = array_values(array_filter(
             $this->relatedTopic->getArticles()->toArray(),
-            fn ($post) => $post->getId() !== $this->currentPostId && !empty($post->getSlug())
+            fn (Blog $relatedPost) =>
+                $relatedPost->getId() !== $currentPostId
+                && !empty($relatedPost->getSlug())
+                && $relatedPost->isPublished()
         ));
+
+        shuffle($candidates);
+
+        $this->relatedPosts = array_slice($candidates, 0, $this->maxPosts);
     }
 
 }

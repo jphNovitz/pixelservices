@@ -43,12 +43,13 @@
 
     {% set schema = schema|merge({
         "image": post.image
-            ? absolute_url(asset('images/blog/' ~ post.image))
-            : absolute_url(asset('images/jphiweb_facebook_image.webp'))
+        ? absolute_url(asset('images/blog/' ~ post.image))
+        : absolute_url(asset('images/jphiweb_facebook_image.webp'))
     }) %}
 
     <script type="application/ld+json">
         {{ schema|json_encode(256)|raw }}
+
     </script>
 {% endblock %}
 
@@ -79,8 +80,6 @@
 
     }) }}
 
-    {% if post.topic is not empty and post.slug is not empty %}
-        <twig:Blog:RelatedPosts topic="true" topicId="{{ post.topic.id }}" currentPostId="{{ post.id }}"/>
-    {% endif %}
+    <twig:Blog:RelatedPosts post="{{ post }}"/>
 
 {% endblock %}
