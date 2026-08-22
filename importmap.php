@@ -53,4 +53,10 @@ return [
         'version' => '5.0.35',
         'type' => 'css',
     ],
+    '@hotwired/stimulus' => [
+        'version' => '3.2.2',
+    ],
+    '@symfony/stimulus-bundle' => [
+        'path' => './vendor/symfony/stimulus-bundle/assets/dist/loader.js',
+    ],
 ];
