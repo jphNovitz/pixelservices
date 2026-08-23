@@ -43,3 +43,10 @@ config/packages/security.yaml
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
+
+# Local development artifacts
+/var/
+/.codex/
+.php-cs-fixer.cache
+.phpactor.json
+*:Zone.Identifier

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\BlogRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\Table;
@@ -59,7 +61,19 @@ class Blog
     #[ORM\JoinColumn(nullable: true)]
     private ?Topic $topic = null;
 
+    /**
+     * @var Collection<int, self>
+     */
+    #[ORM\ManyToMany(targetEntity: self::class)]
+    private Collection $relatedBlogs;
 
+    public function __construct()
+    {
+        $this->pin = false;
+        $this->published = false;
+        $this->relatedBlogs = new ArrayCollection();
+
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -210,6 +224,30 @@ class Blog
     public function setSeoSummary(?string $seoSummary): static
     {
         $this->seoSummary = $seoSummary;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getRelatedBlogs(): Collection
+    {
+        return $this->relatedBlogs;
+    }
+
+    public function addRelatedBlog(self $relatedBlog): static
+    {
+        if (!$this->relatedBlogs->contains($relatedBlog)) {
+            $this->relatedBlogs->add($relatedBlog);
+        }
+
+        return $this;
+    }
+
+    public function removeRelatedBlog(self $relatedBlog): static
+    {
+        $this->relatedBlogs->removeElement($relatedBlog);
 
         return $this;
     }

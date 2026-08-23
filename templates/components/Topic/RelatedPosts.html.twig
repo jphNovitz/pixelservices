@@ -1,77 +1,89 @@
-{% if (parentTopic is not null ) or (childrenTopics is not empty) or (relatedPosts is not empty) %}
-
-    <aside{{ attributes.defaults({ class: "w-full p-4" }) }} aria-labelledby="related-reading">
-        <nav aria-label="À lire aussi">
-            <h2 id="related-reading" class="text-xl font-semibold mt-12 mb-6 ">
-                {{ 'more.about' |trans }} {{ topic.title }}
+{% if parentTopic is not null or childrenTopics is not empty or relatedPosts is not empty %}
+    <aside{{ attributes.defaults({ class: "w-full p-4" }) }} aria-labelledby="related-content-title">
+        <nav aria-label="Contenu associé">
+            <h2 id="related-content-title" class="text-xl font-semibold mb-3">
+                À lire aussi
             </h2>
 
-            {% if parentTopic is not null %}
-                <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-6">
-                    <a href="{{ path('app_topic_show', {'slug': parentTopic.slug}) }}" class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
+            <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+                {% if parentTopic is not null %}
+                    <div class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
                         <figure class="relative aspect-video overflow-hidden">
                             {% if parentTopic.image %}
-                                <img src="{{ asset('images/topic/' ~ parentTopic.image) }}" alt="{{ parentTopic.title }}" class="w-full h-full object-cover"/>
+                                <img src="{{ asset('images/topic/' ~ parentTopic.image) }}" alt="{{ parentTopic.imageAlt ?: parentTopic.title }}" class="w-full h-full object-cover"/>
                             {% else %}
                                 <div class="w-full h-full bg-base-200 flex items-center justify-center text-base-content/60">Aperçu</div>
                             {% endif %}
                         </figure>
                         <div class="card-body p-4">
-                            <h3 class="card-title text-base mt-3">{{ parentTopic.title }}</h3>
+                            <h3 class="card-title text-base md:text-lg">
+                                <a href="{{ path('app_topic_show', {'slug': parentTopic.slug}) }}">
+                                    {{ parentTopic.title }}
+                                </a>
+                            </h3>
                             {% if parentTopic.summary %}
-                                <p class="text-sm opacity-80 line-clamp-5 leading-snug mb-0">{{ parentTopic.summary|striptags }}</p>
+                                <p class="text-sm opacity-80 leading-tight">
+                                    <a href="{{ path('app_topic_show', {'slug': parentTopic.slug}) }}" class="no-underline">
+                                        {{ parentTopic.summary|striptags }}
+                                    </a>
+                                </p>
                             {% endif %}
-                            <span class="link link-primary mt-auto">Lire l'article</span>
                         </div>
-                    </a>
-                </div>
-            {% endif %}
+                    </div>
+                {% endif %}
 
-            {% if childrenTopics is not empty %}
-                <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-6">
-                    {% for childTopic in childrenTopics %}
-                        <a href="{{ path('app_topic_show', {'slug': childTopic.slug}) }}" class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
-                            <figure class="relative aspect-video overflow-hidden">
-                                {% if childTopic.image %}
-                                    <img src="{{ asset('images/topic/' ~ childTopic.image) }}" alt="{{ childTopic.title }}" class="w-full h-full object-cover"/>
-                                {% else %}
-                                    <div class="w-full h-full bg-base-200 flex items-center justify-center text-base-content/60">Aperçu</div>
-                                {% endif %}
-                            </figure>
-                            <div class="card-body p-4">
-                                <h3 class="card-title text-base mt-3">{{ childTopic.title }}</h3>
-                                {% if childTopic.summary %}
-                                    <p class="text-sm opacity-80 line-clamp-5 leading-snug mb-0">{{ childTopic.summary|striptags }}</p>
-                                {% endif %}
-                                <span class="link link-primary mt-auto">Lire l'article</span>
-                            </div>
-                        </a>
-                    {% endfor %}
-                </div>
-            {% endif %}
+                {% for childTopic in childrenTopics %}
+                    <div class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
+                        <figure class="relative aspect-video overflow-hidden">
+                            {% if childTopic.image %}
+                                <img src="{{ asset('images/topic/' ~ childTopic.image) }}" alt="{{ childTopic.imageAlt ?: childTopic.title }}" class="w-full h-full object-cover"/>
+                            {% else %}
+                                <div class="w-full h-full bg-base-200 flex items-center justify-center text-base-content/60">Aperçu</div>
+                            {% endif %}
+                        </figure>
+                        <div class="card-body p-4">
+                            <h3 class="card-title text-base md:text-lg">
+                                <a href="{{ path('app_topic_show', {'slug': childTopic.slug}) }}">
+                                    {{ childTopic.title }}
+                                </a>
+                            </h3>
+                            {% if childTopic.summary %}
+                                <p class="text-sm opacity-80 leading-tight">
+                                    <a href="{{ path('app_topic_show', {'slug': childTopic.slug}) }}" class="no-underline">
+                                        {{ childTopic.summary|striptags }}
+                                    </a>
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
 
-            {% if relatedPosts is not empty %}
-                <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    {% for post in relatedPosts %}
-                        <a href="{{ path('app_blog_show', {'topicSlug': post.topic.slug, 'slug': post.slug}) }}" class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
-                            <figure class="relative aspect-video overflow-hidden">
-                                {% if post.image %}
-                                    <img src="{{ asset('images/blog/' ~ post.image) }}" alt="{{ post.title }}" class="w-full h-full object-cover"/>
-                                {% else %}
-                                    <div class="w-full h-full bg-base-200 flex items-center justify-center text-base-content/60">Aperçu</div>
-                                {% endif %}
-                            </figure>
-                            <div class="card-body p-4">
-                                <h3 class="card-title text-base mt-3">{{ post.title }}</h3>
-                                {% if post.summary %}
-                                    <p class="text-sm opacity-80 line-clamp-5 leading-snug mb-0">{{ post.summary|striptags }}</p>
-                                {% endif %}
-                                <span class="link link-primary mt-auto">Lire l'article</span>
-                            </div>
-                        </a>
-                    {% endfor %}
-                </div>
-            {% endif %}
+                {% for post in relatedPosts %}
+                    <div class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
+                        <figure class="relative aspect-video overflow-hidden">
+                            {% if post.image %}
+                                <img src="{{ asset('images/blog/' ~ post.image) }}" alt="{{ post.imageAlt ?: post.title }}" class="w-full h-full object-cover"/>
+                            {% else %}
+                                <div class="w-full h-full bg-base-200 flex items-center justify-center text-base-content/60">Aperçu</div>
+                            {% endif %}
+                        </figure>
+                        <div class="card-body p-4">
+                            <h3 class="card-title text-base md:text-lg">
+                                <a href="{{ path('app_blog_show', {'topicSlug': post.topic.slug, 'slug': post.slug}) }}">
+                                    {{ post.title }}
+                                </a>
+                            </h3>
+                            {% if post.summary %}
+                                <p class="text-sm opacity-80 leading-tight">
+                                    <a href="{{ path('app_blog_show', {'topicSlug': post.topic.slug, 'slug': post.slug}) }}" class="no-underline">
+                                        {{ post.summary|striptags }}
+                                    </a>
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </nav>
     </aside>
 {% endif %}

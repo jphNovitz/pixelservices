@@ -66,7 +66,6 @@ class BlogCrudController extends AbstractCrudController
                     'heading1' => ['tagName' => 'h3']
                 ]
             ]),
-//            TextareaField::new('content', new TranslatableMessage('Content'))->renderAsHtml(),
             BooleanField::new('pin', new TranslatableMessage('Pin')),
             BooleanField::new('published', new TranslatableMessage('Published')),
             ImageField::new('image', new TranslatableMessage('Image'))
@@ -82,7 +81,13 @@ class BlogCrudController extends AbstractCrudController
                 ->setFormTypeOption('placeholder', 'Select a topic')
                 ->setRequired(false)        // champ pas obligatoire
                 ->setFormTypeOption('required', false) // le FormType Symfony devient nullable
-                ->setFormTypeOption('placeholder', '— Aucun —') // affichage d’une option vide
+                ->setFormTypeOption('placeholder', '— Aucun —'), // affichage d’une option vide
+            AssociationField::new('relatedBlogs', new TranslatableMessage('Related Blogs'))
+                ->setColumns(12)
+                ->setFormTypeOption('choice_label', 'title')
+                ->setFormTypeOption('by_reference', false)
+                ->setFormTypeOption('multiple', true)
+                ->setFormTypeOption('expanded', false)
 
         ];
     }

@@ -63,6 +63,15 @@ class Topic
     #[ORM\OneToMany(mappedBy: 'parentTopic', targetEntity: self::class, cascade: ['persist'])]
     private Collection $childrenTopics;
 
+    /**
+     * @var Collection<int, Blog>
+     */
+    #[ORM\ManyToMany(targetEntity: Blog::class)]
+    #[ORM\JoinTable(name: 'topic_related_blog')]
+    #[ORM\JoinColumn(name: 'topic_id', referencedColumnName: 'id', onDelete: 'CASCADE')]
+    #[ORM\InverseJoinColumn(name: 'blog_id', referencedColumnName: 'id', onDelete: 'CASCADE')]
+    private Collection $relatedBlogs;
+
 
     #[ORM\PrePersist]
     #[ORM\PreUpdate]
@@ -77,6 +86,7 @@ class Topic
     {
         $this->articles = new ArrayCollection();
         $this->childrenTopics = new ArrayCollection();
+        $this->relatedBlogs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -270,6 +280,30 @@ class Topic
     public function setPublished(bool $published): static
     {
         $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Blog>
+     */
+    public function getRelatedBlogs(): Collection
+    {
+        return $this->relatedBlogs;
+    }
+
+    public function addRelatedBlog(Blog $relatedBlog): static
+    {
+        if (!$this->relatedBlogs->contains($relatedBlog)) {
+            $this->relatedBlogs->add($relatedBlog);
+        }
+
+        return $this;
+    }
+
+    public function removeRelatedBlog(Blog $relatedBlog): static
+    {
+        $this->relatedBlogs->removeElement($relatedBlog);
 
         return $this;
     }

@@ -12,9 +12,9 @@
 {#            </div>#}
 
             {% if relatedPosts is not empty %}
-                <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
                     {% for post in relatedPosts %}
-                        <a href="{{ path('app_blog_show', {'topicSlug': post.topic.slug, 'slug': post.slug}) }}" class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
+                        <div class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow">
                             <figure class="relative aspect-video overflow-hidden">
                                 {% if post.image %}
                                     <img src="{{ asset('images/blog/' ~ post.image) }}" alt="{{ post.title }}" class="w-full h-full object-cover"/>
@@ -23,12 +23,20 @@
                                 {% endif %}
                             </figure>
                             <div class="card-body p-4">
-                                <h3 class="card-title text-base md:text-lg">{{ post.title }}</h3>
+                                <h3 class="card-title text-base md:text-lg">
+                                    <a href="{{ path('app_blog_show', {'topicSlug': post.topic.slug, 'slug': post.slug}) }}" >
+                                        {{ post.title }}
+                                    </a>
+                                </h3>
                                 {% if post.summary %}
-                                    <p class="text-sm opacity-80">{{ post.summary|striptags }}</p>
+                                    <p class="text-sm opacity-80 leading-tight ">
+                                        <a href="{{ path('app_blog_show', {'topicSlug': post.topic.slug, 'slug': post.slug}) }}" class="no-underline" >
+                                        {{ post.summary|striptags }}
+                                        </a>
+                                    </p>
                                 {% endif %}
                             </div>
-                        </a>
+                        </div>
                     {% endfor %}
                 </div>
             {% endif %}
