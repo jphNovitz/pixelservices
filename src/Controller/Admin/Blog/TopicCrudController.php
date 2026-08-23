@@ -56,7 +56,13 @@ class TopicCrudController extends AbstractCrudController
                 ->setFormTypeOption('placeholder', 'Select a topic')
                 ->setRequired(false)        // champ pas obligatoire
                 ->setFormTypeOption('required', false) // le FormType Symfony devient nullable
-                ->setFormTypeOption('placeholder', '— Aucun —')
+                ->setFormTypeOption('placeholder', '— Aucun —'),
+            AssociationField::new('relatedBlogs', new TranslatableMessage('Related Blogs'))
+                ->setColumns(12)
+                ->setFormTypeOption('choice_label', 'title')
+                ->setFormTypeOption('multiple', true)
+                ->setFormTypeOption('by_reference', false)
+                ->setFormTypeOption('placeholder', 'Select related blogs')
         ];
     }
 
