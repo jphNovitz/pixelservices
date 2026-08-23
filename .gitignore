@@ -46,6 +46,7 @@ config/packages/security.yaml
 
 # Local development artifacts
 /var/
+/.idea/
 /.codex/
 .php-cs-fixer.cache
 .phpactor.json
